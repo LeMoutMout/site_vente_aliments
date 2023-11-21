@@ -1,0 +1,364 @@
+body{
+    font-family: poppins;
+}
+
+header {
+    padding: 0px 100px 0px 100px;
+}
+
+main {
+    padding: 0px 100px 0px 100px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.header_bloc{
+    display: flex;
+    justify-content: space-between;
+}
+
+.header_bar{
+    display: flex;
+    stroke-width: 1px;
+    stroke: #808080;
+}
+
+#header_logo{
+    color: #000;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+.header_logo_shop{
+    color: #000000;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
+
+.header_connect{
+    padding-top: 20px;
+}
+
+.header_connect_i{
+    float: left;
+}
+
+.header_connect_text{
+    color: #000;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    padding-left: 40px;
+    line-height: 25px;
+    white-space: nowrap; 
+}
+
+.header_nav{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 45px;
+}
+
+.header_producter{
+    display: flex;
+    padding: 10px 0px 10px 0px;
+    width: 22%;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    border-radius: 20px;
+    background: #B7CE66;
+}
+.header_producter_logo{
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+}
+
+.header_producter_text {
+    color: black;
+    font-family: Poppins;
+    font-size: 0.9vw;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.searchbar {
+    width: 50%;
+    display: flex;
+    padding: 16px;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 20px;
+    border: 1px solid rgba(128, 128, 128, 0.50);
+}
+
+.header_search_bar {
+    color: #808080;
+    font-family: Poppins;
+    font-size: 0.9vw;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    border: none;
+}
+
+.header_search_bar_button {
+    padding-right: 30px;
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    stroke-width: 2px;
+    stroke: #808080;
+    border: none;
+    background: none;
+}
+
+.header_cart {
+    display: flex;
+    width: 15%;
+    padding: 10px 0px 10px 0px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    border-radius: 20px;
+    background: #B7CE66;
+}
+
+.header_cart_logo {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+.header_cart_text {
+    color: #000;
+    font-family: Poppins;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.header_menu {
+    display: flex;
+    width: 100%;
+    margin-top: 30px;
+    padding: 0px 5px;
+    justify-content: space-between;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.header_menu_list {
+    color: #606060;
+    font-family: Poppins;
+    font-size: 1vw;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-decoration: none;
+}
+
+
+.connexion {
+    font-family: poppins;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    margin-top: 35px;
+  }
+  
+  .connexion .div {
+    background-color: var(--vert-clair);
+    border-radius: 90px;
+    overflow-x: hidden;
+    width: 622px;
+    height: 432px;
+    position: relative;
+  }
+  
+  .connexion .text-wrapper {
+    position: absolute;
+    width: 204px;
+    top: 15px;
+    left: 209px;
+    font-family: "Poppins-SemiBold", Helvetica;
+    font-weight: 600;
+    color: black;
+    font-size: 36px;
+    letter-spacing: 0;
+    line-height: normal;
+    white-space: nowrap;
+  }
+  
+  .connexion .group {
+    height: 60px;
+    top: 78px;
+    position: absolute;
+    width: 344px;
+    left: 140px;
+  }
+  
+  .connexion .overlap-group {
+    height: 60px;
+    position: relative;
+    width: 342px;
+    border-radius: 45px;
+  }
+  
+  .connexion .rectangle {
+    position: absolute;
+    width: 342px;
+    height: 60px;
+    top: 0;
+    left: 0;
+    background-color: var(--gris-clair);
+    border-radius: 45px;
+    opacity: 0.5;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .connexion .text-wrapper-2 {
+    position: absolute;
+    width: 133px;
+    top: 17px;
+    left: 21px;
+    font-family: "Poppins-Medium", Helvetica;
+    font-weight: 500;
+    color: #ffffff;
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: normal;
+    white-space: nowrap;
+  }
+  
+  .connexion .overlap-wrapper {
+    height: 60px;
+    top: 156px;
+    position: absolute;
+    width: 344px;
+    left: 140px;
+  }
+  
+  .connexion .text-wrapper-3 {
+    position: absolute;
+    width: 150px;
+    top: 18px;
+    left: 21px;
+    font-family: "Poppins-Medium", Helvetica;
+    font-weight: 500;
+    color: #ffffff;
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .connexion .text-wrapper-4 {
+    position: absolute;
+    width: 168px;
+    top: 225px;
+    left: 161px;
+    font-family: "Poppins-Medium", Helvetica;
+    font-weight: 500;
+    color: white;
+    letter-spacing: 0;
+    line-height: normal;
+    text-decoration: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    }
+
+    .text-wrapper-4:hover {
+      text-decoration: underline; 
+  }
+  
+  .connexion .overlap-group-wrapper {
+    height: 55px;
+    top: 279px;
+    position: absolute;
+    width: 344px;
+    left: 140px;
+  }
+  
+  .connexion .overlap {
+    height: 55px;
+    background-color: lightgrey;
+    position: relative;
+    width: 342px;
+    border-radius: 45px;
+  }
+  
+  .connexion .text-wrapper-5 {
+    position: absolute;
+    width: 106px;
+    top: 13px;
+    left: 116px;
+    font-family: "Poppins-Medium", Helvetica;
+    font-weight: 500;
+    color: white;
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .connexion .text-wrapper-6 {
+    position: absolute;
+    width: 186px;
+    top: 364px;
+    left: 161px;
+    font-family: "Poppins-Medium", Helvetica;
+    font-weight: 500;
+    color: white;
+    letter-spacing: 0;
+    line-height: normal;
+    text-decoration: none;
+    font-size: 18px;
+
+  }
+  .text-wrapper-6:hover {
+    text-decoration: underline; 
+}
+  
+  .connexion .vector {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: 32px;
+    left: 518px;
+  }
+  
+  .overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: none; 
+  }
+
+  .popup {
+    margin-top: 120px;
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: none;
+  }
