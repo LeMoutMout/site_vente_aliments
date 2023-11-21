@@ -1,6 +1,5 @@
 <?php
 
-require $pathModels.'/PDO.php';
 
 function createProductor($nom,$descr,$idUtil) {
     $db = getDBc();

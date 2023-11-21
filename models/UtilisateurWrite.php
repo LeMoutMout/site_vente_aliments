@@ -1,7 +1,5 @@
 <?php
 
-require $pathModels.'/PDO.php';
-
 function createUser($mail,$nom,$prenom,$mdp,$tel,$adresse) {
     $db = getDBc();
     

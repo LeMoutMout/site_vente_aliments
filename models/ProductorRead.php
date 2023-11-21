@@ -16,8 +16,6 @@
  * 
  */
 
-require $pathModels.'/PDO.php';
-
 /**
  * return l'utilisateur si sa match sinon -1;
  */
