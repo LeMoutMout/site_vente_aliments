@@ -19,12 +19,12 @@
 /**
  * return l'utilisateur si sa match sinon -1;
  */
-function ProductorConnect($mail,$mdp) {
+function productorConnect($mail,$mdp) {
     $bdd = getDBc();
-    $user_query = $bdd->query("select PRODUCTEUR.id_util,mail_util,nom_util,pren_util,mdp_util,tel_util,adresse_util,id_production,decr_production from UTILISATEUR join PRODUCTEUR on PRODUCTEUR.id_util = UTILISATEUR.id_util where mail_util = '".$mail."';");
+    $user_query = $bdd->query("select PRODUCTEUR.id_util,mail_util,nom_util,pren_util,mdp_util,tel_util,adresse_util,id_production,descr_production from UTILISATEUR join PRODUCTEUR on PRODUCTEUR.id_util = UTILISATEUR.id_util where mail_util = '".$mail."';");
     $user = $user_query->fetch(PDO::FETCH_ASSOC);
     
-    if ($user['mdp_util'] === $mdp) {
+    if (password_verify($mdp,$user['mdp_util'])) {
         $user['mdp_util'] = NULL;
         return $user;
     }
