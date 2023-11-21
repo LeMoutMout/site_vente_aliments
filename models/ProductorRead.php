@@ -40,6 +40,14 @@ function getProductor()
     return $produits;
 }
 
+function getProductorById($id)
+{
+    $bdd = getDBc();
+    $produits_query = $bdd->query("select UT.id_util,mail_util,nom_util,pren_util,tel_util,mail_util,id_production,nom_production,descr_production from PRODUCTEUR as PR join UTILISATEUR as UT on UT.id_util = PR.id_util where id_production = ".$id.";");
+    $produits = $produits_query->fetchall(PDO::FETCH_ASSOC);
+    return $produits;
+}
+
 function getProductorSearch($search)
 {
     $bdd = getDBc();
