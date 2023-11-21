@@ -10,7 +10,7 @@ function connect($mail,$mdp) {
     $user_query = $bdd->query("select * from UTILISATEUR where mail_util = '".$mail."';");
     $user = $user_query->fetch(PDO::FETCH_ASSOC);
     
-    if ($user['mdp_util'] === $mdp) {
+    if (password_verify($mdp,$user['mdp_util'])) {
         $user['mdp_util'] = NULL;
         return $user;
     }
