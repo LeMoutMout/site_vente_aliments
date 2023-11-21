@@ -31,7 +31,7 @@ function getProduits()
 function getProduitsSearch($search)
 {
     $bdd = getDBc();
-    $produits_query = $bdd->query("select * from produitPageRecherche where nom_produit like '%" . $search . "%';");
+    $produits_query = $bdd->query("select * from produitPageRecherche where LOWER(nom_produit) like LOWER('%" . $search . "%');");
     $produits = $produits_query->fetchall(PDO::FETCH_ASSOC);
     return $produits;
 }
@@ -47,7 +47,7 @@ function getProduitsTag($tag)
 function getProduitsTagSearch($tag, $search)
 {
     $bdd = getDBc();
-    $produits_query = $bdd->query("select produitPageRecherche.id_produit,produitPageRecherche.nom_produit,produitPageRecherche.quantite_produit,produitPageRecherche.prix_produit,produitPageRecherche.promotion_produit,produitPageRecherche.nom_unite,produitPageRecherche.bio_produit,produitPageRecherche.id_production,produitPageRecherche.nom_production from produitPageRecherche join categorisation as catg on produitPageRecherche.id_produit = catg.id_produit join categorie as catr on catr.id_categorie = catg.id_categorie where nom_categorie = '".$tag."' and nom_produit like '%" . $search . "%';");
+    $produits_query = $bdd->query("select produitPageRecherche.id_produit,produitPageRecherche.nom_produit,produitPageRecherche.quantite_produit,produitPageRecherche.prix_produit,produitPageRecherche.promotion_produit,produitPageRecherche.nom_unite,produitPageRecherche.bio_produit,produitPageRecherche.id_production,produitPageRecherche.nom_production from produitPageRecherche join categorisation as catg on produitPageRecherche.id_produit = catg.id_produit join categorie as catr on catr.id_categorie = catg.id_categorie where nom_categorie = '".$tag."' and LOWER(nom_produit) like LOWER('%" . $search . "%');");
     $produits = $produits_query->fetchall(PDO::FETCH_ASSOC);
     return $produits;
 }

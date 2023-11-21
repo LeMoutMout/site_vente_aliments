@@ -51,7 +51,7 @@ function getProductorById($id)
 function getProductorSearch($search)
 {
     $bdd = getDBc();
-    $produits_query = $bdd->query("select * from producteurValider where nom_production like '%" . $search . "%';");
+    $produits_query = $bdd->query("select * from producteurValider where LOWER(nom_production) like LOWER('%" . $search . "%');");
     $produits = $produits_query->fetchall(PDO::FETCH_ASSOC);
     return $produits;
 }
