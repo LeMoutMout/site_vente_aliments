@@ -27,10 +27,3 @@ function updateUser($id,$mail,$nom,$prenom,$mdp,$tel,$adresse){
     ]);
 }
 
-function deleteUser($id){
-    $db = getDBc();
-    
-    $db->prepare('CALL supprCompte(:id);')->execute([
-        'id' => $id
-    ]);
-}
