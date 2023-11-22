@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/CreationCompteUtilisateur.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
@@ -17,34 +18,106 @@
             </a>
             <div class="header_connect">
                 <p class="header_connect_i">
-                    <i><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path
-                                d="M12 0C5.4948 0 0 5.4948 0 12C0 18.5052 5.4948 24 12 24C18.5052 24 24 18.5052 24 12C24 5.4948 18.5052 0 12 0ZM12 6C14.0724 6 15.6 7.5264 15.6 9.6C15.6 11.6736 14.0724 13.2 12 13.2C9.9288 13.2 8.4 11.6736 8.4 9.6C8.4 7.5264 9.9288 6 12 6ZM5.8728 17.7264C6.9492 16.1424 8.7444 15.0864 10.8 15.0864H13.2C15.2568 15.0864 17.0508 16.1424 18.1272 17.7264C16.5936 19.368 14.418 20.4 12 20.4C9.582 20.4 7.4064 19.368 5.8728 17.7264Z"
-                                fill="black" />
-                        </svg></i>
-                </p><a href="">
-                    <p class="header_connect_text">Se connecter</p>
-                </a>
+                    <img src="/images/logo_tete_compte.svg" alt="logo de création de compte">
+                    <a href="">
+                        <p class="header_connect_text">Se connecter</p>
+                    </a>
+                </p>
             </div>
         </div>
         <p class="header_bar"><svg xmlns="http://www.w3.org/2000/svg" width="1520" height="2" viewBox="0 0 1520 2"
                 fill="none">
                 <path d="M0 1L1520 1.00013" stroke="#808080" />
-            </svg></p>
+            </svg>
+        </p>
     </header>
-    <form action="">
-        <input type="text" name="prenom" placeholder="Prénom">
-        <input type="text" name="nom" placeholder="Nom">
-        <input type="email" name="email" placeholder="Adresse électronique">
-        <input type="number" name="numero" placeholder="Numéro de téléphone">
-        <input type="password" name="motdepasse" placeholder="Mot de passe">
-        <input type="password" name="motdepasse2" placeholder="Confirmer votre mot de passe">
-        <input type="file" accept="image/*" name="image" placeholder="Photo de profil">
-        <input type="text" name="adresse" placeholder="Adresse">
-        <input type="text" name="ville" placeholder="Ville">
-        <input type="text" name="cp" placeholder="Code postal">
-        <button>Créer son compte</button>
+    <div class="devenir_conteneur">
+        <div class="devenir_bloc_1">
+            <a href="">
+                <img src="/images/logo_client_compte.svg" alt="logo de client" class="logo_devenir">
+
+                <strong class="logo_devenir_text">Devenir consommateur</strong>
+            </a>
+        </div>
+        <div class="devenir_bloc_2">
+            <img src="/images/logo_fermier_compte.svg" alt="logo de fermier" class="logo_devenir">
+            <a href="">
+                <strong class="logo_devenir_text">Devenir vendeur producteur</strong>
+            </a>
+        </div>
+    </div>
+    <form action="" method="post">
+        <div class="grid_parent">
+            <div class="grid_1">
+                <input class="input_bloc input_text" type="text" name="prenom" placeholder="Prénom" required>
+            </div>
+            <div class="grid_2">
+                <input class="input_bloc input_text" type="text" name="nom" placeholder="Nom" required>
+            </div>
+            <div class="grid_3">
+                <input class="input_bloc_image input_text" type="file" accept="image/*" name="image"
+                    placeholder="Photo de profil" required>
+            </div>
+            <div class="grid_4">
+                <input class="input_bloc input_text" type="email" name="email" placeholder="Adresse électronique"
+                    required>
+            </div>
+            <div class="grid_5">
+                <input class="input_bloc input_text" type="tel" name="numero" placeholder="Numéro de téléphone"
+                    required>
+            </div>
+            <div class="grid_6">
+                <input class="input_bloc input_text" type="password" name="motdepasse" placeholder="Mot de passe"
+                    required>
+            </div>
+            <div class="grid_7">
+                <input class="input_bloc input_text" type="password" name="motdepasse2"
+                    placeholder="Confirmer votre mot de passe" required>
+            </div>
+            <div class="grid_8">
+                <input class="input_bloc input_text" type="text" name="adresse" placeholder="Adresse" required>
+            </div>
+            <div class="grid_9">
+                <input class="input_bloc input_text" type="text" name="ville" placeholder="Ville" required>
+            </div>
+            <div class="grid_10">
+                <input class="input_bloc input_text" type="text" name="cp" placeholder="Code postal" required>
+            </div>
+            <div class="grid_11">
+                <button class="button_bloc button_text">Créer son compte</button>
+            </div>
+        </div>
     </form>
+    <footer class="footer">
+        <div class="footer_bloc">
+            <h1 class="footer_title">Vege<b class="footer_title_weight">Shop</b></h1>
+            <nav class="footer_list">
+                <a class="list_name" href="">A propos de nous</a>
+                <a class="list_name" href="">Contact</a>
+                <a class="list_name" href="">Aide</a>
+            </nav>
+            <div class="footer_language">
+                <i class="language_logo"><svg xmlns="http://www.w3.org/2000/svg" width="37" height="36"
+                        viewBox="0 0 37 36" fill="none">
+                        <g clip-path="url(#clip0_222_80)">
+                            <path
+                                d="M36.2307 27C36.2307 28.0609 35.8093 29.0783 35.0591 29.8284C34.309 30.5786 33.2916 31 32.2307 31H24.2307V5H32.2307C33.2916 5 34.309 5.42143 35.0591 6.17157C35.8093 6.92172 36.2307 7.93913 36.2307 9V27Z"
+                                fill="#ED2939" />
+                            <path
+                                d="M4.23071 5C3.16985 5 2.15243 5.42143 1.40229 6.17157C0.65214 6.92172 0.230713 7.93913 0.230713 9L0.230713 27C0.230713 28.0609 0.65214 29.0783 1.40229 29.8284C2.15243 30.5786 3.16985 31 4.23071 31H12.2307V5H4.23071Z"
+                                fill="#002495" />
+                            <path d="M12.2307 5H24.2307V31H12.2307V5Z" fill="#EEEEEE" />
+                        </g>
+                        <defs>
+                            <clipPath id="clip0_222_80">
+                                <rect width="36" height="36" fill="white" transform="translate(0.230713)" />
+                            </clipPath>
+                        </defs>
+                    </svg></i>
+                <p class="language_text">Francais</p>
+            </div>
+        </div>
+    </footer>
 </body>
 
 </html>
