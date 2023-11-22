@@ -1,0 +1,252 @@
+body {
+    font-family: poppins;
+}
+
+header {
+    padding: 0px 100px 0px 100px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.header_bloc {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header_bar {
+    display: flex;
+    stroke-width: 1px;
+    stroke: #808080;
+}
+
+#header_logo {
+    color: #000;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.header_logo_shop {
+    color: #000000;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
+
+.header_connect {
+    padding-top: 20px;
+}
+
+.header_connect_i {
+    float: left;
+}
+
+.header_connect_text {
+    color: #000;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    padding-left: 40px;
+    line-height: 25px;
+    white-space: nowrap;
+}
+
+.main_grid_parent {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+.main_grid_1 {
+    grid-area: 1 / 1 / 2 / 3;
+    background-color: #C8D6A2;
+    width: 1562px;
+    height: 258px;
+    border-radius: 100px;
+}
+
+.main_grid_2 {
+    grid-area: 2 / 1 / 3 / 2;
+    background-color: #C8D6A2;
+    width: 857px;
+    height: 1452px;
+    border-radius: 45px;
+}
+
+.main_grid_3 {
+    grid-area: 2 / 2 / 3 / 3;
+    background-color: #C8D6A2;
+    width: 654px;
+    height: 1450px;
+    border-radius: 45px;
+}
+
+.main_grid_4 {
+    grid-area: 3 / 1 / 4 / 3;
+    background-color: #C8D6A2;
+    width: 1562px;
+    height: 2484px;
+    border-radius: 90px;
+}
+
+.footer_bloc {
+    margin-top: 50px;
+    background: #404040;
+    height: 200px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+
+.footer_title {
+    padding: 0px 60px;
+}
+
+.footer_title_weight {
+    font-weight: 300;
+}
+
+.footer_list {
+    padding-right: 120px;
+}
+
+.list_name {
+    color: white;
+    text-decoration: none;
+    padding: 0px 20px;
+    font-weight: 300;
+}
+
+.footer_language {
+    display: flex;
+    padding-right: 60px;
+}
+
+.language_text {
+    margin: 5px 15px;
+}
+
+@media screen and (max-width: 1228px) {
+
+    #header_logo {
+        font-size: 2.5vw;
+    }
+
+    .header_bloc {
+        display: flex;
+        align-items: center;
+    }
+
+    .header_logo_shop {
+        font-size: 2.5vw;
+    }
+
+    .header_connect {
+        padding-top: 10px;
+        display: flex;
+        align-items: center;
+    }
+
+    .header_connect_i svg {
+        width: 18px;
+        height: 18px;
+        padding-top: 7px;
+    }
+
+    .header_connect_text {
+        font-size: 1.3vw;
+        padding-left: 10px;
+    }
+}
+
+@media screen and (max-width: 930px) {
+
+    header {
+        padding: 0px 30px 0px 30px;
+    }
+
+    main {
+        padding: 0px 30px 0px 30px;
+    }
+
+    .footer_title {
+        font-size: 3vw;
+        padding-right: 0px;
+    }
+
+    .footer_list {
+        font-size: 1.5vw;
+    }
+
+    .footer_language {
+        font-size: 1.6vw;
+    }
+
+    .language_logo svg {
+        width: 25px;
+        height: 25px;
+    }
+
+}
+
+
+@media (min-width: 1441px) and (max-width: 2560px) {
+
+    header {
+        padding: 70px 150px 0px 150px;
+    }
+
+    .header_bloc {
+        display: flex;
+        align-items: center;
+    }
+
+    #header_logo {
+        font-size: 2.5vw;
+    }
+
+    .header_logo_shop {
+        font-size: 2.5vw;
+    }
+
+    .header_connect {
+        display: flex;
+    }
+
+    .header_connect_i svg {
+        width: 50px;
+        height: 50px;
+    }
+
+    .header_connect_text {
+        font-size: 1.4vw;
+    }
+
+    .header_bar svg {
+        width: 100%;
+        height: auto;
+    }
+
+}
+
+@media (min-width: 1441px) and (max-width: 2231px) {
+    .last_product_pic {
+        height: 330px;
+    }
+}
+
+
+@media (min-width: 1441px) and (max-width: 1969px) {
+    .last_product_pic {
+        height: 300px;
+    }
+}
