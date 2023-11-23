@@ -1,31 +1,61 @@
 <!DOCTYPE html>
 <html lang="Francais">
+
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="/GestionProducteur.css">
+    <link rel="stylesheet" href="../GestionProducteur.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
-    rel="stylesheet">
+        rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <header>
 
     </header>
-    <main class="main_grid_parent">
-        <section class="main_grid_1">
-            
-        </section>
-        <section class="main_grid_2">
+    <div class="main_conteneur">
+        <main class="main_grid_parent">
+            <section class="main_grid_1 grid_1_parent">
+                <div class="grid_1_1">
+                    <img src="<?php echo $image_producteur?>" alt="image de profil producteur">
+                </div>
+                <div class="grid_1_2">
+                    <h1><?php echo $nom_producteur?></h1>
+                </div>
+                <div class="grid_1_3"> 
 
-        </section>
-        <section class="main_grid_3">
+                </div>
+                <div class="grid_1_4"> 
+                    <?php echo $nb_avis?> avis 
+                </div>
+                <div class="grid_1_5"> 
+                    <img src="../images/point_map.svg" alt="point map">
+                </div>
+                <div class="grid_1_6"> 
+                    <h2><?php echo $adresse?></h2>
+                </div>
+                <div class="grid_1_7"> 
 
-        </section>
-        <section class="main_grid_4">
+                </div>
+                <div class="grid_1_8"> 
 
-        </section>
-    </main>
+                </div>
+                <div class="grid_1_9"> 
+
+                </div>
+            </section>
+            <section class="main_grid_2">
+
+            </section>
+            <section class="main_grid_3">
+
+            </section>
+            <section class="main_grid_4">
+
+            </section>
+        </main>
+    </div>
     <footer class="footer">
         <div class="footer_bloc">
             <h1 class="footer_title">Vege<b class="footer_title_weight">Shop</b></h1>
@@ -57,4 +87,5 @@
         </div>
     </footer>
 </body>
+
 </html>
