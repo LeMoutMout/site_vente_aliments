@@ -130,12 +130,6 @@ a {
     word-wrap: break-word;
 }
 
-.desc_production_text{
-    margin-left: 10px;
-    font-size: 50px;
-    word-wrap: break-word;
-}
-
 .grid_1_3 {
     grid-area: 2 / 2 / 3 / 4;
 }
@@ -160,6 +154,12 @@ a {
 
 .grid_1_5 {
     grid-area: 1 / 4 / 3 / 6;
+}
+
+.desc_production_text{
+    margin-left: 10px;
+    font-size: 50px;
+    word-wrap: break-word;
 }
 
 .grid_1_6 {

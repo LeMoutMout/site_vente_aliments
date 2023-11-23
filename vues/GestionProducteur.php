@@ -25,7 +25,7 @@
                 <div class="grid_1_3 flex_left">
                     <img src="<?php echo ($moy_avis > 0) ? "../images/full_star.svg" : "../images/empty_star.svg"; ?>" alt="etoile" class="avis_etoile">
                     <img src="<?php echo ($moy_avis > 1) ? "../images/full_star.svg" : "../images/empty_star.svg"; ?>" alt="etoile" class="avis_etoile">
-                    <img src="<?php echo ($moy_avis > 2) ? "../images/full_star.svg" : "../images/empty_star.svg"; ?>" alt="etoile" class="avis_etoile"> 
+                    <img src="<?php echo ($moy_avis > 2) ? "../images/full_star.svg" : "../images/empty_star.svg"; ?>" alt="etoile" class="avis_etoile">
                     <img src="<?php echo ($moy_avis > 3) ? "../images/full_star.svg" : "../images/empty_star.svg"; ?>" alt="etoile" class="avis_etoile">
                     <img src="<?php echo ($moy_avis > 4) ? "../images/full_star.svg" : "../images/empty_star.svg"; ?>" alt="etoile" class="avis_etoile">
                     <p class="avis_producteur_text">
@@ -45,15 +45,45 @@
                         <?php echo $desc ?>
                     </p>
                 </div>
-                <div class="grid_1_6">
-
+                <div class="grid_1_6 flex_center">
+                    <img src="../images/produit_logo" alt="image produit">
+                    <?php echo $nb_produits ?>
+                    <?php echo ($nb_produits > 1) ? "Produits" : "Produit"; ?>
                 </div>
             </section>
             <section class="main_grid_2">
+                <p class="flex_center">
+                    Produits / Stocks
+                </p>
+                <div>
+                    <?php
+                    foreach ($produits as $produit) { ?>
+                        <article>
+                            <img src="" alt="">
+                        </article>
+                    <?php }
+                    ?>
+                    <div>
 
+                    </div>
+                </div>
             </section>
             <section class="main_grid_3">
-
+                <p class="flex_center">
+                    Avis
+                </p>
+                <div>
+                    <div>
+                        <img src="<?php echo ($moy_avis > 0) ? "../images/full_star.svg" : "../images/empty_star.svg"; ?>" alt="etoile" class="avis_etoile">
+                        <img src="<?php echo ($moy_avis > 1) ? "../images/full_star.svg" : "../images/empty_star.svg"; ?>" alt="etoile" class="avis_etoile">
+                        <img src="<?php echo ($moy_avis > 2) ? "../images/full_star.svg" : "../images/empty_star.svg"; ?>" alt="etoile" class="avis_etoile">
+                        <img src="<?php echo ($moy_avis > 3) ? "../images/full_star.svg" : "../images/empty_star.svg"; ?>" alt="etoile" class="avis_etoile">
+                        <img src="<?php echo ($moy_avis > 4) ? "../images/full_star.svg" : "../images/empty_star.svg"; ?>" alt="etoile" class="avis_etoile">
+                        <p class="avis_producteur_text">
+                            <?php echo $note_avis ?> étoiles
+                        </p>
+                    </div>
+                </div>
             </section>
             <section class="main_grid_4">
 
