@@ -73,6 +73,7 @@ a {
   opacity: 0.5;
   font-size: 20px;
   font-weight: bold;
+  padding-left: 20px;
 }
 
 .connexion .text-wrapper-2 {
@@ -182,6 +183,10 @@ a {
   height: 30px;
   top: 32px;
   left: 518px;
+}
+
+.connexion .vector:hover{
+  cursor: pointer;
 }
 
 .overlay {

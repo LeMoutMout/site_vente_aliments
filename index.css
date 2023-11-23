@@ -44,6 +44,10 @@ a {
   padding-top: 20px;
 }
 
+.header_connect:hover {
+  cursor: pointer;
+}
+
 .header_connect_i {
   float: left;
 }
@@ -219,7 +223,6 @@ a {
 }
 
 .connexion .rectangle {
-    
   position: absolute;
   width: 342px;
   height: 60px;

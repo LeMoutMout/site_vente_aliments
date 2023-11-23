@@ -5,8 +5,16 @@ function openPopup() {
 }
 
 function closePopup() {
-    document.getElementById("main").style.paddingTop="0px";
+  document.getElementById("main").style.paddingTop="0px";
   document.getElementById("overlay").style.display = "none";
   document.getElementById("popup").style.display = "none";
 }
+
+
+
+
+
+
+
+
 
