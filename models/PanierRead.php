@@ -1,5 +1,12 @@
 <?php
 
+function getPanierByUtil($idUtil) {
+    $bdd = getDBc();
+    $paniers_query = $bdd->query("select id_panier, date_panier, nom_statut from PANIER join STATUT on STATUT.id_statut = PANIER.id_statut where id_util = ".$idUtil." order by date_panier desc;");
+    $paniers = $paniers_query->fetchall(PDO::FETCH_ASSOC);
+    return $paniers;
+}
+
 function getPanier($idUtil) {
     $bdd = getDBc();
     $paniers_query = $bdd->query("select id_panier, date_panier, nom_statut from PANIER join STATUT on STATUT.id_statut = PANIER.id_statut where id_util = ".$idUtil." order by date_panier desc;");
@@ -13,3 +20,5 @@ function getProduitOf($idPanier) {
     $paniers = $paniers_query->fetchall(PDO::FETCH_ASSOC);
     return $paniers;
 }
+
+
