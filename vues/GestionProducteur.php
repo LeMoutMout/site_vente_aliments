@@ -56,19 +56,33 @@
                 </div>
             </section>
             <section class="main_grid_2">
-                <p class="flex_center">
-                    Produits / Stocks
-                </p>
-                <div>
-                    <?php
-                    foreach ($produits as $produit) { ?>
-                        <article class="">
-                            <img src="<?php getProductImage($produit) ?>" alt="">
-                        </article>
-                    <?php }
-                    ?>
-                    <div>
+                <div class=" main_grid_2_titre_text">
+                    <a class="flex_center">
+                        Produits / Stocks
+                    </a>
+                </div>
+                <div class="flex_center scroll_conteneur">
+                    <div class="flex_space_between scrollable ">
+                        <?php
+                        foreach ($produits as $produit) { ?>
+                            <div>
+                                <article class="produit_stock">
+                                    <div class="produit_stock_top">
+                                        <img class="produit_image" src="<?php echo getProductImage($produit['id_produit']); ?>" alt="image du produit">
+                                    </div>
+                                    <div>
 
+                                    </div>
+                                </article>
+                            </div>
+                        <?php }
+                        ?>
+                        <a href="" class="flex_center produit_stock">
+                            <img src="../images/croix_produit_sup.svg" alt="croix pproduit supplémentaire">
+                        </a>
+                    </div>
+                    <div class="scroll_arrow">
+                        <img src="../images/fleche_stock.svg" alt="image descendre stock">
                     </div>
                 </div>
             </section>
@@ -78,11 +92,11 @@
                 </p>
                 <div>
                     <div>
-                    <img src="<?php echo ($moy_avis >= 1) ? "../images/full_star.svg" : "../images/empty_star.svg"; ?>" alt="etoile" class="avis_etoile">
-                    <img src="<?php echo ($moy_avis >= 2) ? "../images/full_star.svg" : "../images/empty_star.svg"; ?>" alt="etoile" class="avis_etoile">
-                    <img src="<?php echo ($moy_avis >= 3) ? "../images/full_star.svg" : "../images/empty_star.svg"; ?>" alt="etoile" class="avis_etoile">
-                    <img src="<?php echo ($moy_avis >= 4) ? "../images/full_star.svg" : "../images/empty_star.svg"; ?>" alt="etoile" class="avis_etoile">
-                    <img src="<?php echo ($moy_avis == 5) ? "../images/full_star.svg" : "../images/empty_star.svg"; ?>" alt="etoile" class="avis_etoile">
+                        <img src="<?php echo ($moy_avis >= 1) ? "../images/full_star.svg" : "../images/empty_star.svg"; ?>" alt="etoile" class="avis_etoile">
+                        <img src="<?php echo ($moy_avis >= 2) ? "../images/full_star.svg" : "../images/empty_star.svg"; ?>" alt="etoile" class="avis_etoile">
+                        <img src="<?php echo ($moy_avis >= 3) ? "../images/full_star.svg" : "../images/empty_star.svg"; ?>" alt="etoile" class="avis_etoile">
+                        <img src="<?php echo ($moy_avis >= 4) ? "../images/full_star.svg" : "../images/empty_star.svg"; ?>" alt="etoile" class="avis_etoile">
+                        <img src="<?php echo ($moy_avis == 5) ? "../images/full_star.svg" : "../images/empty_star.svg"; ?>" alt="etoile" class="avis_etoile">
                         <p class="avis_producteur_text">
                             <?php echo $note_avis ?> étoiles
                         </p>
