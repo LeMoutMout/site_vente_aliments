@@ -15,3 +15,27 @@ function connect($mail,$mdp) {
     
     return -1;
 }
+
+function getUser() {
+    $bdd = getDBc();
+    $user_query = $bdd->query("select id_util,mail_util from UTILISATEUR;");
+    $user = $user_query->fetch(PDO::FETCH_ASSOC);
+    return $user;
+}
+
+function getUserByID($id) {
+    $bdd = getDBc();
+    $user_query = $bdd->prepare("select id_util,nom_util,pren_util,mail_util from UTILISATEUR where id_util = :id;");
+    $user_query->execute(['id'=>$id]);
+    $user = $user_query->fetch(PDO::FETCH_ASSOC);
+    return $user;
+}
+
+function getUserByMail($mail) {
+    $bdd = getDBc();
+    $user_query = $bdd->prepare("select id_util,nom_util,pren_util,mail_util from UTILISATEUR where mail_util = :mail;");
+    $user_query->execute(['mail'=>$mail]);
+    $user = $user_query->fetch(PDO::FETCH_ASSOC);
+    return $user;
+    ;
+}
