@@ -23,11 +23,11 @@
                     <p class="nom_production_text"><strong><?php echo $nom_producteur ?></strong></p>
                 </div>
                 <div class="grid_1_3 flex_left">
-                    <img src="<?php echo ($moy_avis > 0) ? "../images/full_star.svg" : "../images/empty_star.svg"; ?>" alt="etoile" class="avis_etoile">
-                    <img src="<?php echo ($moy_avis > 1) ? "../images/full_star.svg" : "../images/empty_star.svg"; ?>" alt="etoile" class="avis_etoile">
-                    <img src="<?php echo ($moy_avis > 2) ? "../images/full_star.svg" : "../images/empty_star.svg"; ?>" alt="etoile" class="avis_etoile">
-                    <img src="<?php echo ($moy_avis > 3) ? "../images/full_star.svg" : "../images/empty_star.svg"; ?>" alt="etoile" class="avis_etoile">
-                    <img src="<?php echo ($moy_avis > 4) ? "../images/full_star.svg" : "../images/empty_star.svg"; ?>" alt="etoile" class="avis_etoile">
+                    <img src="<?php echo ($moy_avis >= 1) ? "../images/full_star.svg" : "../images/empty_star.svg"; ?>" alt="etoile" class="avis_etoile">
+                    <img src="<?php echo ($moy_avis >= 2) ? "../images/full_star.svg" : "../images/empty_star.svg"; ?>" alt="etoile" class="avis_etoile">
+                    <img src="<?php echo ($moy_avis >= 3) ? "../images/full_star.svg" : "../images/empty_star.svg"; ?>" alt="etoile" class="avis_etoile">
+                    <img src="<?php echo ($moy_avis >= 4) ? "../images/full_star.svg" : "../images/empty_star.svg"; ?>" alt="etoile" class="avis_etoile">
+                    <img src="<?php echo ($moy_avis == 5) ? "../images/full_star.svg" : "../images/empty_star.svg"; ?>" alt="etoile" class="avis_etoile">
                     <p class="avis_producteur_text">
                         <?php echo $nb_avis ?> avis
                     </p>
@@ -46,9 +46,13 @@
                     </p>
                 </div>
                 <div class="grid_1_6 flex_center">
-                    <img src="../images/produit_logo" alt="image produit">
-                    <?php echo $nb_produits ?>
-                    <?php echo ($nb_produits > 1) ? "Produits" : "Produit"; ?>
+                    <img src="../images/produit_logo.svg" alt="image produit">
+                    <a class="flex_center">
+                        <strong class="nb_produit_text"><?php echo $nb_produits ?></strong>
+                        <p class="grid_6_produit_text">
+                            <?php echo ($nb_produits > 1) ? "Produits" : "Produit"; ?>
+                        </p>
+                    </a>
                 </div>
             </section>
             <section class="main_grid_2">
@@ -58,8 +62,8 @@
                 <div>
                     <?php
                     foreach ($produits as $produit) { ?>
-                        <article>
-                            <img src="" alt="">
+                        <article class="">
+                            <img src="<?php getProductImage($produit) ?>" alt="">
                         </article>
                     <?php }
                     ?>
@@ -74,11 +78,11 @@
                 </p>
                 <div>
                     <div>
-                        <img src="<?php echo ($moy_avis > 0) ? "../images/full_star.svg" : "../images/empty_star.svg"; ?>" alt="etoile" class="avis_etoile">
-                        <img src="<?php echo ($moy_avis > 1) ? "../images/full_star.svg" : "../images/empty_star.svg"; ?>" alt="etoile" class="avis_etoile">
-                        <img src="<?php echo ($moy_avis > 2) ? "../images/full_star.svg" : "../images/empty_star.svg"; ?>" alt="etoile" class="avis_etoile">
-                        <img src="<?php echo ($moy_avis > 3) ? "../images/full_star.svg" : "../images/empty_star.svg"; ?>" alt="etoile" class="avis_etoile">
-                        <img src="<?php echo ($moy_avis > 4) ? "../images/full_star.svg" : "../images/empty_star.svg"; ?>" alt="etoile" class="avis_etoile">
+                    <img src="<?php echo ($moy_avis >= 1) ? "../images/full_star.svg" : "../images/empty_star.svg"; ?>" alt="etoile" class="avis_etoile">
+                    <img src="<?php echo ($moy_avis >= 2) ? "../images/full_star.svg" : "../images/empty_star.svg"; ?>" alt="etoile" class="avis_etoile">
+                    <img src="<?php echo ($moy_avis >= 3) ? "../images/full_star.svg" : "../images/empty_star.svg"; ?>" alt="etoile" class="avis_etoile">
+                    <img src="<?php echo ($moy_avis >= 4) ? "../images/full_star.svg" : "../images/empty_star.svg"; ?>" alt="etoile" class="avis_etoile">
+                    <img src="<?php echo ($moy_avis == 5) ? "../images/full_star.svg" : "../images/empty_star.svg"; ?>" alt="etoile" class="avis_etoile">
                         <p class="avis_producteur_text">
                             <?php echo $note_avis ?> étoiles
                         </p>
