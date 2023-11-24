@@ -79,9 +79,8 @@
             <div id="popup" class="popup">
               <div class="connexion">
                 <div class="div">
-                  <form action="connect" method="post">
+                  <form method="post">
                     <div class="text-wrapper">Connexion</div>
-        
                     <div class="group">
                       <input
                         class="rectangle"
@@ -92,7 +91,6 @@
                         required
                       />
                     </div>
-        
                     <div class="overlap-wrapper">
                       <input
                         class="rectangle"
@@ -109,19 +107,20 @@
                     </div>
         
                     <div class="overlap-group-wrapper">
-                      <input class="rectangle" type="submit" value="Se connecter" />
+                      <input class="rectangle" type="submit" value="Se connecter"/>
                     </div>
         
                     <div class="text-wrapper-6">
                       <a href="CreationCompteUtilisateur.php">Créer son compte</a>
                     </div>
-                  </form>
-        
+
+                  </form>      
                   <img
                     id="croix"
                     class="vector"
-                    src="./images/Vector.png"
-                    onclick="closePopup()"
+                    src="images/Vector.png"
+                    onclick="closePopup()" 
+                    alt="fermer"
                   />
                 </div>
               </div>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -184,9 +184,10 @@
         </div>
       </nav>
     </header>
+
     <div class="mailbox">
       <div class="div1">
-        <form id="new-conversation-form">
+        <form id="new-conversation-form" method="get">
           <label for="participant-input">Rechercher une discussion : </label>
           <input
             id="participant-input"
@@ -195,19 +196,6 @@
             placeholder="Adresse mail du destinataire"
             required
           />
-          <button type="submit">Démarrer la conversation</button>
-        </form>
-      </div>
-      <div class="div2">
-        <div class="chat-header">
-          <h2 id="chat-title">Sélectionnez une conversation</h2>
-        </div>
-        <div class="chat-messages" id="chat-messages">
-          <!-- Historique des conversations ici -->
-        </div>
-      </div>
-      <div class="div3">
-        <form id="message-form">
           <textarea
             id="message-input"
             placeholder="Tapez votre message"
@@ -217,9 +205,18 @@
           <button type="submit">Envoyer</button>
         </form>
       </div>
+      <div class="div2">
+        <div class="chat-header">
+          <h2 id="chat-title">Sélectionnez une conversation</h2>
+        </div>
+        <div action="messagerie.php" class="chat-messages" id="chat-messages">
+          
+        </div>
+      </div>
+      <div class="div3">
+      </div>
       <div class="div4">
-        test
-        <!-- Historique des messages d'une conversation ici -->
+        <!-- Historique des messages d'une conversation -->
       </div>
     </div>
   </body>
