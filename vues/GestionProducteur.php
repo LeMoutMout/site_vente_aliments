@@ -14,13 +14,13 @@
 
     </header>
     <div class="main_conteneur">
-        <main class="main_grid_parent">
+        <main class="main_grid_parent flex_center">
             <section class="main_grid_1 grid_1_parent">
                 <div class="grid_1_1 flex_center">
                     <img src="<?php echo $image_producteur ?>" alt="image de profil producteur" height="170" width="170">
                 </div>
                 <div class="grid_1_2">
-                    <p class="nom_production_text"><strong><?php echo $nom_producteur ?></strong></p>
+                    <strong><?php echo $nom_producteur ?></strong>
                 </div>
                 <div class="grid_1_3 flex_left">
                     <img src="<?php echo ($moy_avis >= 1) ? "../images/full_star.svg" : "../images/empty_star.svg"; ?>" alt="etoile" class="avis_etoile">
@@ -35,15 +35,13 @@
                 <div class="grid_1_4">
                     <h3 class="flex_left">
                         <img src="../images/point_map.svg" alt="point map">
-                        <p style="margin-left: 20px;">
+                        <p style="margin-left: 3%;">
                             <?php echo $adresse ?>
                         </p>
                     </h3>
                 </div>
                 <div class="grid_1_5">
-                    <p class="desc_production_text">
                         <?php echo $desc ?>
-                    </p>
                 </div>
                 <div class="grid_1_6 flex_center">
                     <img src="../images/produit_logo.svg" alt="image produit">
@@ -69,8 +67,28 @@
                                 <div class="produit_stock_top">
                                     <img class="produit_image" src="<?php echo getProductImage($produit['id_produit']); ?>" alt="image du produit">
                                 </div>
-                                <div>
+                                <div class="grid_produit_bottom_parent">
+                                    <div class="grid_produit_bottom_1">
+                                        <?php echo $nom_producteur ?>
+                                    </div>
+                                    <div class="grid_produit_bottom_2">
+                                        <strong><?php echo 'CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC'; ?></strong>
+                                    </div>
+                                    <div class="grid_produit_bottom_3">
+                                        <?php echo $produit['quantite_produit'] ?>
+                                    </div>
+                                    <div class="grid_produit_bottom_4">
+                                        <?php echo $produit['prix_produit'] . '€/' . $produit['nom_unite'] ?>
+                                    </div>
+                                    <div class="grid_produit_bottom_5">
+                                        <a href="">
+                                            <img src="../images/crayon_modif.svg" alt="modifier produit">
+                                        </a>
+                                    </div>
+                                    <div class="grid_produit_bottom_6">
+                                        <?php echo $produit['quantite_produit'] ?>
 
+                                    </div>
                                 </div>
                             </article>
                         <?php }
