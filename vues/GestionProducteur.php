@@ -116,13 +116,13 @@
                         <?php
                         foreach ($avis as $avis_) { ?>
                             <article class="grid_3_parent">
-                                <div class="grid_3_1">
-                                    <img src="<?php getUserImage()" alt="image utilisateur" class="avis_image_utilisateur">
+                                <div class="grid_3_1 flex_center">
+                                    <img src="<?php echo getUserImage($avis_['id_util']) ?>" alt="image utilisateur" class="avis_image_utilisateur">
                                 </div>
                                 <div class="grid_3_2">
-
+                                    <?php echo '<strong>' . $avis_['pren_util'] . '&nbsp' . $avis_['nom_util'] . '</strong> le ' . $avis_['date_avis'] ?>
                                 </div>
-                                <div class="grid_3_3 flex_center">
+                                <div class="grid_3_3 flex_left">
                                     <img src="<?php echo ($moy_avis >= 1) ? "../images/full_star.svg" : "../images/empty_star.svg"; ?>" alt="etoile" class="avis_etoile_2">
                                     <img src="<?php echo ($moy_avis >= 2) ? "../images/full_star.svg" : "../images/empty_star.svg"; ?>" alt="etoile" class="avis_etoile_2">
                                     <img src="<?php echo ($moy_avis >= 3) ? "../images/full_star.svg" : "../images/empty_star.svg"; ?>" alt="etoile" class="avis_etoile_2">
@@ -133,16 +133,34 @@
                                     </p>
                                 </div>
                                 <div class="grid_3_4">
-
+                                    <?php echo 'CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC'; //$avis_['contenu_avis']
+                                    ?>
                                 </div>
-
                             </article>
                         <?php } ?>
+                    </div>
+                    <div class="scroll_arrow">
+                        <img src="../images/fleche_stock.svg" alt="image descendre stock">
                     </div>
                 </div>
             </section>
             <section class="main_grid_4">
-
+                <div class="main_grid_titre_text">
+                    <p class="flex_center">
+                        Commandes
+                    </p>
+                </div>
+                <div class="flex_center scroll_conteneur">
+                    <div class="flex_space_between scrollable">
+                        <?php foreach ($paniers as $panier) { ?>
+                            <article class="grid_4_parent">
+                                <div>
+                                    <?php echo $panier['date_panier']?>
+                                </div>
+                            </article>
+                        <?php } ?>
+                    </div>
+                </div>
             </section>
         </main>
     </div>
