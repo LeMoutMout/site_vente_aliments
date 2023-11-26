@@ -17,7 +17,7 @@
         <main class="main_grid_parent flex_center">
             <section class="main_grid_1 grid_1_parent">
                 <div class="grid_1_1 flex_center">
-                    <img src="<?php echo $image_producteur ?>" alt="image de profil producteur" height="170" width="170">
+                    <img src="<?php echo $image_producteur ?>" alt="image de profil producteur" class="image_producteur">
                 </div>
                 <div class="grid_1_2">
                     <strong><?php echo $nom_producteur ?></strong>
@@ -34,20 +34,20 @@
                 </div>
                 <div class="grid_1_4">
                     <h3 class="flex_left">
-                        <img src="../images/point_map.svg" alt="point map">
-                        <p style="margin-left: 3%;">
+                        <img src="../images/point_map.svg" alt="point map" class="image_map">
+                        <p class="adresse_text">
                             <?php echo $adresse ?>
                         </p>
                     </h3>
                 </div>
                 <div class="grid_1_5">
-                        <?php echo $desc ?>
+                    <?php echo $desc ?>
                 </div>
                 <div class="grid_1_6 flex_center">
-                    <img src="../images/produit_logo.svg" alt="image produit">
+                    <img src="../images/produit_logo.svg" alt="image panier produit" class="image_panier">
                     <a class="flex_center">
                         <strong class="nb_produit_text"><?php echo $nb_produits ?></strong>
-                        <p class="grid_6_produit_text">
+                        <p class="grid_1_6_produit_text">
                             <?php echo ($nb_produits > 1) ? "Produits" : "Produit"; ?>
                         </p>
                     </a>
@@ -78,15 +78,18 @@
                                         <?php echo $produit['quantite_produit'] ?>
                                     </div>
                                     <div class="grid_produit_bottom_4">
-                                        <?php echo $produit['prix_produit'] . '€/' . $produit['nom_unite'] ?>
+                                        <strong><?php echo $produit['prix_produit'] . '€/' . $produit['nom_unite'] ?></strong>
                                     </div>
                                     <div class="grid_produit_bottom_5">
                                         <a href="">
-                                            <img src="../images/crayon_modif.svg" alt="modifier produit">
+                                            <img src="../images/crayon_modif.svg" alt="modifier produit" class="image_crayon">
                                         </a>
                                     </div>
-                                    <div class="grid_produit_bottom_6">
-                                        <?php echo $produit['quantite_produit'] ?>
+                                    <div class="grid_produit_bottom_6 flex_center">
+                                        <div class="souligne">
+                                            Stock :
+                                        </div>
+                                        <?php echo '&nbsp;' . $produit['quantite_produit'] ?>
 
                                     </div>
                                 </div>
@@ -109,27 +112,27 @@
                     </p>
                 </div>
                 <div class="flex_center scroll_conteneur">
-                    <div class="flex_center scrollable">
+                    <div class="flex_space_between scrollable">
                         <?php
                         foreach ($avis as $avis_) { ?>
-                            <article class="avis_bloc">
-                                <div class="grid_2_1">
+                            <article class="grid_3_parent">
+                                <div class="grid_3_1">
+                                    <img src="<?php getUserImage()" alt="image utilisateur" class="avis_image_utilisateur">
+                                </div>
+                                <div class="grid_3_2">
 
                                 </div>
-                                <div class="grid_2_2">
-
-                                </div>
-                                <div class="grid_2_3">
-                                    <img src="<?php echo ($moy_avis >= 1) ? "../images/full_star.svg" : "../images/empty_star.svg"; ?>" alt="etoile" class="avis_etoile">
-                                    <img src="<?php echo ($moy_avis >= 2) ? "../images/full_star.svg" : "../images/empty_star.svg"; ?>" alt="etoile" class="avis_etoile">
-                                    <img src="<?php echo ($moy_avis >= 3) ? "../images/full_star.svg" : "../images/empty_star.svg"; ?>" alt="etoile" class="avis_etoile">
-                                    <img src="<?php echo ($moy_avis >= 4) ? "../images/full_star.svg" : "../images/empty_star.svg"; ?>" alt="etoile" class="avis_etoile">
-                                    <img src="<?php echo ($moy_avis == 5) ? "../images/full_star.svg" : "../images/empty_star.svg"; ?>" alt="etoile" class="avis_etoile">
-                                    <p class="avis_producteur_text">
+                                <div class="grid_3_3 flex_center">
+                                    <img src="<?php echo ($moy_avis >= 1) ? "../images/full_star.svg" : "../images/empty_star.svg"; ?>" alt="etoile" class="avis_etoile_2">
+                                    <img src="<?php echo ($moy_avis >= 2) ? "../images/full_star.svg" : "../images/empty_star.svg"; ?>" alt="etoile" class="avis_etoile_2">
+                                    <img src="<?php echo ($moy_avis >= 3) ? "../images/full_star.svg" : "../images/empty_star.svg"; ?>" alt="etoile" class="avis_etoile_2">
+                                    <img src="<?php echo ($moy_avis >= 4) ? "../images/full_star.svg" : "../images/empty_star.svg"; ?>" alt="etoile" class="avis_etoile_2">
+                                    <img src="<?php echo ($moy_avis == 5) ? "../images/full_star.svg" : "../images/empty_star.svg"; ?>" alt="etoile" class="avis_etoile_2">
+                                    <p class="avis_producteur_text_2">
                                         <?php echo $avis_['note_avis']; ?> étoiles
                                     </p>
                                 </div>
-                                <div class="grid_2_4">
+                                <div class="grid_3_4">
 
                                 </div>
 
