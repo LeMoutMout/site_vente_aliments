@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../GestionProducteur.css">
+    <link rel="stylesheet" href="../GestionProducteur.css" type="text/css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
@@ -59,8 +59,8 @@
                         Produits / Stocks
                     </p>
                 </div>
-                <div class="flex_center scroll_conteneur">
-                    <div class="flex_space_between scrollable ">
+                <div class="flex_center scroll_conteneur_y">
+                    <div class="flex_space_around scrollable_y ">
                         <?php
                         foreach ($produits as $produit) { ?>
                             <article class="produit_stock">
@@ -72,24 +72,22 @@
                                         <?php echo $nom_producteur ?>
                                     </div>
                                     <div class="grid_produit_bottom_2">
-                                        <strong><?php echo 'CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC'; ?></strong>
+                                        <strong><?php echo 'CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC'; //$produit['nom_produit'];
+                                                ?></strong>
                                     </div>
                                     <div class="grid_produit_bottom_3">
-                                        <?php echo $produit['quantite_produit'] ?>
-                                    </div>
-                                    <div class="grid_produit_bottom_4">
                                         <strong><?php echo $produit['prix_produit'] . '€/' . $produit['nom_unite'] ?></strong>
                                     </div>
-                                    <div class="grid_produit_bottom_5">
+                                    <div class="grid_produit_bottom_4">
                                         <a href="">
                                             <img src="../images/crayon_modif.svg" alt="modifier produit" class="image_crayon">
                                         </a>
                                     </div>
-                                    <div class="grid_produit_bottom_6 flex_center">
+                                    <div class="grid_produit_bottom_5 flex_center">
                                         <div class="souligne">
                                             Stock :
                                         </div>
-                                        <?php echo '&nbsp;' . $produit['quantite_produit'] ?>
+                                        <?php echo '&nbsp;' . $produit['quantite_produit'] . '&nbsp;' . $produit['nom_unite'] ?>
 
                                     </div>
                                 </div>
@@ -111,8 +109,8 @@
                         Avis
                     </p>
                 </div>
-                <div class="flex_center scroll_conteneur">
-                    <div class="flex_space_between scrollable">
+                <div class="flex_center scroll_conteneur_y">
+                    <div class="flex_space_around scrollable_y">
                         <?php
                         foreach ($avis as $avis_) { ?>
                             <article class="grid_3_parent">
@@ -120,7 +118,7 @@
                                     <img src="<?php echo getUserImage($avis_['id_util']) ?>" alt="image utilisateur" class="avis_image_utilisateur">
                                 </div>
                                 <div class="grid_3_2">
-                                    <?php echo '<strong>' . $avis_['pren_util'] . '&nbsp' . $avis_['nom_util'] . '</strong> le ' . $avis_['date_avis'] ?>
+                                    <?php echo '<strong>' . /*$avis_['pren_util']*/ 'CCCCCCCCCCCCCCCCCCCCCCCCC &nbsp CCCCCCCCCCCCCCCCCCCCCCCCC &nbsp' . /*$avis_['nom_util']*/ '</strong> le ' . $avis_['date_avis'] ?>
                                 </div>
                                 <div class="grid_3_3 flex_left">
                                     <img src="<?php echo ($moy_avis >= 1) ? "../images/full_star.svg" : "../images/empty_star.svg"; ?>" alt="etoile" class="avis_etoile_2">
@@ -150,12 +148,85 @@
                         Commandes
                     </p>
                 </div>
-                <div class="flex_center scroll_conteneur">
-                    <div class="flex_space_between scrollable">
-                        <?php foreach ($paniers as $panier) { ?>
+                <div class="flex_center scroll_conteneur_y">
+                    <div class="flex_space_around scrollable_y">
+                        <?php foreach ($paniers as $panier) {
+                            $total = 0;
+                            foreach (getProduitOf($panier['id_panier']) as $produit) {
+                                $total = $total + $produit['quantite_produit'] * $produit['prix_produit'];
+                            }
+                            $user = getUserByID($panier['id_util']) ?>
                             <article class="grid_4_parent">
-                                <div>
-                                    <?php echo $panier['date_panier']?>
+                                <div class="grid_4_1 flex_center">
+                                    <img src="<?php echo getUserImage($user['id_util']) ?>" alt="" class="commande_image_utilisateur">
+                                </div>
+                                <div class="grid_4_2">
+                                    <strong> <?php echo 'CCCCCCCCCCCCCCCCCCCCCCCCC &nbsp CCCCCCCCCCCCCCCCCCCCCCCCC' //$user['pren_util'] .' &nbsp'. $user['nom_util']
+                                                ?> </strong>
+                                </div>
+                                <div class="grid_4_3 flex_left">
+                                    <?php echo $user['tel_util'] ?>
+                                </div>
+                                <div class="grid_4_4">
+                                    <?php echo 'CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC' //$user['mail_util']
+                                    ?>
+                                </div>
+                                <div class="grid_4_5">
+                                    <div class="flex_center scroll_conteneur_x">
+                                        <div class="scrollable_x">
+                                            <?php
+                                            foreach (getProduitOf($panier['id_panier']) as $produit) { ?>
+                                                <article class="produit_commande">
+                                                    <div class="produit_commande_top">
+                                                        <img class="produit_commande_image" src="<?php echo getProductImage($produit['id_produit']); ?>" alt="image du produit">
+                                                    </div>
+                                                    <div class="grid_produit_commande_bottom_parent">
+                                                        <div class="grid_produit_commande_bottom_1">
+                                                            <strong><?php echo 'CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC'; //$produit['nom_produit']; 
+                                                                    ?></strong>
+                                                        </div>
+                                                        <div class="flex_center grid_produit_commande_bottom_2">
+                                                            <?php echo $produit['qte_produit_commandee'] ?>
+                                                        </div>
+                                                        <div class="flex_center grid_produit_commande_bottom_3">
+                                                            <strong><?php echo $produit['qte_produit_commandee'] * $produit['prix_produit'] . '€' ?></strong>
+                                                        </div>
+                                                        <div class=" flex_center grid_produit_commande_bottom_4">
+                                                            <?php echo $produit['prix_produit'] . '€/' . $produit['nom_unite'] ?>
+                                                        </div>
+                                                    </div>
+                                                </article>
+                                            <?php }
+                                            ?>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="grid_4_6 flex_space_around">
+                                    <img src="../images/refuser.svg" alt="refuser" class="image_refuser">
+                                    <?php if ($panier['id_statut'] == 2) { ?>
+                                        <a class="flex_center panier_encours">
+                                            <img src="../images/prete.svg" alt="prete" class="image_panier_encours">
+                                        </a>
+                                    <?php } else { ?>
+                                        <a class="flex_center panier_pret">
+                                            <img src="../images/livree.svg" alt="livree" class="image_panier_livre">
+                                        </a>
+                                    <?php } ?>
+                                </div>
+                                <div class="grid_4_7 flex_center">
+                                    <div class="souligne">
+                                        Générer un pdf :
+                                    </div>
+                                    &nbsp;
+                                    <a href="">
+                                        <img src="../images/pdf.svg" alt="pdf" class="image_pdf">
+                                    </a>
+                                </div>
+                                <div class="grid_4_8 flex_center">
+                                    <div class="souligne">
+                                        Total :
+                                    </div>
+                                    <strong><?php echo '&nbsp' . $total . '€' ?></strong>
                                 </div>
                             </article>
                         <?php } ?>

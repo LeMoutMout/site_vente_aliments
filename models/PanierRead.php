@@ -14,9 +14,16 @@ function getProduitOf($idPanier) {
     return $paniers;
 }
 
-function getPanierFromProductor($idProductor) {
+function getPanierEnCoursFromProductor($idProductor) {
     $bdd = getDBc();
-    $paniers_query = $bdd->query("select * from producteurPanier where id_production = ".$idProductor." order by date_panier desc;");
+    $paniers_query = $bdd->query("select * from producteurPanier where id_production = ".$idProductor." and id_statut in (2,3);");
+    $paniers = $paniers_query->fetchall(PDO::FETCH_ASSOC);
+    return $paniers;
+}
+
+function getPanierLivreeFromProductor($idProductor) {
+    $bdd = getDBc();
+    $paniers_query = $bdd->query("select * from producteurPanier where id_production = ".$idProductor." and id_statut = 4;");
     $paniers = $paniers_query->fetchall(PDO::FETCH_ASSOC);
     return $paniers;
 }
