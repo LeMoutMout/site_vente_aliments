@@ -60,3 +60,18 @@ function getProduitsFromProducteur($idProducteur)
     return $produits;
 }
 
+function getPromo($limit)
+{
+    $bdd = getDBc();
+    $produits_query = $bdd->query("select * from produitPageRecherche where promotion_produit is not null LIMIT 0,".$limit." ;");
+    $produits = $produits_query->fetchall(PDO::FETCH_ASSOC);
+    return $produits;
+}
+
+function getProduitsLimit($limit)
+{
+    $bdd = getDBc();
+    $produits_query = $bdd->query("select * from produitPageRecherche LIMIT 0,".$limit.";");
+    $produits = $produits_query->fetchall(PDO::FETCH_ASSOC);
+    return $produits;
+}

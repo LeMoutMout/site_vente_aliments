@@ -1,5 +1,5 @@
 <?php
-$pathImage = "../image";
+$pathImage = "../images";
 $pathModels = "../models";
 $pathcontrolleurs = ".";
 $pathVues = "../vues";

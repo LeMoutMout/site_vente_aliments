@@ -44,7 +44,7 @@
 		</div>
 		<div class="devenir_bloc_2">
 			<img src="<?php echo $pathImage?>/logo_fermier_compte.svg" alt="logo de fermier"
-				class="logo_devenir"> <a href=""> <strong class="logo_devenir_text">Devenir
+				class="logo_devenir"> <a href="<?php echo $pathcontrolleurs.'/CreationCompteProducteur.php'?>"> <strong class="logo_devenir_text">Devenir
 					vendeur producteur</strong>
 			</a>
 		</div>

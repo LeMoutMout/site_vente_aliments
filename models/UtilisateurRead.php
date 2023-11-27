@@ -25,7 +25,7 @@ function getUser() {
 
 function getUserByID($id) {
     $bdd = getDBc();
-    $user_query = $bdd->prepare("select id_util,nom_util,pren_util,mail_util from UTILISATEUR where id_util = :id;");
+    $user_query = $bdd->prepare("select id_util,nom_util,pren_util,mail_util,tel_util from UTILISATEUR where id_util = :id;");
     $user_query->execute(['id'=>$id]);
     $user = $user_query->fetch(PDO::FETCH_ASSOC);
     return $user;
@@ -38,4 +38,16 @@ function getUserByMail($mail) {
     $user = $user_query->fetch(PDO::FETCH_ASSOC);
     return $user;
     ;
+}
+
+function getUserSearch($search){
+    $bdd = getDBc();
+    $user_query = $bdd->prepare("select id_util,nom_util,pren_util,mail_util from UTILISATEUR where LOWER(mail_util) like LOWER(CONCAT('%',:sm,'%')) or LOWER(nom_util) like LOWER(CONCAT('%',:sn,'%')) or LOWER(pren_util) like LOWER(CONCAT('%',:sp,'%'));");
+    $user_query->execute([
+        'sm'=>$search,
+        'sn'=>$search,
+        'sp'=>$search
+        ]);
+    $users = $user_query->fetchAll(PDO::FETCH_ASSOC);
+    return $users;
 }
