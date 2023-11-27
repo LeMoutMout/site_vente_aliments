@@ -3,32 +3,61 @@ require "./globalVar.php";
 require $pathModels."/MessageRead.php";
 require $pathModels."/MessageWrite.php";
 require $pathModels."/UtilisateurRead.php";
-session_start();
-$_SESSION['id_util']=1;
-// Vérifiez si le formulaire de démarrage d'une nouvelle conversation est soumis
-if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['email'])) {
-    $destinataireEmail = $_GET['email'];
 
-    // Vous devez obtenir l'ID de l'utilisateur actuel à partir de la session (assurez-vous que l'ID est stocké en session lors de la connexion de l'utilisateur)
-    $id_util = $_SESSION['id_util']; // Assurez-vous de définir cela correctement en fonction de la structure de votre session
+// Définir $idUser en fonction de votre logique d'authentification
+$idUser = 1; // Remplacez cela par la manière dont vous définissez l'ID de l'utilisateur
 
-    // Obtenez l'ID du destinataire à partir de son adresse e-mail (vous devez implémenter cette fonction dans votre modèle UtilisateurRead.php)
-    $destinataireId = getUserByMail($destinataireEmail)['id_util'];
-
-    echo $destinataireId;
-
-    // Assurez-vous que l'ID de l'utilisateur actuel et du destinataire est valide
-    if (isset($id_util) && isset($destinataireId)) {
-        // Envoyez le message en utilisant la fonction du modèle
-        sendMessage($id_util, "Message de démarrage de conversation", [$destinataireId]);
-
-        // Effectuez d'autres actions si nécessaire
-
-        exit();
-    } else {
-        // Gérez le cas où les ID ne sont pas valides
-        echo "Erreur : ID d'utilisateur invalide.";
+function displayConversations($idUser) {
+    $conversations = getOtherUser($idUser);
+    
+    // Affichez les conversations comme vous le souhaitez
+    foreach ($conversations as $conversation) {
+        echo '<div onclick="loadMessages(' . $idUser . ',' . $conversation . ')">' . getUserByID($conversation)['mail_util'] . '</div>';
     }
 }
 
+function displayMessages($idUser, $idDestinataire) {
+    $messages = getMessageWith($idUser, $idDestinataire);
+    
+    // Affichez les messages comme vous le souhaitez
+    foreach ($messages as $message) {
+        $sender = getUserByID($message['id_util']);
+        echo '<div><strong>' . $sender['mail_util'] . ':</strong> ' . $message['contenu_message'] . '</div>';
+    }
+}
+
+// Gérez le formulaire d'envoi
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $emailDestinataire = $_POST['email'];
+    $messageContent = $_POST['message'];
+
+    // Récupérez l'ID du destinataire à partir de l'adresse e-mail
+    $idDestinataire = getUserIdByEmail($emailDestinataire)['id_util'];
+
+    // Vérifiez si la conversation existe déjà
+    $conversations = getOtherUser($idUser);
+    if (!in_array($idDestinataire, $conversations)) {
+        // Si la conversation n'existe pas, créez-la
+        sendMessage($idUser, 'Conversation créée', [$idDestinataire]);
+    }
+
+    // Envoyez le message
+    sendMessage($idUser, $messageContent, [$idDestinataire]);
+}
+
+// Chargez les conversations
+$conversations = getOtherUser($idUser);
+$idDestinataire = !empty($conversations) ? reset($conversations) : null;
+
+// Affichez les conversations
+displayConversations($idUser);
+
+// Chargez et affichez les messages si $idDestinataire est défini
+if ($idDestinataire !== null) {
+    $messages = getMessageWith($idUser, $idDestinataire);
+    displayMessages($idUser, $idDestinataire);
+}
+
+
 require $pathVues."/messagerie.php";
+?>

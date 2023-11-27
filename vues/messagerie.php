@@ -187,7 +187,7 @@
 
     <div class="mailbox">
       <div class="div1">
-        <form id="new-conversation-form" method="get">
+        <form id="new-conversation-form" method="post">
           <label for="participant-input">Rechercher une discussion : </label>
           <input
             id="participant-input"
@@ -197,11 +197,11 @@
             required
           />
           <textarea
+            name="message"
             id="message-input"
             placeholder="Tapez votre message"
             required
           ></textarea>
-          <input type="file" id="file-input" />
           <button type="submit">Envoyer</button>
         </form>
       </div>
@@ -216,8 +216,8 @@
       <div class="div3">
       </div>
       <div class="div4">
-        <!-- Historique des messages d'une conversation -->
-      </div>
+        
+    </div>
     </div>
   </body>
 </html>
