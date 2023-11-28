@@ -1,4 +1,5 @@
 <?php
+
 function getNbAvisOf($idProductor)
 {
     $bdd = getDBc();
@@ -23,4 +24,12 @@ function getAVGAvisOf($idProductor)
     
     $avis = $avis_query->fetch(PDO::FETCH_ASSOC);
     return $avis['moyen_avis'];
+}
+
+function getAvisFromProducteur($idProducteur)
+{
+    $bdd = getDBc();
+    $produits_query = $bdd->query("select * from producteurAvis where id_production = ".$idProducteur.";");
+    $produits = $produits_query->fetchall(PDO::FETCH_ASSOC);
+    return $produits;
 }

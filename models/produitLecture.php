@@ -75,3 +75,12 @@ function getProduitsLimit($limit)
     $produits = $produits_query->fetchall(PDO::FETCH_ASSOC);
     return $produits;
 }
+
+function getNbProduitsOf($idProducteur)
+{
+    $bdd = getDBc();
+    $produits_query = $bdd->query("select nombreDeProduit as nb_produits from nbProduitProducteur where id_production = ".$idProducteur.";");
+    $nb_produits = $produits_query->fetch(PDO::FETCH_ASSOC);
+    return $nb_produits['nb_produits'];   
+}
+

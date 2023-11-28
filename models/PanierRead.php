@@ -1,6 +1,6 @@
 <?php
 
-function getPanier($idUtil) {
+function getPanierByUtil($idUtil) {
     $bdd = getDBc();
     $paniers_query = $bdd->query("select id_panier, date_panier, nom_statut from PANIER join STATUT on STATUT.id_statut = PANIER.id_statut where id_util = ".$idUtil." order by date_panier desc;");
     $paniers = $paniers_query->fetchall(PDO::FETCH_ASSOC);
@@ -13,3 +13,19 @@ function getProduitOf($idPanier) {
     $paniers = $paniers_query->fetchall(PDO::FETCH_ASSOC);
     return $paniers;
 }
+
+function getPanierEnCoursFromProductor($idProductor) {
+    $bdd = getDBc();
+    $paniers_query = $bdd->query("select * from producteurPanier where id_production = ".$idProductor." and id_statut in (2,3);");
+    $paniers = $paniers_query->fetchall(PDO::FETCH_ASSOC);
+    return $paniers;
+}
+
+function getPanierLivreeFromProductor($idProductor) {
+    $bdd = getDBc();
+    $paniers_query = $bdd->query("select * from producteurPanier where id_production = ".$idProductor." and id_statut = 4;");
+    $paniers = $paniers_query->fetchall(PDO::FETCH_ASSOC);
+    return $paniers;
+}
+
+

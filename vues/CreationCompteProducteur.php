@@ -18,7 +18,7 @@
             </a>
             <div class="header_connect">
                 <p class="header_connect_i">
-                    <img src="/images/logo_tete_compte.svg" alt="logo de création de compte">
+                    <img src="../images/logo_tete_compte.svg" alt="logo de création de compte">
                     <a href="">
                         <p class="header_connect_text">Se connecter</p>
                     </a>
@@ -35,12 +35,11 @@
         <div class="devenir_bloc_1">
             <a href="<?php echo $pathcontrolleurs.'/CreationCompteUtilisateur.php'?>">
                 <img src="/images/logo_client_compte.svg" alt="logo de client" class="logo_devenir">
-
                 <strong class="logo_devenir_text">Devenir consommateur</strong>
             </a>
         </div>
         <div class="devenir_bloc_2">
-            <img src="/images/logo_fermier_compte.svg" alt="logo de fermier" class="logo_devenir">
+            <img src="../images/logo_fermier_compte.svg" alt="logo de fermier" class="logo_devenir">
             <a href="">
                 <strong class="logo_devenir_text">Devenir vendeur producteur</strong>
             </a>
