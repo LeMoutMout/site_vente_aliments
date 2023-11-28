@@ -23,3 +23,20 @@ function getMessageWith($idUser1,$idUser2) {
     return $messages;
 }
 
+function getReceivedMessages($id_util) {
+    $db = getDBc();
+
+    $query = "SELECT MESSAGE.id_message, Utilisateur.nom_util, Utilisateur.pren_util, MESSAGE.contenu_message, MESSAGE.date_message
+              FROM MESSAGE
+              INNER JOIN RECEPTION ON MESSAGE.id_message = RECEPTION.id_message
+              INNER JOIN Utilisateur ON MESSAGE.id_util = Utilisateur.id_util
+              WHERE RECEPTION.id_util = :id_util
+              ORDER BY MESSAGE.date_message DESC";
+
+    $stmt = $db->prepare($query);
+    $stmt->bindParam(':id_util', $id_util, PDO::PARAM_INT);
+    $stmt->execute();
+
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+

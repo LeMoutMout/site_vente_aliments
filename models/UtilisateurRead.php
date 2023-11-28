@@ -44,6 +44,6 @@ function getUserIdByEmail($mail) {
     $user_query = $bdd->prepare("select id_util from UTILISATEUR where mail_util = :mail;");
     $user_query->execute(['mail'=>$mail]);
     $user = $user_query->fetch(PDO::FETCH_ASSOC);
-    return $user;
+    return $user['id_util'];
     ;
 }
