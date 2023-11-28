@@ -1,62 +1,113 @@
-
 body {
   font-family: poppins;
-  margin: 0;
-  padding: 0;
-  height: 100vh;
-  flex-direction: row;
 }
 
-#container {
+header {
+  padding: 0px 100px 0px 100px;
+}
+
+
+.wrapper {
   display: flex;
-  width: 100%;
-  padding-top: 1000px;
 }
 
-#left-panel {
-  width: 20%;
-  padding: 20px;
+.sidebar {
+  width: 250px;
   background-color: #f0f0f0;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
 }
 
-#conversations-list {
-  list-style: none;
-  padding: 0;
+.sidebar form {
+  margin-top: 10px;
 }
 
-#conversations-list li {
-  cursor: pointer;
-  padding: 10px;
-  border-bottom: 1px solid #ccc;
-}
-
-#right-panel {
+.chat-container {
   flex: 1;
   padding: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-#chat-messages {
+.chat-header {
+  background-color: #e0e0e0;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.chat-messages {
   max-height: 400px;
   overflow-y: auto;
-  margin-bottom: 20px;
-  border-bottom: 1px solid #ccc;
-}
-
-#message-input {
-  width: calc(100% - 80px);
-  padding: 10px;
-  margin-right: 10px;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
 }
 
-#send-button {
-  padding: 10px;
-  border: none;
-  background-color: #4caf50;
-  color: #fff;
+.message-input,
+#participant-input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+}
+
+textarea {
+  resize: none;
+  padding: 8px;
+  margin-bottom: 10px;
+}
+
+button {
   cursor: pointer;
-  border-radius: 5px;
+  padding: 8px;
+}
+
+#file-input {
+  margin-right: 10px;
+}
+
+form {
+  margin-bottom: 20px;
+}
+
+form label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.flex-container {
+  
+  display: flex;
+  justify-content: space-around;
+  align-items: stretch;
+  align-content: stretch;
+}
+
+.flex-items1 {
+  display: flex;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  align-self: auto;
+  order: 0;
+}
+
+.flex-items2 {
+  display: flex;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  align-self: auto;
+  order: 0;
+}
+
+.scroll{
+  overflow-y:auto;
+  max-height: 50%;
+} 
+.delete-button {
+  display: inline-block;
+  padding: 5px;
+  border: none;
+}
+
+.delete-button img {
+  width: 100%; 
+  height: auto; 
 }

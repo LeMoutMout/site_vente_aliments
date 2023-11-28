@@ -119,7 +119,7 @@
                     id="croix"
                     class="vector"
                     src="images/Vector.png"
-                    onclick="closePopup()" 
+                    onclick="closePopup();" 
                     alt="fermer"
                   />
                 </div>

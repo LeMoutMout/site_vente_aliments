@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../messagerie.css" />
-    <link rel="stylesheet" href="../index.css" />
-    <link rel="stylesheet" href="../styleguide.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
-      rel="stylesheet"
-    />
-    <title>Messagerie</title>
-  </head>
-  <body>
-    <header class="header">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../messagerie.css" />
+  <link rel="stylesheet" href="../index.css" />
+  <link rel="stylesheet" href="../styleguide.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <title>Messagerie</title>
+</head>
+
+<body>
+  <!-- <header class="header">
       <div class="header_bloc">
         <a href="index.html"
           ><h1 id="header_logo">Vege<b class="header_logo_shop">Shop</b></h1></a
@@ -183,26 +182,39 @@
           >
         </div>
       </nav>
-    </header>
-
-    <div id="container">
-        <div id="left-panel">
-            <form id="new-conversation-form" method="post">
-                <label for="search-input">Rechercher une conversation :</label>
-                <input id="search-input" type="email" name="email" placeholder="Adresse mail" required />
-            </form>
-            <ul id="conversations-list"></ul>
-        </div>
-        <div id="right-panel">
-            <div id="chat-messages"></div>
-            <form id="send-message-form" method="post">
-                <textarea id="message-input" name="message" placeholder="Tapez votre message" required></textarea>
-                <button id="send-button" type="submit">Envoyer</button>
-            </form>
-        </div>
+    </header> -->
+  <div class="flex-container">
+    <div class="flex-items1">
+      <form id="new-conversation-form" method="post">
+        <label for="participant-input">Envoyer un message : </label>
+        <input id="participant-input" type="email" name="email" placeholder="Adresse mail du destinataire" required />
+        <textarea id="message-input" name="message" placeholder="Tapez votre message" maxlength="255" required></textarea>
+        <button type="submit">Envoyer</button>
+      </form>
     </div>
+    <div class="flex-items2">
+      <div>
+        <h2 id="chat-title">Sélectionnez une conversation</h2>
+        <div class="scroll">
+          <?php
+          foreach ($receivedMessages as $message) : ?>
+            <div class="received">
+              <p><strong>De :</strong> <?= $message['pren_util'] . ' ' . $message['nom_util']; ?></p>
+              <p><strong>Date :</strong> <?= $message['date_message']; ?></p>
+              <p class="contenu-message"><strong>Contenu :</strong> <?= $message['contenu_message']; ?></p>
 
-    <script src="../messagerie.js"></script>
+              <form method="post">
+                <input type="hidden" name="message_id" value=<?php echo $message['id_message']; ?>>
+                <button type="submit" class="delete-button">
+                <img src="../images/delete.png" alt="croix" class="delete-img">
+            </button>
+              </form>
+            </div>
+          <?php endforeach; ?>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>
