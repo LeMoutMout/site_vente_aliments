@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -184,43 +184,25 @@
         </div>
       </nav>
     </header>
-    <div class="mailbox">
-      <div class="div1">
-        <form id="new-conversation-form">
-          <label for="participant-input">Rechercher une discussion : </label>
-          <input
-            id="participant-input"
-            type="email"
-            name="email"
-            placeholder="Adresse mail du destinataire"
-            required
-          />
-          <button type="submit">Démarrer la conversation</button>
-        </form>
-      </div>
-      <div class="div2">
-        <div class="chat-header">
-          <h2 id="chat-title">Sélectionnez une conversation</h2>
+
+    <div id="container">
+        <div id="left-panel">
+            <form id="new-conversation-form" method="post">
+                <label for="search-input">Rechercher une conversation :</label>
+                <input id="search-input" type="email" name="email" placeholder="Adresse mail" required />
+            </form>
+            <ul id="conversations-list"></ul>
         </div>
-        <div class="chat-messages" id="chat-messages">
-          <!-- Historique des conversations ici -->
+        <div id="right-panel">
+            <div id="chat-messages"></div>
+            <form id="send-message-form" method="post">
+                <textarea id="message-input" name="message" placeholder="Tapez votre message" required></textarea>
+                <button id="send-button" type="submit">Envoyer</button>
+            </form>
         </div>
-      </div>
-      <div class="div3">
-        <form id="message-form">
-          <textarea
-            id="message-input"
-            placeholder="Tapez votre message"
-            required
-          ></textarea>
-          <input type="file" id="file-input" />
-          <button type="submit">Envoyer</button>
-        </form>
-      </div>
-      <div class="div4">
-        test
-        <!-- Historique des messages d'une conversation ici -->
-      </div>
     </div>
-  </body>
+
+    <script src="../messagerie.js"></script>
+</body>
+
 </html>
