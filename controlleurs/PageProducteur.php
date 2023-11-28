@@ -28,10 +28,5 @@ if(isset($_SESSION['id_util'])){
     }
 }
 
-if($_POST['prete']){
-    
-}
-
-
-require $pathVues."/GestionProducteur.php";
+require $pathVues."/PageProducteur.php";
 ?>
