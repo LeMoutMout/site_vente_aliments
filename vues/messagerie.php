@@ -185,39 +185,24 @@
       </nav>
     </header>
 
-    <div class="mailbox">
-      <div class="div1">
-        <form id="new-conversation-form" method="post">
-          <label for="participant-input">Rechercher une discussion : </label>
-          <input
-            id="participant-input"
-            type="email"
-            name="email"
-            placeholder="Adresse mail du destinataire"
-            required
-          />
-          <textarea
-            name="message"
-            id="message-input"
-            placeholder="Tapez votre message"
-            required
-          ></textarea>
-          <button type="submit">Envoyer</button>
-        </form>
-      </div>
-      <div class="div2">
-        <div class="chat-header">
-          <h2 id="chat-title">Sélectionnez une conversation</h2>
+    <div id="container">
+        <div id="left-panel">
+            <form id="new-conversation-form" method="post">
+                <label for="search-input">Rechercher une conversation :</label>
+                <input id="search-input" type="email" name="email" placeholder="Adresse mail" required />
+            </form>
+            <ul id="conversations-list"></ul>
         </div>
-        <div action="messagerie.php" class="chat-messages" id="chat-messages">
-          
+        <div id="right-panel">
+            <div id="chat-messages"></div>
+            <form id="send-message-form" method="post">
+                <textarea id="message-input" name="message" placeholder="Tapez votre message" required></textarea>
+                <button id="send-button" type="submit">Envoyer</button>
+            </form>
         </div>
-      </div>
-      <div class="div3">
-      </div>
-      <div class="div4">
-        
     </div>
-    </div>
-  </body>
+
+    <script src="../messagerie.js"></script>
+</body>
+
 </html>

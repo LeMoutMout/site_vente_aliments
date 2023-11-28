@@ -1,95 +1,62 @@
+
 body {
   font-family: poppins;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  flex-direction: row;
 }
 
-header {
-  padding: 0px 100px 0px 100px;
-}
-
-
-.wrapper {
+#container {
   display: flex;
+  width: 100%;
+  padding-top: 1000px;
 }
 
-.sidebar {
-  width: 250px;
-  background-color: #f0f0f0;
+#left-panel {
+  width: 20%;
   padding: 20px;
+  background-color: #f0f0f0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.sidebar form {
-  margin-top: 10px;
+#conversations-list {
+  list-style: none;
+  padding: 0;
 }
 
-.chat-container {
+#conversations-list li {
+  cursor: pointer;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+#right-panel {
   flex: 1;
   padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.chat-header {
-  background-color: #e0e0e0;
-  padding: 10px;
-  margin-bottom: 10px;
-}
-
-.chat-messages {
+#chat-messages {
   max-height: 400px;
   overflow-y: auto;
-  border: 1px solid #ccc;
-  padding: 10px;
-  margin-bottom: 10px;
-}
-
-.message-input,
-#participant-input {
-  width: 100%;
-  padding: 8px;
-  margin-bottom: 10px;
-}
-
-textarea {
-  resize: none;
-  padding: 8px;
-  margin-bottom: 10px;
-}
-
-button {
-  cursor: pointer;
-  padding: 8px;
-}
-
-#file-input {
-  margin-right: 10px;
-}
-
-form {
   margin-bottom: 20px;
+  border-bottom: 1px solid #ccc;
 }
 
-form label {
-  display: block;
-  margin-bottom: 5px;
+#message-input {
+  width: calc(100% - 80px);
+  padding: 10px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
-.mailbox {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(5, 1fr);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
-  padding: 0px 100px 0px 100px;
-
-}
-
-.div1 {
-  grid-area: 1 / 1 / 2 / 3;
-}
-.div2 {
-  grid-area: 2 / 1 / 6 / 3;
-}
-.div3 {
-  grid-area: 5 / 3 / 6 / 6;
-}
-.div4 {
-  grid-area: 1 / 3 / 5 / 6;
+#send-button {
+  padding: 10px;
+  border: none;
+  background-color: #4caf50;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 5px;
 }
