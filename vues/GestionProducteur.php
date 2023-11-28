@@ -4,12 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../GestionProducteur.css" type="text/css">
+
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 
 <body>
+    <script src="../GestionProduit.js"></script>
     <header>
 
     </header>
@@ -78,31 +80,40 @@
                                     <div class="grid_produit_bottom_3">
                                         <strong><?php echo $produit['prix_produit'] . '€/' . $produit['nom_unite'] ?></strong>
                                     </div>
-                                    <div class="grid_produit_bottom_4">
-                                        <a href="">
-                                            <img src="../images/crayon_modif.svg" alt="modifier produit" class="image_crayon">
-                                        </a>
+                                    <div class="flex_center grid_produit_bottom_4" onclick="openPopup();">
+                                        <img src="../images/crayon_modif.svg" alt="modifier produit" class="image_crayon">
                                     </div>
                                     <div class="grid_produit_bottom_5 flex_center">
                                         <div class="souligne">
                                             Stock :
                                         </div>
                                         <?php echo '&nbsp;' . $produit['quantite_produit'] . '&nbsp;' . $produit['nom_unite'] ?>
-
                                     </div>
                                 </div>
                             </article>
                         <?php }
                         ?>
-                        <a href="" class="flex_center produit_stock">
-                            <img src="../images/croix_produit_sup.svg" alt="croix pproduit supplémentaire">
-                        </a>
+                        <form class="flex_center produit_stock" action="" method="post">
+                            <input type="hidden" name="ajout">
+                            <button class="transparent_button">
+                                <img src="../images/croix_produit_sup.svg" alt="croix pproduit supplémentaire">
+                            </button>
+                        </form>
                     </div>
                     <div class="scroll_arrow">
                         <img src="../images/fleche_stock.svg" alt="image descendre stock">
                     </div>
                 </div>
             </section>
+            <div id="overlay" class="overlay"></div>
+            <div id="popup" class="popup">
+                <div class="connexion">
+                    <div class="div">
+                        coucou
+                        <img id="croix" class="vector" src="../images/refuser.svg" onclick="closePopup()" alt="fermer" />
+                    </div>
+                </div>
+            </div>
             <section class="main_grid_3">
                 <div class="main_grid_titre_text">
                     <p class="flex_center">

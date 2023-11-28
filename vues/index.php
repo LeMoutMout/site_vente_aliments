@@ -118,8 +118,8 @@
                   <img
                     id="croix"
                     class="vector"
-                    src="images/Vector.png"
-                    onclick="closePopup()" 
+                    src="../images/refuser.svg"
+                    onclick="closePopup();" 
                     alt="fermer"
                   />
                 </div>
