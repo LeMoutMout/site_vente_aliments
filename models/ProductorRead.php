@@ -20,16 +20,17 @@
  * return l'utilisateur si sa match sinon -1;
  */
 
-function productorConnect($mail,$mdp) {
+function productorConnect($mail, $mdp)
+{
     $bdd = getDBc();
-    $user_query = $bdd->query("select PRODUCTEUR.id_util,mail_util,nom_util,pren_util,mdp_util,tel_util,adresse_util,id_production,descr_production from UTILISATEUR join PRODUCTEUR on PRODUCTEUR.id_util = UTILISATEUR.id_util where mail_util = '".$mail."';");
+    $user_query = $bdd->query("select PRODUCTEUR.id_util,mail_util,nom_util,pren_util,mdp_util,tel_util,adresse_util,id_production,descr_production from UTILISATEUR join PRODUCTEUR on PRODUCTEUR.id_util = UTILISATEUR.id_util where mail_util = '" . $mail . "';");
     $user = $user_query->fetch(PDO::FETCH_ASSOC);
-    
-    if (password_verify($mdp,$user['mdp_util'])) {
+
+    if (password_verify($mdp, $user['mdp_util'])) {
         $user['mdp_util'] = NULL;
         return $user;
     }
-    
+
     return -1;
 }
 
@@ -44,7 +45,7 @@ function getProductor()
 function getProductorById($id)
 {
     $bdd = getDBc();
-    $produits_query = $bdd->query("select UT.id_util,mail_util,adresse_util,nom_util,pren_util,tel_util,id_production,nom_production,descr_production from PRODUCTEUR as PR join UTILISATEUR as UT on UT.id_util = PR.id_util where id_production = ".$id.";");
+    $produits_query = $bdd->query("select UT.id_util,mail_util,adresse_util,nom_util,pren_util,tel_util,id_production,nom_production,descr_production from PRODUCTEUR as PR join UTILISATEUR as UT on UT.id_util = PR.id_util where id_production = " . $id . ";");
     $produits = $produits_query->fetch(PDO::FETCH_ASSOC);
     return $produits;
 }
@@ -65,3 +66,10 @@ function getProductorNonValide()
     return $produits;
 }
 
+function getProductorOrderByAvis($limit)
+{
+    $bdd = getDBc();
+    $produits_query = $bdd->query('select producteurValider.id_production,nom_production,descr_production,mail_producteur,nom_producteur,prenom_producteur,telephone_producteur,adresse_producteur,moyen_avis from producteurValider join producteurAvgAvis on producteurAvgAvis.id_production = producteurValider.id_production order by moyen_avis desc limit 0, '.$limit.';');
+    $produits = $produits_query->fetchall(PDO::FETCH_ASSOC);
+    return $produits;
+}

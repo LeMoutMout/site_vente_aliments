@@ -5,6 +5,7 @@ require $pathModels.'/produitLecture.php';
 require $pathModels.'/ProductorRead.php';
 require $pathModels.'/ImageGet.php';
 require $pathModels."/UtilisateurRead.php";
+require $pathModels."/AvisRead.php";
 
 $error_message = ""; // Initialisez la variable d'erreur
 
@@ -25,11 +26,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-$promos = getPromo(8);
+$promos = getPromo(6);
 
-$produits = getProduitsLimit(8);
+$produits = getProduitsLimit(10);
 
-$producteurs = getProductor();
+$producteurs = getProductorOrderByAvis(10);
 
 require $pathVues.'/index.php';
 ?>
