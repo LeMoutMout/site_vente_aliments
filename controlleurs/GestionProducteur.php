@@ -13,6 +13,19 @@ session_start();
 
 $_SESSION['id_util'] = 1;
 
+if (isset($_POST['refusee'])) {
+    changeStatut($_POST['refusee'], 5);
+}
+if (isset($_POST['prete'])) {
+    changeStatut($_POST['prete'], 3);
+}
+if (isset($_POST['livree'])) {
+    changeStatut($_POST['livree'], 4);
+}
+if (isset($_POST['pdf'])) {
+    //TODO
+}
+
 if (isset($_SESSION['id_util'])) {
     $productor = getProductorById($_SESSION['id_util']);
     if (isset($productor['id_production'])) {
@@ -29,18 +42,7 @@ if (isset($_SESSION['id_util'])) {
     }
 }
 
-if (isset($_POST['refusee'])) {
-    changeStatut($_POST['refusee'], 5);
-}
-if (isset($_POST['prete'])) {
-    changeStatut($_POST['prete'], 3);
-}
-if (isset($_POST['livree'])) {
-    changeStatut($_POST['livree'], 4);
-}
-if (isset($_POST['pdf'])) {
-    //TODO
-}
+
 
 
 

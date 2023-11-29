@@ -112,21 +112,21 @@
                     <div class="overlay_bloc">
                         <div class="overlay_top">
                             <div class="overlay_image_produit">
-                                
+                                <input type="file" accept="image/*" name="image" placeholder="Photo du produit" required>
                             </div>
                             <div class="overlay_contenu">
                                 <div class="overlay_nom_text">
-
+                                    Nom : &nbsp;
                                 </div>
                                 <div class="overlay_nom_completion">
-
+                                    <input type="text" name="nom" placeholder="Nom du produit" required>
                                 </div>
                                 <div class="overlay_stock_glob">
                                     <div class="overlay_stock_text">
-
+                                        Stock : &nbsp;
                                     </div>
                                     <div class="overlay_stock_qte">
-
+                                        <input type="number" name="stock" placeholder="0" min="0" required>
                                     </div>
                                     <div class="overlay_stock_change">
 
@@ -134,7 +134,7 @@
                                 </div>
                                 <div class="overlay_categorie_glob">
                                     <div class="overlay_categorie_text">
-
+                                        Categorie : &nbsp;
                                     </div>
                                     <div class="overlay_categorie_choix">
 
@@ -143,30 +143,38 @@
                             </div>
                             <div class="overlay_retour">
                                 <img src="../images/refuser.svg" onclick="closePopup()" alt="fermer" />
-
                             </div>
                         </div>
                         <div class="overlay_bottom">
-                            <div class="overlay_prix_glob">
-                                <div class="overlay_prix_text">
-
+                            <div class="overlay_bottom_top">
+                                <div class="overlay_prix_glob">
+                                    <div class="overlay_prix_text">
+                                        Prix : &nbsp;
+                                    </div>
+                                    <div class="overlay_prix_modif">
+                                        <input type="number" name="prix" placeholder="0" min="0" required>
+                                    </div>
+                                    <div class="overlay_unite">
+                                        <input type="search" name="" id="">
+                                    </div>
+                                    €/
                                 </div>
-                                <div class="overlay_prix_modif">
-
+                                <div class="overlay_promotion_glob">
+                                    <div class="overlay_promotion_text">
+                                        Promotion : &nbsp;
+                                    </div>
+                                    <div class="overlay_promotion_modif">
+                                        <input type="number" name="promotion" min="0" max="100">
+                                    </div>
+                                    %
                                 </div>
-                                <div class="overlay_unite">
-
-                                </div>
-                            </div>
-                            <div class="overlay_promotion">
-
                             </div>
                             <div class="overlay_bottom_bottom">
                                 <div class="overlay_image_bio">
-
+                                    <img src="../images/bio.svg" alt="sauvegarder">
                                 </div>
                                 <div class="overlay_image_save">
-
+                                    <img src="../images/save.svg" alt="sauvegarder">
                                 </div>
                             </div>
                         </div>
