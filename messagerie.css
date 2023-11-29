@@ -1,5 +1,8 @@
 body {
   font-family: poppins;
+  scroll-behavior: none;
+  overflow-y: hidden;
+
 }
 
 header {
@@ -40,8 +43,13 @@ header {
   margin-bottom: 10px;
 }
 
-.message-input,
-#participant-input {
+.message-input{
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+}
+
+.participant-input{
   width: 100%;
   padding: 8px;
   margin-bottom: 10px;
@@ -72,11 +80,12 @@ form label {
 }
 
 .flex-container {
-  
   display: flex;
   justify-content: space-around;
   align-items: stretch;
   align-content: stretch;
+  flex-direction: row;
+  
 }
 
 .flex-items1 {
@@ -86,8 +95,11 @@ form label {
   flex-basis: auto;
   align-self: auto;
   order: 0;
+  height: 175vh;
+  width: 200vh;
+  
 }
-
+ 
 .flex-items2 {
   display: flex;
   flex-grow: 0;
@@ -95,6 +107,7 @@ form label {
   flex-basis: auto;
   align-self: auto;
   order: 0;
+  width: 30%;
 }
 
 .scroll{
@@ -104,10 +117,54 @@ form label {
 .delete-button {
   display: inline-block;
   padding: 5px;
-  border: none;
+  background-color: green;
+  border-radius: 10px;
+border-color: black;
+border-style: solid;
+border-width: 2px;
+
 }
 
 .delete-button img {
   width: 100%; 
+  background-color: green;
   height: auto; 
+}
+
+.reply-button {
+  display: inline-block;
+  padding: 5px;
+  border-radius: 10px;
+  background-color: green;
+  border-color: black;
+  border-style: solid;
+  border-width: 2px;
+}
+
+.reply-img{
+  width: 100%; 
+  background-color: green;
+  height: auto; 
+}
+
+.form-icon{
+display: flex; 
+align-items: center;
+justify-content: space-between;
+border-radius: 15%;
+
+}
+
+.color-mail{
+  background-color: green;
+  border-radius: 15%;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+.title-conv{
+  background-color: green;
+  border-radius: 15%;
+  size: 10px;
+  padding-top: 1%;
+  padding-bottom: 1%;
 }

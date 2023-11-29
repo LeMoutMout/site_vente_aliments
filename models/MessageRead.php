@@ -40,4 +40,3 @@ function getReceivedMessages($id_util) {
 
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
-
