@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../GestionProducteur.css" type="text/css">
+    <link rel="stylesheet" href="../GestionProduit.css" type="text/css">
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -107,12 +108,70 @@
             </section>
             <div id="overlay" class="overlay"></div>
             <div id="popup" class="popup">
-                <div class="connexion">
-                    <div class="div">
-                        coucou
-                        <img id="croix" class="vector" src="../images/refuser.svg" onclick="closePopup()" alt="fermer" />
+                <form action="" method="post">
+                    <div class="overlay_bloc">
+                        <div class="overlay_top">
+                            <div class="overlay_image_produit">
+                                
+                            </div>
+                            <div class="overlay_contenu">
+                                <div class="overlay_nom_text">
+
+                                </div>
+                                <div class="overlay_nom_completion">
+
+                                </div>
+                                <div class="overlay_stock_glob">
+                                    <div class="overlay_stock_text">
+
+                                    </div>
+                                    <div class="overlay_stock_qte">
+
+                                    </div>
+                                    <div class="overlay_stock_change">
+
+                                    </div>
+                                </div>
+                                <div class="overlay_categorie_glob">
+                                    <div class="overlay_categorie_text">
+
+                                    </div>
+                                    <div class="overlay_categorie_choix">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="overlay_retour">
+                                <img src="../images/refuser.svg" onclick="closePopup()" alt="fermer" />
+
+                            </div>
+                        </div>
+                        <div class="overlay_bottom">
+                            <div class="overlay_prix_glob">
+                                <div class="overlay_prix_text">
+
+                                </div>
+                                <div class="overlay_prix_modif">
+
+                                </div>
+                                <div class="overlay_unite">
+
+                                </div>
+                            </div>
+                            <div class="overlay_promotion">
+
+                            </div>
+                            <div class="overlay_bottom_bottom">
+                                <div class="overlay_image_bio">
+
+                                </div>
+                                <div class="overlay_image_save">
+
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                </form>
             </div>
             <section class="main_grid_3">
                 <div class="main_grid_titre_text">
