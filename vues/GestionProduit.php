@@ -45,7 +45,7 @@
                         </div>
                         &nbsp;
                         <div class="overlay_prix_modif">
-                            <input type="number" name="prix" placeholder="0" min="0" step="0.1" required>
+                            <input type="number" name="prix" placeholder="0" min="0" step="0.01" required>
                         </div>
                         €/
                         <div class="overlay_unite">
