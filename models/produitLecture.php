@@ -44,6 +44,14 @@ function getProduitsTag($tag)
     return $produits;
 }
 
+function getLastIdProduit()
+{
+    $bdd = getDBc();
+    $produits_query = $bdd->query("select MAX(id_produit) as id_produit from PRODUIT ;");
+    $id_produit = $produits_query->fetch(PDO::FETCH_ASSOC);
+    return $id_produit['id_produit'];
+}
+
 function getProduitsTagSearch($tag, $search)
 {
     $bdd = getDBc();

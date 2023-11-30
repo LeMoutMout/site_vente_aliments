@@ -81,7 +81,7 @@
                                     <div class="grid_produit_bottom_3">
                                         <strong><?php echo $produit['prix_produit'] . '€/' . $produit['nom_unite'] ?></strong>
                                     </div>
-                                    <div class="flex_center grid_produit_bottom_4" onclick="openPopup();">
+                                    <div class="flex_center grid_produit_bottom_4" onclick="openPopup('edit', '<?php echo $produit['id_produit']?>', '<?php echo $produit['nom_produit']?>', '<?php echo $produit['quantite_produit']?>', '<?php echo $produit['prix_produit']?>', '<?php echo $produit['nom_unite']?>', '<?php echo $produit['promotion_produit']?>', '<?php echo $produit['bio_produit']?>', '<?php echo 'prout'?>');">
                                         <img src="../images/crayon_modif.svg" alt="modifier produit" class="image_crayon">
                                     </div>
                                     <div class="grid_produit_bottom_5 flex_center">
@@ -94,93 +94,15 @@
                             </article>
                         <?php }
                         ?>
-                        <form class="flex_center produit_stock" action="" method="post">
-                            <input type="hidden" name="ajout">
-                            <button class="transparent_button">
-                                <img src="../images/croix_produit_sup.svg" alt="croix pproduit supplémentaire">
-                            </button>
-                        </form>
+                        <div class="flex_center produit_stock" onclick="openPopup('add');">
+                            <img src="../images/croix_produit_sup.svg" alt="croix produit supplémentaire">
+                        </div>
                     </div>
                     <div class="scroll_arrow">
                         <img src="../images/fleche_stock.svg" alt="image descendre stock">
                     </div>
                 </div>
             </section>
-            <div id="overlay" class="overlay"></div>
-            <div id="popup" class="popup">
-                <form action="" method="post">
-                    <div class="overlay_bloc">
-                        <div class="overlay_top">
-                            <div class="overlay_image_produit">
-                                <input type="file" accept="image/*" name="image" placeholder="Photo du produit" required>
-                            </div>
-                            <div class="overlay_contenu">
-                                <div class="overlay_nom_text">
-                                    Nom : &nbsp;
-                                </div>
-                                <div class="overlay_nom_completion">
-                                    <input type="text" name="nom" placeholder="Nom du produit" required>
-                                </div>
-                                <div class="overlay_stock_glob">
-                                    <div class="overlay_stock_text">
-                                        Stock : &nbsp;
-                                    </div>
-                                    <div class="overlay_stock_qte">
-                                        <input type="number" name="stock" placeholder="0" min="0" required>
-                                    </div>
-                                    <div class="overlay_stock_change">
-
-                                    </div>
-                                </div>
-                                <div class="overlay_categorie_glob">
-                                    <div class="overlay_categorie_text">
-                                        Categorie : &nbsp;
-                                    </div>
-                                    <div class="overlay_categorie_choix">
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="overlay_retour">
-                                <img src="../images/refuser.svg" onclick="closePopup()" alt="fermer" />
-                            </div>
-                        </div>
-                        <div class="overlay_bottom">
-                            <div class="overlay_bottom_top">
-                                <div class="overlay_prix_glob">
-                                    <div class="overlay_prix_text">
-                                        Prix : &nbsp;
-                                    </div>
-                                    <div class="overlay_prix_modif">
-                                        <input type="number" name="prix" placeholder="0" min="0" required>
-                                    </div>
-                                    <div class="overlay_unite">
-                                        <input type="search" name="" id="">
-                                    </div>
-                                    €/
-                                </div>
-                                <div class="overlay_promotion_glob">
-                                    <div class="overlay_promotion_text">
-                                        Promotion : &nbsp;
-                                    </div>
-                                    <div class="overlay_promotion_modif">
-                                        <input type="number" name="promotion" min="0" max="100">
-                                    </div>
-                                    %
-                                </div>
-                            </div>
-                            <div class="overlay_bottom_bottom">
-                                <div class="overlay_image_bio">
-                                    <img src="../images/bio.svg" alt="sauvegarder">
-                                </div>
-                                <div class="overlay_image_save">
-                                    <img src="../images/save.svg" alt="sauvegarder">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
             <section class="main_grid_3">
                 <div class="main_grid_titre_text">
                     <p class="flex_center">
@@ -231,7 +153,7 @@
                         <?php foreach ($paniers as $panier) {
                             $total = 0;
                             foreach (getProduitOf($panier['id_panier']) as $produit) {
-                                $total = $total + $produit['quantite_produit'] * $produit['prix_produit'];
+                                $total = $total + $produit['quantite_produit'] * $produit['prix_produit'] * (1 - $produit['promotion_produit'] / 100);
                             }
                             $user = getUserByID($panier['id_util']) ?>
                             <article class="grid_4_parent">
@@ -280,21 +202,21 @@
                                     </div>
                                 </div>
                                 <div class="grid_4_6 flex_space_around">
-                                    <form class="flex_center" action="" method="post">
+                                    <form class="flex_center" method="post">
                                         <input type="hidden" name="refusee" value=<?php echo $panier['id_panier'] ?>>
                                         <button class="transparent_button">
                                             <img src="../images/refuser.svg" alt="refuser" class="image_refuser">
                                         </button>
                                     </form>
                                     <?php if ($panier['id_statut'] == 2) { ?>
-                                        <form class="flex_center" action="" method="post">
+                                        <form class="flex_center" method="post">
                                             <input type="hidden" name="prete" value=<?php echo $panier['id_panier'] ?>>
                                             <button class="transparent_button">
                                                 <img src="../images/prete.svg" alt="prete" class="image_panier_encours">
                                             </button>
                                         </form>
                                     <?php } else { ?>
-                                        <form class="flex_center" action="" method="post">
+                                        <form class="flex_center" method="post">
                                             <input type="hidden" name="livree" value=<?php echo $panier['id_panier'] ?>>
                                             <button class="transparent_button">
                                                 <img src="../images/livree.svg" alt="livree" class="image_panier_livre">
@@ -307,7 +229,7 @@
                                         Générer un pdf :
                                     </div>
                                     &nbsp;
-                                    <form class="flex_center" action="" method="post">
+                                    <form class="flex_center" method="post">
                                         <input type="hidden" name="pdf" value=<?php echo $panier['id_panier'] ?>>
                                         <button class="transparent_button">
                                             <img src="../images/pdf.svg" alt="pdf" class="image_pdf">
