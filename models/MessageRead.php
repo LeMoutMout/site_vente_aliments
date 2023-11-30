@@ -27,7 +27,7 @@ function getMessageWith($idUser1,$idUser2) {
 function getReceivedMessages($id_util) {
     $db = getDBc();
 
-    $query = "SELECT MESSAGE.id_message, Utilisateur.nom_util, Utilisateur.pren_util, MESSAGE.contenu_message, MESSAGE.date_message
+    $query = "SELECT MESSAGE.id_message, Utilisateur.nom_util, Utilisateur.pren_util, Utilisateur.mail_util, MESSAGE.contenu_message, MESSAGE.date_message
               FROM MESSAGE
               INNER JOIN RECEPTION ON MESSAGE.id_message = RECEPTION.id_message
               INNER JOIN Utilisateur ON MESSAGE.id_util = Utilisateur.id_util
