@@ -132,18 +132,30 @@
         <!--<div id="overlay_connection" class="overlay_connection"></div>-->
         <div class="align_center">
             <div id="popup_connection" class="popup_connection">
+                <div class="f425"><img class='croix' src="<?php echo $pathImage . '/croix.svg' ?>" onclick="closeConnectionPopup();" /></div>
                 <div class="connection">
-                    <div></div>
                     <form class="form_connection" action="connect" method="post">
-                        <div class="titre align_center">Connexion</div>
-                        <input class="chant_text" type="email" id="email" name="email" placeholder="Adresse mail" required />
-                        <input class="chant_text" type="password" id="password" name="password" placeholder="Mot de passe" required />
-                        <a href="MotDePasseOublie.php">Mot de passe oublié</a>
-                        <input class="chant_text" type="submit" value="Se connecter" />
-                        <a href="CreationCompteUtilisateur.php">Créer son compte</a>
+                        <div class="titre align_center">
+                            Connexion
+                        </div>
+                        <div class="align_center">
+                            <input class="chant_text" type="email" id="email" name="email" placeholder="Adresse mail" required />
+                        </div>
+                        <div class="align_center">
+                            <input class="chant_text" type="password" id="password" name="password" placeholder="Mot de passe" required />
+                        </div>
+                        <div class="align_center">
+                            <a href="MotDePasseOublie.php">Mot de passe oublié</a>
+                        </div>
+                        <div class="align_center">
+                            <input class="chant_text" type="submit" value="Se connecter" />
+                        </div>
+                        <div class="align_center">
+                            <a href="CreationCompteUtilisateur.php">Créer son compte</a>
+                        </div>
                     </form>
                     <div class='croix_contenaire'>
-                        <img class='croix' src="<?php echo $pathImage . '/croix.svg' ?>" onclick="closeConnectionPopup();" />
+                        <img class='croix opt425' src="<?php echo $pathImage . '/croix.svg' ?>" onclick="closeConnectionPopup();" />
                     </div>
                 </div>
             </div>
