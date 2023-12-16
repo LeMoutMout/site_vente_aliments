@@ -1,59 +1,96 @@
 <?php
-//* a suprimer
+/* a suprimer
 require "./globalVar.php";
-require $pathModels.'/ImageGet.php';
 
 $nomPage = "truc";
-
-$devenirProducteur = true;
+/*
+$devenirProducteur = false;
 $ajouteUnProduit = false;
 $gestionProduit = false;
-$gestionCompte = false;
+$gestionCompte = true;
 
 $barreDeRecherche = true;
 
 $mesPanier = true;
-$messagerie =true;
-/**///-----------
+$messagerie = true;
+/**/ //-----------
 
 $csss[] = "../Header.css";
 
-session_start();
+//---/
+if (session_status() != PHP_SESSION_ACTIVE) {
+    session_start();
+}
+
+if (isset($_POST['ConnectionMail']) && isset($_POST['ConnectionPassword'])) {
+    $user = connect($_POST['ConnectionMail'], $_POST['ConnectionPassword']);
+
+    if ($user !== -1) {
+
+        $_SESSION['id_util'] = $user['id_util'];
+        $_SESSION['mail_util'] = $user['mail_util'];
+        if (($idp = isProducteur($user['id_util'])) != -1) {
+            $_SESSION['id_production'] = $idp;
+        }
+    } else {
+        $error_message = "Identifiants invalides. Veuillez réessayer.";
+    }
+}
 
 if (isset($_SESSION['id_util']) && isset($_SESSION['mail_util'])) {
     $isConnected = true;
     $idUtilisateur = $_SESSION['id_util'];
     $mailUtilisateur = $_SESSION['mail_util'];
-}else {
+} else {
     $isConnected = false;
 }
 
-if (!isset($devenirProducteur)){
+if (!isset($devenirProducteur) && !isset($ajouteUnProduit) && !isset($barreDeRecherche) && !isset($gestionProduit) && !isset($mesPanier) && !isset($messagerie) && !isset($gestionCompte)) {
+    $barreDeRecherche = true;
+    if ($isConnected) {
+        $messagerie = true;
+        $mesPanier = true;
+
+        if (isProducteur($idUtilisateur) !== -1){
+            $gestionProduit = true;
+        }
+
+        if(isAdmin($idUtilisateur)){
+            $gestionCompte = true;
+        }       
+    }
+    
+    if (!isset($gestionProduit) && !isset($gestionCompte)) {
+        $devenirProducteur = true;
+    } 
+}
+
+if (!isset($devenirProducteur)) {
     $devenirProducteur = false;
 }
 
-if (!isset($ajouteUnProduit)){
+if (!isset($ajouteUnProduit)) {
     $ajouteUnProduit = false;
 }
 
-if (!isset($barreDeRecherche)){
+if (!isset($barreDeRecherche)) {
     $barreDeRecherche = false;
 }
 
-if (!isset($gestionProduit)){
+if (!isset($gestionProduit)) {
     $gestionProduit = false;
 }
 
-if (!isset($mesPanier)){
+if (!isset($mesPanier)) {
     $mesPanier = false;
 }
 
-if (!isset($messagerie)){
+if (!isset($messagerie)) {
     $messagerie = false;
 }
 
-if (isset($gestionCompte)){
+if (!isset($gestionCompte)) {
     $gestionCompte = false;
 }
 
-require $pathVues."/header.php";
+require $pathVues . "/header.php";

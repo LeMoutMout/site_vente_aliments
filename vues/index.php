@@ -21,26 +21,8 @@
         Promotions
       </div>
       <div class="bloc_scrollable flex_space_arround">
-        <?php foreach ($promos as $promo) { ?>
-          <div class="promo_parent">
-            <div class="promo_div1 align_center">
-              <img class="auto_size img_pr" src="<?php echo getProductImage($promo['id_produit']) ?>">
-            </div>
-            <div class="promo_div2 align_center">
-              <img class="auto_size img_producteur" src="<?php echo getUserImage($promo['id_production']) ?>">
-            </div>
-            <div class="promo_div3">
-              <?php echo $promo['nom_production'] . "<br><strong>" . $promo['nom_produit'] . "</strong>" ?>
-            </div>
-            <div class="promo_div4">
-              <?php echo $promo['prix_produit'] . "/" . $promo['nom_unite'] ?>
-              <a class="promo_val"> <?php echo "-" . $promo['promotion_produit'] . "%" ?> </a>
-            </div>
-            <div class="promo_div5">
-              <img src="<?php echo $pathImage . '/cart.svg' ?>">
-            </div>
-          </div>
-        <?php
+        <?php foreach ($promos as $produitAAffiche) { 
+          require $pathVues .'/produit.php';
         }
         ?>
       </div>

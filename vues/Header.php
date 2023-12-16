@@ -18,7 +18,7 @@
             <div class="logo">
                 <img src="<?php echo $pathImage . '/VegeShoplogo.svg' ?>">
             </div>
-            <div class="align_img_text" onclick="openConnectionPopup();">
+            <div class="align_img_text" <?php echo (!$isConnected) ? 'onclick="openConnectionPopup();"' : null; ?>>
                 <img class="img_header auto_size_img_header" src="<?php echo ($isConnected) ? getUserImage($idUtilisateur) : $pathImage . '/logoDefaultUser.svg'; ?>">
                 <a class="text_header opt425">
                     <?php echo ($isConnected) ? $mailUtilisateur : "connection"; ?>
@@ -43,7 +43,7 @@
                 <button class="bouton_header">
                     <div class="align_img_text">
                         <img class="img_header auto_size_img_header" src="<?php echo $pathImage . '/carbon_fruit-bowl.svg' ?>" alt="">
-                        <a class="text_header align_center">
+                        <a class="text_header align_center opt425">
                             ajoute un produit
                         </a>
                     </div>
@@ -55,7 +55,7 @@
                     <button class="bouton_header">
                         <div class="align_img_text">
                             <img class="img_header auto_size_img_header" src="<?php echo $pathImage . '/fermier.svg' ?>" alt="">
-                            <a class="text_header align_center">
+                            <a class="text_header align_center opt425">
                                 gestion production
                             </a>
                         </div>
@@ -67,8 +67,8 @@
                 <form action="<?php echo $pathcontrolleurs . '/admin.php'; ?>">
                     <button class="bouton_header">
                         <div class="align_img_text">
-                            <img class="img_header auto_size_img_header" src="<?php echo $pathImage . '/fermier.svg' ?>" alt="">
-                            <a class="text_header align_center">
+                            <img class="img_header auto_size_img_header" src="<?php echo $pathImage . '/gestionCompte.svg' ?>" alt="">
+                            <a class="text_header align_center opt425">
                                 gestion des comptes
                             </a>
                         </div>
@@ -112,37 +112,23 @@
                     </button>
                 </form>
             <?php } ?>
-
-            <?php ?>
-            <?php ?>
-            <?php ?>
-            <?php ?>
-            <?php ?>
-            <?php ?>
-            <?php ?>
-            <?php ?>
-            <?php ?>
-            <?php ?>
-            <?php ?>
-            <?php ?>
-            <?php ?>
         </div>
 
         <!-- popUp -->
-        <!--<div id="overlay_connection" class="overlay_connection"></div>-->
+        <div id="overlay_connection" class="overlay_connection"></div>
         <div class="align_center">
             <div id="popup_connection" class="popup_connection">
                 <div class="f425"><img class='croix' src="<?php echo $pathImage . '/croix.svg' ?>" onclick="closeConnectionPopup();" /></div>
                 <div class="connection">
-                    <form class="form_connection" action="connect" method="post">
+                    <form class="form_connection" action="" method="post">
                         <div class="titre align_center">
                             Connexion
                         </div>
                         <div class="align_center">
-                            <input class="chant_text" type="email" id="email" name="email" placeholder="Adresse mail" required />
+                            <input class="chant_text" type="email" name="ConnectionMail" placeholder="Adresse mail" required />
                         </div>
                         <div class="align_center">
-                            <input class="chant_text" type="password" id="password" name="password" placeholder="Mot de passe" required />
+                            <input class="chant_text" type="password" name="ConnectionPassword" placeholder="Mot de passe" required />
                         </div>
                         <div class="align_center">
                             <a href="MotDePasseOublie.php">Mot de passe oublié</a>
@@ -161,5 +147,3 @@
             </div>
         </div>
     </header>
-    <?php
-    var_dump($_SESSION);

@@ -1,8 +1,6 @@
 <?php
 require './GlobalVar.php';
 
-require $pathModels.'/is.php';
-
 session_start();
 
 if(isset($_SESSION['id_util'])){

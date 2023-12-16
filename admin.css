@@ -84,6 +84,7 @@ a {
 .body_g_div1 {
   grid-area: 1 / 1 / 2 / 4;
   width: 60vw;
+  height: 100%;
 }
 
 .body_g_div2 {

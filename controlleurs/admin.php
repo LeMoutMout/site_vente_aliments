@@ -1,10 +1,7 @@
 <?php
 
 require "./GlobalVar.php";
-require $pathModels."/is.php";
 session_start();
-
-$_SESSION['id_util'] = 10;
 
 if (!isAdmin($_SESSION['id_util'])){
     //redirect
@@ -13,7 +10,6 @@ if (!isAdmin($_SESSION['id_util'])){
 }
 
 require $pathModels."/ProductorRead.php";
-require $pathModels."/ImageGet.php";
 
 if (isset($_POST['idUserASupr'])){
     require $pathModels."/DeleteAccount.php";
@@ -26,11 +22,15 @@ if (isset($_POST['idUserAValide'])){
 }
 
 if (isset($_GET['recherche'])) {
-    require $pathModels."/utilisateurRead.php";
     $usersSearch = getUserSearch($_GET['recherche']);
 }
 
 $producteursNonValide = getProductorNonValide();
 
+$csss[] = "../admin.css";
 
+$messagerie = true;
+$mesPanier = true;
+
+require $pathcontrolleurs .'/Header.php';
 require $pathVues."/admin.php";
