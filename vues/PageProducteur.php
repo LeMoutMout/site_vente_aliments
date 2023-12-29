@@ -56,7 +56,7 @@
             <section class="main_grid_2">
                 <div class=" main_grid_titre_text">
                     <p class="flex_center">
-                        Produits / Stocks
+                        Produits
                     </p>
                 </div>
                 <div class="flex_center scroll_conteneur_y">
@@ -79,24 +79,18 @@
                                         <strong><?php echo $produit['prix_produit'] . '€/' . $produit['nom_unite'] ?></strong>
                                     </div>
                                     <div class="grid_produit_bottom_4">
-                                        <a href="">
-                                            <img src="../images/crayon_modif.svg" alt="modifier produit" class="image_crayon">
-                                        </a>
+
                                     </div>
                                     <div class="grid_produit_bottom_5 flex_center">
                                         <div class="souligne">
                                             Stock :
                                         </div>
                                         <?php echo '&nbsp;' . $produit['quantite_produit'] . '&nbsp;' . $produit['nom_unite'] ?>
-
                                     </div>
                                 </div>
                             </article>
                         <?php }
                         ?>
-                        <a href="" class="flex_center produit_stock">
-                            <img src="../images/croix_produit_sup.svg" alt="croix pproduit supplémentaire">
-                        </a>
                     </div>
                     <div class="scroll_arrow">
                         <img src="../images/fleche_stock.svg" alt="image descendre stock">
@@ -143,7 +137,10 @@
                 </div>
             </section>
             <section class="main_grid_4">
-                
+                <div class="main_grid_titre_text">
+                    <p class="flex_center">Où nous trouver ?</p>
+                </div>
+                <iframe id="map-canvas" class="map_part" width="100%" height="80%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=fr&amp;q='<?php echo $adresse ?>'+(Nom%20de%20votre%20%C3%A9tablissement)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
             </section>
         </main>
     </div>

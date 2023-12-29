@@ -1,9 +1,9 @@
 <?php
 
 function getDBc() {
-    $host = '25.62.203.145:3306';
+    $host = 'localhost';
     $dbName = 'sae';
-    $user = 'php';
-    $psw = 'PHPcours2023';
+    $user = 'root';
+    $psw = '';
     return new PDO('mysql:host=' . $host . ';dbname=' . $dbName, $user, $psw);
 }

@@ -24,7 +24,6 @@ if(isset($_SESSION['id_util'])){
         $avis = getAvisFromProducteur($productor['id_production']);
         $nb_avis = getNbAvisOf($productor['id_production']);
         $moy_avis = getAVGAvisOf($productor['id_production']);
-        $paniers = getPanierEnCoursFromProductor($productor['id_production']);
     }
 }
 

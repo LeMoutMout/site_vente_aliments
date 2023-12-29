@@ -363,6 +363,12 @@ a {
     border-radius: 90px;
 }
 
+.text_adresse {
+    display: grid;
+    justify-content: center;
+    font-size: 40px;
+}
+
 .footer_bloc {
     margin-top: 50px;
     background: #404040;
