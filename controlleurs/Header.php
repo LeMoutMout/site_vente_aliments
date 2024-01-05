@@ -93,4 +93,7 @@ if (!isset($gestionCompte)) {
     $gestionCompte = false;
 }
 
+if (!isset($recherchePath)) {
+    $recherchePath = $pathcontrolleurs . '/rechercheProduit.php';
+}
 require $pathVues . "/header.php";

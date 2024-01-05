@@ -77,7 +77,7 @@
             <?php } ?>
 
             <?php if ($barreDeRecherche) { ?>
-                <form class="search" action="<?php echo $pathcontrolleurs . '/rechercheProduit'; ?>" method="get">
+                <form id="recherche" class="search" action="<?php echo $recherchePath; ?>" method="get">
                     <input class="text_search" type="text" name="recherche" value="<?php echo isset($_GET['recherche']) ? $_GET['recherche'] : null  ?>" require />
                     <button class="button_search">
                         <svg class="auto_size" xmlns="http://www.w3.org/2000/svg" width="15" height="14" viewBox="0 0 19 18" fill="none">

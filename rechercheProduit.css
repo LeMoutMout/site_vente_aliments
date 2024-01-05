@@ -1,0 +1,50 @@
+.sapce_between {
+    display: flex;
+    justify-content: space-between;
+}
+
+.no_warp {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.checkBox {
+    margin: 10px;
+    max-height: 80%;
+    height: auto;
+    width: auto;
+}
+
+.produit_block {
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 1%;
+    width: 90%;
+    height: 70vh;
+}
+.bloc_scrollable {
+    overflow-y: auto;
+    width: 100%;
+    height: 100%;
+}
+
+.align_center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+}
+
+
+.flex_space_arround {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.choise_block {
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 1%;
+    width: 90%;
+}
