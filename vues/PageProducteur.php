@@ -4,12 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../PageProducteur.css" type="text/css">
+    <link rel="stylesheet" href="../AchatProduit.css" type="text/css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 
 <body>
+    <script src="../AchatProduit.js"></script>
     <header>
 
     </header>
@@ -78,8 +80,8 @@
                                     <div class="grid_produit_bottom_3">
                                         <strong><?php echo $produit['prix_produit'] . '€/' . $produit['nom_unite'] ?></strong>
                                     </div>
-                                    <div class="grid_produit_bottom_4">
-
+                                    <div class="flex_center grid_produit_bottom_4" onclick="openPopup('<?php echo $produit['id_produit'] ?>', '<?php echo $produit['nom_produit'] ?>', '<?php echo $produit['quantite_produit'] ?>', '<?php echo $produit['prix_produit'] ?>', '<?php echo $produit['nom_unite'] ?>', '<?php echo $produit['promotion_produit'] ?>', '<?php echo $produit['bio_produit'] ?>', '<?php echo 'prout' ?>');">
+                                        <img src="../images/cart.svg" alt="acheter produit" class="image_cart">
                                     </div>
                                     <div class="grid_produit_bottom_5 flex_center">
                                         <div class="souligne">
