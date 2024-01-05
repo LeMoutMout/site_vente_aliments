@@ -391,7 +391,7 @@ a {
 .tracteur {
     margin-top: 15vh;
     display: grid;
-    grid-template-columns: 100vw;
+    grid-template-columns: 100%;
     grid-template-rows: 1fr;
 }
 

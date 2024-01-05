@@ -43,30 +43,10 @@
   </div>
   <div class="produit_block align_center">
     <div class="bloc_scrollable flex_space_arround">
-      <?php foreach ($produits as $produit) { ?>
-        <div class="promo_parent">
-          <div class="promo_div1 align_center">
-            <img class="img_pr auto_size" src="<?php echo getProductImage($produit['id_produit']) ?>">
-          </div>
-          <div class="promo_div2 align_center">
-            <img class="img_producteur auto_size" src="<?php echo getUserImage($produit['id_production']) ?>">
-          </div>
-          <div class="promo_div3">
-            <?php echo $produit['nom_production'] . "<br><strong>" . $produit['nom_produit'] . "</strong>" ?>
-          </div>
-          <div class="promo_div4">
-            <?php echo $produit['prix_produit'] . "/" . $produit['nom_unite'] ?>
-            <?php if (isset($produit['promotion_produit'])) { ?>
-              <a class="promo_val"> <?php echo "-" . $produit['promotion_produit'] . "%" ?> </a>
-            <?php } ?>
-          </div>
-          <div class="promo_div5">
-            <img src="<?php echo $pathImage . '/cart.svg' ?>">
-          </div>
-        </div>
-      <?php } ?>
+      <?php foreach ($produits as $produitAAffiche) { 
+         require $pathVues . '/produit.php';
+       } ?>
     </div>
-
   </div>
   <div class="align_center">
     <!--verifier path-->
