@@ -76,6 +76,22 @@ function getProduitsFromProducteur($idProducteur)
     return $produits;
 }
 
+function getProduitsBigSearchBioFrom($producteur, $search)
+{
+    $bdd = getDBc();
+    $produits_query = $bdd->query("select produitPageRecherche.* from produitPageRecherche join categorisation as catg on produitPageRecherche.id_produit = catg.id_produit join categorie as catr on catr.id_categorie = catg.id_categorie where id_production = ".$producteur." and bio_produit = 1 and (LOWER(nom_produit) like LOWER('%" . $search . "%') or lower(catr.nom_categorie) like LOWER('%" . $search . "%'))group by id_produit;");
+    $produits = $produits_query->fetchall(PDO::FETCH_ASSOC);
+    return $produits;
+}
+
+function getProduitsBigSearchFrom($producteur, $search)
+{
+    $bdd = getDBc();
+    $produits_query = $bdd->query("select produitPageRecherche.* from produitPageRecherche join categorisation as catg on produitPageRecherche.id_produit = catg.id_produit join categorie as catr on catr.id_categorie = catg.id_categorie where id_production = ".$producteur." and (LOWER(nom_produit) like LOWER('%" . $search . "%') or lower(catr.nom_categorie) like LOWER('%" . $search . "%')) group by id_produit;");
+    $produits = $produits_query->fetchall(PDO::FETCH_ASSOC);
+    return $produits;
+}
+
 function getPromo($limit)
 {
     $bdd = getDBc();
