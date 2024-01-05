@@ -80,7 +80,7 @@
                                     <div class="grid_produit_bottom_3">
                                         <strong><?php echo $produit['prix_produit'] . '€/' . $produit['nom_unite'] ?></strong>
                                     </div>
-                                    <div class="flex_center grid_produit_bottom_4" onclick="openPopup('<?php echo $produit['id_produit'] ?>', '<?php echo $produit['nom_produit'] ?>', '<?php echo $produit['quantite_produit'] ?>', '<?php echo $produit['prix_produit'] ?>', '<?php echo $produit['nom_unite'] ?>', '<?php echo $produit['promotion_produit'] ?>', '<?php echo $produit['bio_produit'] ?>', '<?php echo 'prout' ?>');">
+                                    <div class="flex_center grid_produit_bottom_4" onclick="openPopup('<?php echo $produit['id_produit'] ?>', '<?php echo $produit['nom_produit'] ?>', '<?php echo $nom_producteur ?>', '<?php echo $produit['quantite_produit'] ?>', '<?php echo $produit['nom_unite'] ?>','<?php echo $image_producteur ?>');">
                                         <img src="../images/cart.svg" alt="acheter produit" class="image_cart">
                                     </div>
                                     <div class="grid_produit_bottom_5 flex_center">
