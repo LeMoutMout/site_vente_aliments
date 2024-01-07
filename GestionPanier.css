@@ -189,34 +189,10 @@ main {
 
 .grid_6 {
     grid-area: 1 / 4 / 2 / 5;
-}
-
-.transparent_button {
-    background: none;
-    border: 0px
-}
-
-.image_refuser {
-    max-width: 100%;
-    max-height: 100%;
-    width: auto;
-    height: auto;
-}
-
-.image_panier_encours {
-    max-width: 100%;
-    max-height: 100%;
-    width: auto;
-    height: auto;
-    border-radius: 5px;
-}
-
-.image_panier_livre {
-    max-width: 100%;
-    max-height: 100%;
-    width: auto;
-    height: auto;
-    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 15px;
+    word-wrap: break-word;
 }
 
 .grid_7 {

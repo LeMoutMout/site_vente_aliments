@@ -69,27 +69,18 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="grid_6 flex_space_around">
-                                <form class="flex_center" method="post">
-                                    <input type="hidden" name="refusee" value=<?php echo $panier['id_panier'] ?>>
-                                    <button class="transparent_button">
-                                        <img src="../images/refuser.svg" alt="refuser" class="image_refuser">
-                                    </button>
-                                </form>
+                            <div class="grid_6 flex_center">
+                                <?php if ($panier['id_statut'] == 1) { ?>
+                                    Vous êtes actuellement de réaliser ce panier.
+                                <?php } ?>
                                 <?php if ($panier['id_statut'] == 2) { ?>
-                                    <form class="flex_center" method="post">
-                                        <input type="hidden" name="prete" value=<?php echo $panier['id_panier'] ?>>
-                                        <button class="transparent_button">
-                                            <img src="../images/prete.svg" alt="prete" class="image_panier_encours">
-                                        </button>
-                                    </form>
-                                <?php } else { ?>
-                                    <form class="flex_center" method="post">
-                                        <input type="hidden" name="livree" value=<?php echo $panier['id_panier'] ?>>
-                                        <button class="transparent_button">
-                                            <img src="../images/livree.svg" alt="livree" class="image_panier_livre">
-                                        </button>
-                                    </form>
+                                    Le panier est en cours de préparation.
+                                <?php } ?>
+                                <?php if ($panier['id_statut'] == 3) { ?>
+                                    Votre panier est prêt à être récupérer.
+                                <?php } ?>
+                                <?php if ($panier['id_statut'] == 4) { ?>
+                                    Vous avez récupérer ce panier. Les prix des produits et le total peuvent être différent que lors de l'achat.
                                 <?php } ?>
                             </div>
                             <div class="grid_7 flex_center">
