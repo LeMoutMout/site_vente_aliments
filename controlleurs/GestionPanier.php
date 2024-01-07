@@ -10,6 +10,8 @@ require $pathModels . "/produitWrite.php";
 
 session_start();
 
+$_SESSION['id_util'] = 1;
+
 $paniers = getPanierByUtil($_SESSION['id_util']);
 
 require $pathVues . '/GestionPanier.php';

@@ -1,9 +1,69 @@
 body {
     font-family: poppins;
+    margin: 0;
 }
 
-a{
+a {
     text-decoration: none;
+}
+
+main {
+    display: flex;
+    background-color: gray;
+}
+
+.menu {
+    display: flex;
+    width: 10vw;
+}
+
+.panier {
+    display: flex;
+    width: 90vw;
+    background-color: #8FB43A;
+}
+
+.flex_center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex_space_around {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.flex_left {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+.scroll_conteneur_y {
+    position: relative;
+    height: 88%;
+}
+
+.scrollable_y {
+    height: 100%;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+    -ms-overflow-style: none;
+}
+
+.scrollable_y::-webkit-scrollbar {
+    width: 0px;
+}
+
+.scrollable_y::-webkit-scrollbar-thumb {
+    background-color: transparent;
+}
+
+.scrollable_y::-webkit-scrollbar-track {
+    background-color: transparent;
 }
 
 .grid_parent {
@@ -163,14 +223,21 @@ a{
     grid-area: 2 / 4 / 3 / 5;
 }
 
-.image_pdf {
-    margin-left: 3%;
-    max-width: 50%;
-    max-height: 50%;
-    width: auto;
-    height: auto;
-}
-
 .grid_8 {
     grid-area: 3 / 4 / 4 / 5;
+}
+
+.commander{
+    width: 80%;
+    height: 60%;
+    background-color: #B7CE66;
+    border-radius: 50px;
+}
+
+button{
+    display: flex;
+    background: none;
+    border: 0px;
+    width: 100%;
+    height: 100%;
 }

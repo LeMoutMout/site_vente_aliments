@@ -2,7 +2,7 @@
 
 function getPanierByUtil($idUtil) {
     $bdd = getDBc();
-    $paniers_query = $bdd->query("select id_panier, date_panier, nom_statut from PANIER join STATUT on STATUT.id_statut = PANIER.id_statut where id_util = ".$idUtil." order by date_panier desc;");
+    $paniers_query = $bdd->query("select id_panier, date_panier, id_util, id_statut from PANIER where id_util = ".$idUtil." and id_statut in (1,2,3,4) order by date_panier desc;");
     $paniers = $paniers_query->fetchall(PDO::FETCH_ASSOC);
     return $paniers;
 }
