@@ -16,6 +16,7 @@
         <?php foreach ($producteurProduit as $producteur => $produits) {
             if (!empty($produits)) { ?>
                 <div class="no_warp productor_block">
+                    <!--sa commence la-->
                     <div class="producteur align_center warp">
                         <div class="fullW">
                             <?php echo $producteurs[$producteur]['nom_production'] ?>
@@ -42,6 +43,7 @@
                             plus d'information
                         </div>
                     </div>
+                    <!--sa fini la-->
                     <div class="bloc_scrollable flex_space_arround">
                         <?php foreach ($produits as $produitAAffiche) {
                             require $pathVues . '/produit.php';
