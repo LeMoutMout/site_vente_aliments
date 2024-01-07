@@ -29,11 +29,27 @@
 }
 
 .bloc_scrollable_x {
+    position: relative;
+    display: flex;
+    flex-wrap: nowrap;
     overflow-x: auto;
     width: 100%;
     height: 100%;
-    overflow: hidden;
+    scrollbar-width: 5px;
 }
+
+.scrollable_x {
+    display: flex;
+    flex-wrap: nowrap;
+    min-width: 100%;
+    width: auto;
+    height: 100%;
+}
+
+.bloc_scrollable_x>* {
+    flex-shrink: 0;
+}
+
 
 .align_center {
     display: flex;
@@ -63,6 +79,7 @@
     overflow: hidden;
 
     width: 100%;
+    height: 350px;
 }
 
 .producteur {
