@@ -27,7 +27,7 @@ if (isset($_POST['idUserAValide'])){
 
 if (isset($_GET['recherche'])) {
     require $pathModels."/utilisateurRead.php";
-    $usersSearch = getUserSearch($_GET['recherche']);
+  //  $usersSearch = getUserSearch($_GET['recherche']); corriger ce soir
 }
 
 $producteursNonValide = getProductorNonValide();
