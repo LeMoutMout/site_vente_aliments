@@ -14,7 +14,15 @@ session_start();
 
 $_SESSION['id_util'] = 1;
 
+if (isset($_POST['annuler'])) {
+    changeStatut($_POST['annuler'], 5);
+}
+if (isset($_POST['commander'])) {
+    changeStatut($_POST['commander'], 2);
+}
+
 $paniers = getPanierByUtil($_SESSION['id_util']);
+
 
 require $pathVues . '/GestionPanier.php';
 ?>

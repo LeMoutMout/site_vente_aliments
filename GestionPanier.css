@@ -43,7 +43,7 @@ main {
 
 .scroll_conteneur_y {
     position: relative;
-    height: 88%;
+    height: 100%;
 }
 
 .scrollable_y {
@@ -68,11 +68,11 @@ main {
 
 .grid_parent {
     display: grid;
-    grid-template-columns: 30% 50% 20%;
+    grid-template-columns: 25% 55% 20%;
     grid-template-rows: repeat(3, 1fr);
 
     width: 80%;
-    height: 20%;
+    height: 400px;
     margin-top: 7%;
     border: 2px solid #8FB43A;
     border-radius: 40px;
@@ -88,52 +88,51 @@ main {
     justify-content: space-between;
 }
 
-.no_warp {
-    display: flex;
-    flex-wrap: nowrap;
-}
-
 .align_center {
     display: flex;
     align-items: center;
     justify-content: center;
-    vertical-align: middle;
-}
-
-.productor_block {
-    margin-top: 20px;
-    background-color: #C8D6A2;
-    border-radius: 20px;
-    overflow: hidden;
-
-    width: 100%;
-    height: 350px;
+    flex-direction: column;
 }
 
 .producteur {
-    background-color: #8FB43A;
+    background-color: #B7CE66;
     color: white;
 
-    width: 350px;
-    height: 350px;
+    width: 90%;
+    height: 100%;
+
+    border-radius: 40px;
 }
 
 .adresse_producteur {
-    width: 90%;
+    padding-top: 5px;
+}
+
+.nowrap {
+    display: flex;
+    flex-wrap: nowrap;
 }
 
 .img_producteur {
     height: 50%;
 }
 
-.fullW {
-    width: 100%;
-    text-align: center;
+.image_producteur {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
 }
 
-.warp {
-    display: flex;
-    flex-wrap: wrap;
+.fullW {
+    text-align: center;
+    padding-bottom: 5px;
+}
+
+.avis {
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 .avis_etoile {
@@ -239,6 +238,8 @@ main {
     font-weight: bold;
     font-size: 15px;
     word-wrap: break-word;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .grid_4 {

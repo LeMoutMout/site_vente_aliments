@@ -14,7 +14,7 @@ require $pathVues . "/GestionProduit.php";
 
 session_start();
 
-$_SESSION['id_production'] = 1;
+$_SESSION['id_production'] = 4;
 
 if (isset($_POST['refusee'])) {
     changeStatut($_POST['refusee'], 5);

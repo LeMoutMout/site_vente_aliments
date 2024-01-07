@@ -27,20 +27,20 @@
                         $producteur = getProducteurOf($panier['id_panier']) ?>
                         <article class="grid_parent">
                             <div class="grid_1">
-                                <div class="producteur align_center warp">
+                                <div class="producteur align_center">
                                     <div class="fullW">
                                         <?php echo $producteur['nom_production'] ?>
                                     </div>
-                                    <div class="img_producteur align_center">
-                                        <img class="auto_size" src="<?php echo getUserImage($producteur['id_production']) ?>" alt="<?php echo $producteur['nom_production'] ?>_img">
+                                    <div class="img_producteur flex_center">
+                                        <img class="image_producteur" src="<?php echo getUserImage($producteur['id_production']) ?>" alt="<?php echo $producteur['nom_production'] ?>_img">
                                     </div>
-                                    <div class="no_warp adresse_producteur align_center">
+                                    <div class="nowrap adresse_producteur flex_center">
                                         <img class="ptmap" src="<?php echo $pathImage . '/point_map.svg' ?>" alt="ptMap.svg">
-                                        <div class="align_center">
+                                        <div class="flex_center">
                                             <?php echo $producteur['adresse_producteur'] ?>
                                         </div>
                                     </div>
-                                    <div class="align_center">
+                                    <div class="flex_center avis">
                                         <?php $moy_avis = getAVGAvisOf($producteur['id_production']); ?>
                                         <img src="<?php echo ($moy_avis >= 1) ? "../images/full_star.svg" : "../images/empty_star.svg"; ?>" alt="etoile" class="avis_etoile">
                                         <img src="<?php echo ($moy_avis >= 2) ? "../images/full_star.svg" : "../images/empty_star.svg"; ?>" alt="etoile" class="avis_etoile">
@@ -86,7 +86,7 @@
                             </div>
                             <div class="grid_3 flex_center">
                                 <?php if ($panier['id_statut'] == 1) { ?>
-                                    Vous êtes actuellement de réaliser ce panier.
+                                    Vous êtes actuellement en train de réaliser ce panier.
                                 <?php } ?>
                                 <?php if ($panier['id_statut'] == 2) { ?>
                                     Le panier est en cours de préparation.
@@ -106,6 +106,7 @@
                             </div>
                             <div class="grid_5 flex_space_around">
                                 <form method="post" class="flex_center">
+                                    <input type="hidden" name="annuler" value="<?php echo $panier['id_panier']?>">
                                     <div class="annuler flex_center">
                                         <button type="submit" class="flex_center">
                                             <img src="../images/poubelle.svg" alt="annuler" class="annuler_img">
@@ -113,6 +114,7 @@
                                     </div>
                                 </form>
                                 <form method="post" class="flex_center">
+                                    <input type="hidden" name="commander" value="<?php echo $panier['id_panier']?>">
                                     <div class="commander flex_center">
                                         <button type="submit" class="text_commander flex_center"><strong>Commander</strong></button>
                                     </div>
