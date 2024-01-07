@@ -98,9 +98,18 @@
                                 </div>
                                 <strong><?php echo '&nbsp' . $total . '€' ?></strong>
                             </div>
-                            <div class="grid_8 flex_center">
-                                <form method="post" class="flex_center commander">
-                                    <button type="submit" class="flex_center"><strong>Commander</strong></button>
+                            <div class="grid_8 flex_space_around">
+                                <form method="post" class="flex_center">
+                                    <div class="annuler flex_center">
+                                        <button type="submit" class="flex_center">
+                                            <img src="../images/poubelle.svg" alt="annuler" class="annuler_img">
+                                        </button>
+                                    </div>
+                                </form>
+                                <form method="post" class="flex_center">
+                                    <div class="commander flex_center">
+                                        <button type="submit" class="text_commander flex_center"><strong>Commander</strong></button>
+                                    </div>
                                 </form>
                             </div>
                         </article>
