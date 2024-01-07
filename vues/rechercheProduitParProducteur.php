@@ -40,7 +40,7 @@
                             <?php echo number_format($moy_avis, 2); ?>/5
                         </div>
                         <div class="voir_avis" onclick="location.href = 'pageProducteur.php? '"><!-- mettre le parametre necesaire -->
-                            plus d'information
+                            plus d'informations
                         </div>
                     </div>
                     <!--sa fini la-->

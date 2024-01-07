@@ -1,0 +1,37 @@
+.centre_elem {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    align-content: center;
+}
+
+.warp {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.text {
+    width: 40%;
+    margin-right: 30%;
+    margin-left: 30%;
+    margin-bottom: 5%;
+}
+
+.btn {
+    padding: 1%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.oui {
+    background-color: red;
+    color: white;
+}
+
+.non {
+    background-color: #B7CE66;
+    color: white;
+}
