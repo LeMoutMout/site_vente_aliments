@@ -28,4 +28,11 @@ function getPanierLivreeFromProductor($idProductor) {
     return $paniers;
 }
 
+function getProducteurOf($id_panier) {
+    $bdd = getDBc();
+    $paniers_query = $bdd->query("select distinct producteur.* from COMPOSITION join produit on produit.id_produit = COMPOSITION.id_produit join producteur on producteur.id_production = produit.id_production where id_panier = ".$id_panier.";");
+    $producteur = $paniers_query->fetch(PDO::FETCH_ASSOC);
+    return $producteur;
+}
+
 

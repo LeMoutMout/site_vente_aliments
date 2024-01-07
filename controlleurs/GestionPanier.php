@@ -7,6 +7,8 @@ require $pathModels . "/UtilisateurRead.php";
 require $pathModels . "/ImageGet.php";
 require $pathModels . "/PanierWrite.php";
 require $pathModels . "/produitWrite.php";
+require $pathModels . "/ProductorRead.php";
+require $pathModels . "/AvisRead.php";
 
 session_start();
 

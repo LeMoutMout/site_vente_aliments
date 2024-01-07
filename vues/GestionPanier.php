@@ -23,23 +23,38 @@
                         foreach (getProduitOf($panier['id_panier']) as $produit) {
                             $total = $total + $produit['quantite_produit'] * $produit['prix_produit'] * (1 - $produit['promotion_produit'] / 100);
                         }
-                        $user = getUserByID($panier['id_util']) ?>
+                        $user = getUserByID($panier['id_util']);
+                        $producteur = getProducteurOf($panier['id_panier']) ?>
                         <article class="grid_parent">
-                            <div class="grid_1 flex_center">
-                                <img src="<?php echo getUserImage($user['id_util']) ?>" alt="" class="commande_image_utilisateur">
+                            <div class="grid_1">
+                                <div class="producteur align_center warp">
+                                    <div class="fullW">
+                                        <?php echo $producteur['nom_production'] ?>
+                                    </div>
+                                    <div class="img_producteur align_center">
+                                        <img class="auto_size" src="<?php echo getUserImage($producteur['id_production']) ?>" alt="<?php echo $producteur['nom_production'] ?>_img">
+                                    </div>
+                                    <div class="no_warp adresse_producteur align_center">
+                                        <img class="ptmap" src="<?php echo $pathImage . '/point_map.svg' ?>" alt="ptMap.svg">
+                                        <div class="align_center">
+                                            <?php echo $producteur['adresse_producteur'] ?>
+                                        </div>
+                                    </div>
+                                    <div class="align_center">
+                                        <?php $moy_avis = getAVGAvisOf($producteur['id_production']); ?>
+                                        <img src="<?php echo ($moy_avis >= 1) ? "../images/full_star.svg" : "../images/empty_star.svg"; ?>" alt="etoile" class="avis_etoile">
+                                        <img src="<?php echo ($moy_avis >= 2) ? "../images/full_star.svg" : "../images/empty_star.svg"; ?>" alt="etoile" class="avis_etoile">
+                                        <img src="<?php echo ($moy_avis >= 3) ? "../images/full_star.svg" : "../images/empty_star.svg"; ?>" alt="etoile" class="avis_etoile">
+                                        <img src="<?php echo ($moy_avis >= 4) ? "../images/full_star.svg" : "../images/empty_star.svg"; ?>" alt="etoile" class="avis_etoile">
+                                        <img src="<?php echo ($moy_avis == 5) ? "../images/full_star.svg" : "../images/empty_star.svg"; ?>" alt="etoile" class="avis_etoile">
+                                        <?php echo number_format($moy_avis, 2); ?>/5
+                                    </div>
+                                    <div class="voir_avis">
+                                        plus d'informations
+                                    </div>
+                                </div>
                             </div>
                             <div class="grid_2">
-                                <strong> <?php echo 'CCCCCCCCCCCCCCCCCCCCCCCCC &nbsp CCCCCCCCCCCCCCCCCCCCCCCCC' //$user['pren_util'] .' &nbsp'. $user['nom_util']
-                                            ?> </strong>
-                            </div>
-                            <div class="grid_3 flex_left">
-                                <?php echo $user['tel_util'] ?>
-                            </div>
-                            <div class="grid_4">
-                                <?php echo 'CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC' //$user['mail_util']
-                                ?>
-                            </div>
-                            <div class="grid_5">
                                 <div class="flex_center scroll_conteneur_x">
                                     <div class="scrollable_x">
                                         <?php
@@ -69,7 +84,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="grid_6 flex_center">
+                            <div class="grid_3 flex_center">
                                 <?php if ($panier['id_statut'] == 1) { ?>
                                     Vous êtes actuellement de réaliser ce panier.
                                 <?php } ?>
@@ -83,13 +98,13 @@
                                     Vous avez récupérer ce panier. Les prix des produits et le total peuvent être différent que lors de l'achat.
                                 <?php } ?>
                             </div>
-                            <div class="grid_7 flex_center">
+                            <div class="grid_4 flex_center">
                                 <div class="souligne">
                                     Total :
                                 </div>
                                 <strong><?php echo '&nbsp' . $total . '€' ?></strong>
                             </div>
-                            <div class="grid_8 flex_space_around">
+                            <div class="grid_5 flex_space_around">
                                 <form method="post" class="flex_center">
                                     <div class="annuler flex_center">
                                         <button type="submit" class="flex_center">
