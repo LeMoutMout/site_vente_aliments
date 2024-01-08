@@ -23,6 +23,7 @@ if (isset($_POST['idUserAValide'])){
 
 if (isset($_GET['recherche'])) {
     $usersSearch = getUserSearch($_GET['recherche']);
+
 }
 
 $producteursNonValide = getProductorNonValide();

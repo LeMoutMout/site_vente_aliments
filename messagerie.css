@@ -2,6 +2,7 @@ body {
   font-family: poppins;
 }
 
+
 header {
   padding: 0px 100px 0px 100px;
 }
@@ -40,8 +41,13 @@ header {
   margin-bottom: 10px;
 }
 
-.message-input,
-#participant-input {
+.message-input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+}
+
+.participant-input {
   width: 100%;
   padding: 8px;
   margin-bottom: 10px;
@@ -72,42 +78,129 @@ form label {
 }
 
 .flex-container {
-  
+  margin-top: 2000px;
   display: flex;
-  justify-content: space-around;
-  align-items: stretch;
-  align-content: stretch;
+  align-items: flex-start;
+  width: 2000px;
+  scroll-behavior: none;
+  overflow-y: hidden;
+  margin: 0;
+  padding: 0;
+  flex-direction: row; 
+  justify-content: center;
+  height: 100vh;
 }
 
 .flex-items1 {
-  display: flex;
-  flex-grow: 0;
-  flex-shrink: 1;
-  flex-basis: auto;
-  align-self: auto;
-  order: 0;
+  width: 30%;
+  text-align: center;
+  max-width: 30%; 
+  height: 100% ;
+  
 }
 
 .flex-items2 {
-  display: flex;
-  flex-grow: 0;
-  flex-shrink: 1;
-  flex-basis: auto;
-  align-self: auto;
-  order: 0;
+  width: 60%;
+  max-width: 60%; /* Ajustez la largeur maximale selon vos besoins */
+  margin-right: 20px; /* Ajoutez une marge à droite pour l'espace entre les deux éléments */
+  max-height: 100%; /* Limite la hauteur à la taille de la page */
+  height: 100%;
+  overflow-y: auto; /* Ajoute une barre de défilement en cas de contenu dépassant la hauteur */
+  text-align: center;
 }
-
-.scroll{
-  overflow-y:auto;
+.scroll {
+  overflow-y: auto;
   max-height: 50%;
 } 
+
 .delete-button {
   display: inline-block;
   padding: 5px;
-  border: none;
+  background-color: var(--vert);
+  border-radius: 10px;
+  border-color: black;
+  border-style: solid;
+  border-width: 2px;
+
 }
 
 .delete-button img {
-  width: 100%; 
-  height: auto; 
+  width: 100%;
+  background-color: var(--vert);
+  height: auto;
+}
+
+.reply-button {
+  display: inline-block;
+  padding: 5px;
+  border-radius: 10px;
+  background-color: var(--vert);
+  border-color: black;
+  border-style: solid;
+  border-width: 2px;
+}
+
+.reply-img {
+  width: 100%;
+  background-color: var(--vert);
+  height: auto;
+}
+
+.form-icon {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 15%;
+
+}
+
+.color-mail {
+  background-color: var(--vert);
+  border-radius: 15%;
+  padding-left: 10%;
+  padding-right: 10%;
+  color: var(--vert-fonc);
+}
+
+.title-conv {
+  border-radius: 15%;
+  size: 10px;
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+
+#new-conversation-form {
+  background-color: var(--vert-tres-clair); /* Couleur de fond verte */
+  padding: 15px; /* Espace intérieur pour le contenu */
+  border-radius: 10px; /* Bords arrondis */
+  height: 50%;
+}
+
+#new-conversation-form label {
+  display: block;
+  font-weight: bold; /* Texte en gras */
+}
+
+#participant-input,
+#message-input,
+#new-conversation-form button {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px; /* Espace intérieur pour le contenu */
+  margin-bottom: 50px; /* Espace entre les éléments */
+  border: 1px solid var(--vert); /* Bordure verte */
+  border-radius: 5px; /* Bords arrondis */
+}
+
+#message-input {
+  height: 150px; /* Hauteur accrue pour la zone de texte */
+}
+
+#new-conversation-form button {
+  background-color: var(--vert); /* Couleur de fond verte pour le bouton */
+  color: black; /* Texte blanc */
+  cursor: pointer;
+  font-weight: bold;
+
+
 }

@@ -1,4 +1,3 @@
-// JavaScript
 document.addEventListener("DOMContentLoaded", function() {
     const replyButton = document.getElementById("reply-button");
 
