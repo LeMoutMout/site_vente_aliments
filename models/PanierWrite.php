@@ -20,6 +20,28 @@ function insertIntoPanier($idUtil,$qteProduit,$idProduit,$date) {
     return true;
 }
 
+function supprFromPanier($idPanier,$idProduit) {
+    $db = getDBc();
+    
+    $stm = $db->prepare('DELETE FROM COMPOSITION WHERE id_panier = :idPanier and id_produit = :idProduit;');
+    
+    $stm->execute([
+        'idPanier' => $idPanier,
+        'idProduit' => $idProduit
+    ]);
+}
+
+function supprPanier($idPanier) {
+    $db = getDBc();
+    
+    $stm = $db->prepare('DELETE FROM PANIER WHERE id_panier = :idPanier;');
+    
+    $stm->execute([
+        'idPanier' => $idPanier
+    ]);
+}
+
+
 function updateDate($idPanier,$date){
     $db = getDBc();
     
@@ -46,3 +68,4 @@ function changeStatut($idPanier,$idStatut){
     }
     return true;
 }
+

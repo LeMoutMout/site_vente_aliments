@@ -41,7 +41,7 @@ if (isset($_SESSION['id_util']) && isset($_SESSION['mail_util'])) {
     $isConnected = true;
     $idUtilisateur = $_SESSION['id_util'];
     $mailUtilisateur = $_SESSION['mail_util'];
-
+        
     if (isset($_POST['achat_produit'])) {
         $id_produit = sprintf("%d", $_POST['achat_produit']);
         $quantite = $_POST['quantite'];

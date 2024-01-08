@@ -24,6 +24,5 @@ function updateUser($id,$mail,$nom,$prenom,$tel,$adresse){
         'adrs' => $adresse,
         'id' => $id
     ]);
+
 }
-
-
