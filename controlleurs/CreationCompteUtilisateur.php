@@ -2,21 +2,19 @@
 
 require './GlobalVar.php';
 
-require $pathModels.'/is.php';
-
 session_start();
+
+var_dump($_SESSION);
 
 if(isset($_SESSION['id_util'])){
     //redirect
     header('Location: ' . $pathcontrolleurs . '/index.php');
-    exit();
 }
 
 if (isset($_POST['prenom']) && isset($_POST['nom']) && isset($_FILES['image']) && isset($_POST['email']) && isset($_POST['numero']) && isset($_POST['motdepasse']) && isset($_POST['motdepasse2']) && isset($_POST['adresse']) && isset($_POST['ville']) && isset($_POST['cp'])) {
     if ($_POST['motdepasse'] !== $_POST['motdepasse2']) {
         $erreur = 'les mot de passe sont diferent';
     } else {
-        require $pathModels . '/UtilisateurRead.php';
         if (isset(getUserByMail($_POST['email'])['id_util'])) {
             $erreur = 'cette adresse mail est deja use';
         } else {
@@ -38,7 +36,6 @@ if (isset($_POST['prenom']) && isset($_POST['nom']) && isset($_FILES['image']) &
 
                     //redirect
                     header('Location: ' . $pathcontrolleurs . '/index.php');
-                    exit();
                 } else {
                     $erreur = "Aucun fichier sélectionné.";
                 }

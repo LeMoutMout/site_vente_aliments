@@ -1,9 +1,10 @@
-function openPopup() {
-  document.getElementById("overlay").style.display = "block";
-  document.getElementById("popup").style.display = "block";
+
+function openConnectionPopup() {
+  document.getElementById("overlay_connection").style.display = "block";
+  document.getElementById("popup_connection").style.display = "block";
 }
 
-function closePopup() {
-  document.getElementById("overlay").style.display = "none";
-  document.getElementById("popup").style.display = "none";
+function closeConnectionPopup() {
+  document.getElementById("overlay_connection").style.display = "none";
+  document.getElementById("popup_connection").style.display = "none";
 }
