@@ -106,8 +106,6 @@ if (!isset($recherchePath)) {
 require $pathVues . "/header.php";
 require $pathVues .'/AchatProduit.php';
 
-
-
 if (!isset($_SESSION['id_util']) && isset($_POST['achat_produit'])) {
     ?> <script> openConnectionPopup(); </script><?php
 }
