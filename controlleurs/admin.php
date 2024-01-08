@@ -3,11 +3,11 @@
 require "./GlobalVar.php";
 session_start();
 
-if (!isAdmin($_SESSION['id_util'])){
+/*if (!isAdmin($_SESSION['id_util'])){
     //redirect
     header('Location: ' . $pathcontrolleurs . '/index.php');
     exit();
-}
+}*/
 
 require $pathModels."/ProductorRead.php";
 
