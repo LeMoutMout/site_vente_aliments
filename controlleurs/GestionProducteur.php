@@ -18,7 +18,6 @@ if (!isProducteur($_SESSION['id_util'])) {
 }
 
 $productor = getProductorByIdUtil($_SESSION['id_util']);
-var_dump($_POST);
 if (isset($productor['id_production'])) {
     $image_producteur = getUserImage($productor['id_util']);
     $adresse = $productor['adresse_util'];
@@ -65,11 +64,9 @@ if (isset($_POST['gestion_produit'])) {
     }
 
     if ($_POST['gestion_produit'] == -1) {
-        ?> <script> alert('new') </script> <?php
         createProduct($productor['id_production'], $nom, $stock, $prix, $bio, $unite, $promotion);
         $id_produit = getLastIdProduit();
     } else {
-        ?> <script> alert('upd') </script> <?php
         updateProduit($_POST['gestion_produit'], $nom, $stock, $prix, $bio, $promotion);
         $id_produit = $_POST['gestion_produit'];
     }
