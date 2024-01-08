@@ -81,96 +81,98 @@
                                             plus d'informations
                                         </div>
                                     </div>
-                                    <div class="grid_2">
-                                        <div class="flex_center scroll_conteneur_x">
-                                            <div class="scrollable_x">
-                                                <?php
-                                                foreach (getProduitOf($panier['id_panier']) as $produit) { ?>
-                                                    <article class="produit_commande">
-                                                        <div class="produit_commande_top">
-                                                            <img class="produit_commande_image" src="<?php echo getProductImage($produit['id_produit']); ?>" alt="image du produit">
+                                </div>
+                                <div class="grid_2">
+                                    <div class="flex_center scroll_conteneur_x">
+                                        <div class="scrollable_x">
+                                            <?php
+                                            foreach (getProduitOf($panier['id_panier']) as $produit) { ?>
+                                                <article class="produit_commande">
+                                                    <div class="produit_commande_top">
+                                                        <img class="produit_commande_image" src="<?php echo getProductImage($produit['id_produit']); ?>" alt="image du produit">
+                                                    </div>
+                                                    <div class="grid_produit_commande_bottom_parent">
+                                                        <div class="flex_left grid_produit_commande_bottom_1">
+                                                            <strong><?php echo $produit['nom_produit']; ?></strong>
                                                         </div>
-                                                        <div class="grid_produit_commande_bottom_parent">
-                                                            <div class="flex_left grid_produit_commande_bottom_1">
-                                                                <strong><?php echo $produit['nom_produit']; ?></strong>
+                                                        <div class="flex_left grid_produit_commande_bottom_2">
+                                                            Quantité souhaitée :
+                                                            <?php echo $produit['qte_produit_commandee'] . $produit['nom_unite'] ?>
+                                                        </div>
+                                                        <div class="flex_left grid_produit_commande_bottom_3">
+                                                            <div class="produit_commande_initial">
+                                                                Prix unitaire :
+                                                                <?php echo $produit['prix_produit'] . '€/' . $produit['nom_unite'] ?>
                                                             </div>
-                                                            <div class="flex_left grid_produit_commande_bottom_2">
-                                                                Quantité souhaitée :
-                                                                <?php echo $produit['qte_produit_commandee'] . $produit['nom_unite'] ?>
-                                                            </div>
-                                                            <div class="flex_left grid_produit_commande_bottom_3">
-                                                                <div class="produit_commande_initial">
-                                                                    Prix unitaire :
-                                                                    <?php echo $produit['prix_produit'] . '€/' . $produit['nom_unite'] ?>
-                                                                </div>
-                                                                <div class="produit_commande_promo">
-                                                                    <?php if (isset($produit['promotion_produit']) && $produit['promotion_produit'] !== 0) { ?>
-                                                                        &nbsp;
-                                                                        -
-                                                                        <?php echo $produit['promotion_produit'] ?>
-                                                                        %
-                                                                    <?php } ?>
-                                                                </div>
-                                                            </div>
-                                                            <div class="flex_center grid_produit_commande_bottom_4">
-                                                                <form method="post" class="flex_center">
-                                                                    <input type="hidden" name="supprimer_produit" value="<?php echo $panier['id_panier'] ?>">
-                                                                    <div class="annuler flex_center">
-                                                                        <button type="submit" class="flex_center">
-                                                                            <img src="../images/poubelle.svg" alt="annuler" class="annuler_img">
-                                                                        </button>
-                                                                    </div>
-                                                                </form>
-                                                            </div>
-                                                            <div class="flex_center grid_produit_commande_bottom_5">
-                                                                <strong><?php echo $produit['qte_produit_commandee'] * $produit['prix_produit'] * (1 - $produit['promotion_produit'] / 100) . '€' ?></strong>
-                                                            </div>
-                                                            <div class="flex_center grid_produit_commande_bottom_6" onclick="openPopup('<?php echo $produit['id_produit'] ?>', '<?php echo $produit['nom_produit'] ?>', '<?php echo $producteur['nom_production'] ?>', '<?php echo $produit['quantite_produit'] ?>', '<?php echo $produit['nom_unite'] ?>','<?php echo getUserImage($producteur['id_production']) ?>');">
-                                                                <img src=" ../images/crayon_modif.svg" alt="modifier qte achat" class="image_crayon">
+                                                            <div class="produit_commande_promo">
+                                                                <?php if (isset($produit['promotion_produit']) && $produit['promotion_produit'] !== 0) { ?>
+                                                                    &nbsp;
+                                                                    -
+                                                                    <?php echo $produit['promotion_produit'] ?>
+                                                                    %
+                                                                <?php } ?>
                                                             </div>
                                                         </div>
-                                                    </article>
-                                                <?php }
-                                                ?>
-                                            </div>
+                                                        <div class="flex_center grid_produit_commande_bottom_4">
+                                                            <form method="post" class="flex_center">
+                                                                <input type="hidden" name="supprimer_produit" value="<?php echo $panier['id_panier'] ?>">
+                                                                <input type="hidden" name="supprimer_produit_2" value="<?php echo $produit['id_produit'] ?>">
+                                                                <div class="annuler flex_center">
+                                                                    <button type="submit" class="flex_center">
+                                                                        <img src="../images/poubelle.svg" alt="annuler" class="annuler_img">
+                                                                    </button>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                        <div class="flex_center grid_produit_commande_bottom_5">
+                                                            <strong><?php echo $produit['qte_produit_commandee'] * $produit['prix_produit'] * (1 - $produit['promotion_produit'] / 100) . '€' ?></strong>
+                                                        </div>
+                                                        <div class="flex_center grid_produit_commande_bottom_6" onclick="openPopup('<?php echo $produit['id_produit'] ?>', '<?php echo $produit['nom_produit'] ?>', '<?php echo $producteur['nom_production'] ?>', '<?php echo $produit['quantite_produit'] ?>', '<?php echo $produit['nom_unite'] ?>','<?php echo getUserImage($producteur['id_production']) ?>');">
+                                                            <img src=" ../images/crayon_modif.svg" alt="modifier qte achat" class="image_crayon">
+                                                        </div>
+                                                    </div>
+                                                </article>
+                                            <?php }
+                                            ?>
                                         </div>
                                     </div>
-                                    <div class="grid_3 flex_center">
-                                        <?php if ($panier['id_statut'] == 1) { ?>
-                                            Vous êtes actuellement en train de réaliser ce panier.
-                                        <?php } ?>
-                                        <?php if ($panier['id_statut'] == 2) { ?>
-                                            Le panier est en cours de préparation.
-                                        <?php } ?>
-                                        <?php if ($panier['id_statut'] == 3) { ?>
-                                            Votre panier est prêt à être récupérer.
-                                        <?php } ?>
-                                        <?php if ($panier['id_statut'] == 4) { ?>
-                                            Vous avez récupéré ce panier. Les prix des produits et le total peuvent être différents que lors de l'achat.
-                                        <?php } ?>
+                                </div>
+                                <div class="grid_3 flex_center">
+                                    <?php if ($panier['id_statut'] == 1) { ?>
+                                        Vous êtes actuellement en train de réaliser ce panier.
+                                    <?php } ?>
+                                    <?php if ($panier['id_statut'] == 2) { ?>
+                                        Le panier est en cours de préparation.
+                                    <?php } ?>
+                                    <?php if ($panier['id_statut'] == 3) { ?>
+                                        Votre panier est prêt à être récupérer.
+                                    <?php } ?>
+                                    <?php if ($panier['id_statut'] == 4) { ?>
+                                        Vous avez récupéré ce panier. Les prix des produits et le total peuvent être différents que lors de l'achat.
+                                    <?php } ?>
+                                </div>
+                                <div class="grid_4 flex_center">
+                                    <div class="souligne">
+                                        Total :
                                     </div>
-                                    <div class="grid_4 flex_center">
-                                        <div class="souligne">
-                                            Total :
+                                    <strong><?php echo '&nbsp' . $total . '€' ?></strong>
+                                </div>
+                                <div class="grid_5 flex_space_around">
+                                    <form method="post" class="flex_center">
+                                        <input type="hidden" name="annuler" value="<?php echo $panier['id_panier'] ?>">
+                                        <div class="annuler flex_center">
+                                            <button type="submit" class="flex_center">
+                                                <img src="../images/poubelle.svg" alt="annuler" class="annuler_img">
+                                            </button>
                                         </div>
-                                        <strong><?php echo '&nbsp' . $total . '€' ?></strong>
-                                    </div>
-                                    <div class="grid_5 flex_space_around">
-                                        <form method="post" class="flex_center">
-                                            <input type="hidden" name="annuler" value="<?php echo $panier['id_panier'] ?>">
-                                            <div class="annuler flex_center">
-                                                <button type="submit" class="flex_center">
-                                                    <img src="../images/poubelle.svg" alt="annuler" class="annuler_img">
-                                                </button>
-                                            </div>
-                                        </form>
-                                        <form method="post" class="flex_center">
-                                            <input type="hidden" name="commander" value="<?php echo $panier['id_panier'] ?>">
-                                            <div class="commander flex_center">
-                                                <button type="submit" class="text_commander flex_center"><strong>Commander</strong></button>
-                                            </div>
-                                        </form>
-                                    </div>
+                                    </form>
+                                    <form method="post" class="flex_center">
+                                        <input type="hidden" name="commander" value="<?php echo $panier['id_panier'] ?>">
+                                        <div class="commander flex_center">
+                                            <button type="submit" class="text_commander flex_center"><strong>Commander</strong></button>
+                                        </div>
+                                    </form>
+                                </div>
                             </article>
                         <?php } ?>
                     </div>
