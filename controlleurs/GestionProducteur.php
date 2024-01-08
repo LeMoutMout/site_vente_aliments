@@ -9,11 +9,29 @@ require $pathModels . "/PanierWrite.php";
 require $pathModels . "/produitWrite.php";
 require $pathVues . "/GestionProduit.php";
 
-
 session_start();
+
+require $pathcontrolleurs . "/Header.php";
+
+
 
 if (!isProducteur($_SESSION['id_util'])) {
     header('Location: ' . $pathcontrolleurs . '/index.php');
+}
+
+$productor = getProductorByIdUtil($_SESSION['id_util']);
+var_dump($_POST);
+if (isset($productor['id_production'])) {
+    $image_producteur = getUserImage($productor['id_util']);
+    $adresse = $productor['adresse_util'];
+    $desc = $productor['descr_production'];
+    $nom_producteur = $productor['nom_production'];
+    $produits = getProduitsFromProducteur($productor['id_production']);
+    $nb_produits = getNbProduitsOf($productor['id_production']);
+    $avis = getAvisFromProducteur($productor['id_production']);
+    $nb_avis = getNbAvisOf($productor['id_production']);
+    $moy_avis = getAVGAvisOf($productor['id_production']);
+    $paniers = getPanierEnCoursFromProductor($productor['id_production']);
 }
 
 
@@ -49,9 +67,11 @@ if (isset($_POST['gestion_produit'])) {
     }
 
     if ($_POST['gestion_produit'] == -1) {
-        createProduct($_SESSION['id_production'], $nom, $stock, $prix, $bio, $unite, $promotion);
+        ?> <script> alert('new') </script> <?php
+        createProduct($productor['id_production'], $nom, $stock, $prix, $bio, $unite, $promotion);
         $id_produit = getLastIdProduit();
     } else {
+        ?> <script> alert('upd') </script> <?php
         updateProduit($_POST['gestion_produit'], $nom, $stock, $prix, $bio, $promotion);
         $id_produit = $_POST['gestion_produit'];
     }
@@ -73,24 +93,7 @@ if (isset($_POST['gestion_produit'])) {
     }
 }
 
-//pb ici
-$productor = getProductorByIdUtil($_SESSION['id_util']);
-
-
-if (isset($productor['id_production'])) {
-    $image_producteur = getUserImage($productor['id_util']);
-    $adresse = $productor['adresse_util'];
-    $desc = $productor['descr_production'];
-    $nom_producteur = $productor['nom_production'];
-    $produits = getProduitsFromProducteur($productor['id_production']);
-    $nb_produits = getNbProduitsOf($productor['id_production']);
-    $avis = getAvisFromProducteur($productor['id_production']);
-    $nb_avis = getNbAvisOf($productor['id_production']);
-    $moy_avis = getAVGAvisOf($productor['id_production']);
-    $paniers = getPanierEnCoursFromProductor($productor['id_production']);
-}
 
 
 
-require $pathcontrolleurs . "/Header.php";
 require $pathVues . "/GestionProducteur.php";

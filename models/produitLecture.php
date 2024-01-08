@@ -79,7 +79,19 @@ function getProduitsTagSearch($tag, $search)
 function getProduitsFromProducteur($idProducteur)
 {
     $bdd = getDBc();
-    $produits_query = $bdd->query("select * from produitPageRecherche where id_production = " . $idProducteur . ";");
+    $produits_query = $bdd->query("select 
+    PRODUIT.id_produit,
+    PRODUIT.nom_produit,
+    PRODUIT.quantite_produit,
+    PRODUIT.prix_produit,
+    PRODUIT.promotion_produit,
+    UNITE.nom_unite,
+    PRODUIT.bio_produit,
+    PRODUCTEUR.id_production,
+    PRODUCTEUR.nom_production
+from PRODUIT 
+join PRODUCTEUR on PRODUIT.id_production = PRODUCTEUR.id_production
+join UNITE on UNITE.id_unite = PRODUIT.id_unite where PRODUCTEUR.id_production = " . $idProducteur . ";");
     $produits = $produits_query->fetchall(PDO::FETCH_ASSOC);
     return $produits;
 }

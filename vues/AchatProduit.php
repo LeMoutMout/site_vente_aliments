@@ -1,3 +1,4 @@
+<script src="../AchatProduit.js"></script>
 <div id="overlay" class="overlay"></div>
 <div id="popup" class="popup">
     <div class="overlay_bloc">
