@@ -6,7 +6,6 @@ session_start();
 if(isset($_SESSION['id_util'])){
     //redirect
     header('Location: ' . $pathcontrolleurs . '/index.php');
-    exit();
 }
 
 if (isset($_POST['prenom']) && isset($_POST['nom']) && isset($_FILES['image']) && isset($_POST['email']) && isset($_POST['numero']) && isset($_POST['motdepasse']) && isset($_POST['motdepasse2']) && isset($_POST['adresse']) && isset($_POST['ville']) && isset($_POST['cp']) && isset($_POST['domaine'])&& isset($_POST['description'])) {

@@ -59,10 +59,6 @@ if (!isset($devenirProducteur) && !isset($ajouteUnProduit) && !isset($barreDeRec
             $gestionCompte = true;
         }       
     }
-    
-    if (!isset($gestionProduit) && !isset($gestionCompte)) {
-        $devenirProducteur = true;
-    } 
 }
 
 if (!isset($devenirProducteur)) {

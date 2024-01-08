@@ -48,10 +48,9 @@
   </div>
   <div class="align_center">
     <!--verifier path-->
-    <form class="recherche_form" action="<?php echo $pathControlleurs . '/rechercheProduit.php' //TODO verifier le chemin 
-                                          ?>">
+    <form class="recherche_form" action="<?php echo $pathcontrolleurs . '/rechercheProduit.php' //TODO verifier le chemin ?>">
       <!--verifier path-->
-      <button class="recherche_button align_center">
+      <button class="recherche_button align_center" type="submit">
         <img class="img_btn_recherche align_center" src="<?php echo $pathImage . '/boite.svg' ?>">
         <div class="txt_btn_recherche align_center">
           Voir plus de produits

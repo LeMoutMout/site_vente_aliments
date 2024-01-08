@@ -4,8 +4,6 @@ require './GlobalVar.php';
 
 session_start();
 
-var_dump($_SESSION);
-
 if(isset($_SESSION['id_util'])){
     //redirect
     header('Location: ' . $pathcontrolleurs . '/index.php');

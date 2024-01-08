@@ -10,6 +10,7 @@ require $pathVues . "/AchatProduit.php";
 
 session_start();
 
+//a deplacer dans le header (avec condition de si isset session id_util)
 $id_util = $_SESSION['id_util'];
 
 if (isset($_POST['achat_produit'])) {
@@ -21,8 +22,12 @@ if (isset($_POST['achat_produit'])) {
 }
 
 
+if (!isset($_GET['prod'])) {
+    header('Location: ' . $pathcontrolleurs . '/index.php');
+}
+
 //pb ici
-$productor = getProductorById($id_util);
+$productor = getProductorById($_GET['prod']);
 if (isset($productor['id_production'])) {
     $image_producteur = getUserImage($productor['id_util']);
     $adresse = $productor['adresse_util'];

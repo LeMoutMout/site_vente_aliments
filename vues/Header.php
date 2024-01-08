@@ -21,7 +21,7 @@
             <div class="align_img_text" <?php echo (!$isConnected) ? 'onclick="openConnectionPopup();"' : null; ?>>
                 <img class="img_header auto_size_img_header" src="<?php echo ($isConnected) ? getUserImage($idUtilisateur) : $pathImage . '/logoDefaultUser.svg'; ?>">
                 <a class="text_header opt425">
-                    <?php echo ($isConnected) ? $mailUtilisateur : "connection"; ?>
+                    <?php echo ($isConnected) ? $mailUtilisateur : "connexion"; ?>
                 </a>
             </div>
         </div>
@@ -106,7 +106,7 @@
                         <div class="align_img_text">
                             <img class="img_header auto_size_img_header" src="<?php echo $pathImage . '/cart.svg' ?>" alt="">
                             <a class="text_header align_center opt768">
-                                mes panier
+                                mes paniers
                             </a>
                         </div>
                     </button>
