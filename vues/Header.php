@@ -15,7 +15,7 @@
     <script src="../connexion.js"></script>
     <header>
         <div class="top_header">
-            <div class="logo">
+            <div class="logo" onclick="location.href = './index.php'">
                 <img src="<?php echo $pathImage . '/VegeShoplogo.svg' ?>">
             </div>
             <div class="align_img_text" <?php echo (!$isConnected) ? 'onclick="openConnectionPopup();"' : null; ?>>
