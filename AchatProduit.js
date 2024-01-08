@@ -1,6 +1,6 @@
 function openPopup(id_produit, nom_produit, nom_production, stock, unite, image) {
-    document.getElementById("overlay").style.display = "block";
-    document.getElementById("popup").style.display = "block";
+    document.getElementById("overlay_achat").style.display = "block";
+    document.getElementById("popup_achat").style.display = "block";
   
     var form = document.querySelector('form');
     form.reset();
@@ -20,6 +20,6 @@ function openPopup(id_produit, nom_produit, nom_production, stock, unite, image)
   }
   
   function closePopup() {
-    document.getElementById("overlay").style.display = "none";
-    document.getElementById("popup").style.display = "none";
+    document.getElementById("overlay_achat").style.display = "none";
+    document.getElementById("popup_achat").style.display = "none";
   }
