@@ -29,7 +29,7 @@
         </div>
         <div class="grid_13">
             <?php echo (isset($erreur)) ? $erreur . "<br>" : null; ?>
-            <button class="button_bloc button_text">Créer son compte</button>
+            <button class="button_bloc button_text">Modifier son compte</button>
         </div>
     </div>
 </form>
