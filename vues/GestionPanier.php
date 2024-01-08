@@ -22,6 +22,7 @@
                         $total = 0;
                         foreach (getProduitOf($panier['id_panier']) as $produit) {
                             $total = $total + $produit['qte_produit_commandee'] * $produit['prix_produit'] * (1 - $produit['promotion_produit'] / 100);
+                            $total = round($total, 2);
                         }
                         $user = getUserByID($panier['id_util']);
                         $producteur = getProducteurOf($panier['id_panier']) ?>
@@ -65,8 +66,7 @@
                                                 </div>
                                                 <div class="grid_produit_commande_bottom_parent">
                                                     <div class="grid_produit_commande_bottom_1">
-                                                        <strong><?php echo $produit['nom_produit']; 
-                                                                ?></strong>
+                                                        <strong><?php echo $produit['nom_produit'];?></strong>
                                                     </div>
                                                     <div class="flex_center grid_produit_commande_bottom_2">
                                                         <?php echo $produit['qte_produit_commandee'] ?>
@@ -106,7 +106,7 @@
                             </div>
                             <div class="grid_5 flex_space_around">
                                 <form method="post" class="flex_center">
-                                    <input type="hidden" name="annuler" value="<?php echo $panier['id_panier']?>">
+                                    <input type="hidden" name="annuler" value="<?php echo $panier['id_panier'] ?>">
                                     <div class="annuler flex_center">
                                         <button type="submit" class="flex_center">
                                             <img src="../images/poubelle.svg" alt="annuler" class="annuler_img">
@@ -114,7 +114,7 @@
                                     </div>
                                 </form>
                                 <form method="post" class="flex_center">
-                                    <input type="hidden" name="commander" value="<?php echo $panier['id_panier']?>">
+                                    <input type="hidden" name="commander" value="<?php echo $panier['id_panier'] ?>">
                                     <div class="commander flex_center">
                                         <button type="submit" class="text_commander flex_center"><strong>Commander</strong></button>
                                     </div>

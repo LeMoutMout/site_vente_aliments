@@ -151,7 +151,8 @@
                         <?php foreach ($paniers as $panier) {
                             $total = 0;
                             foreach (getProduitOf($panier['id_panier']) as $produit) {
-                                $total = $total + $produit['quantite_produit'] * $produit['prix_produit'] * (1 - $produit['promotion_produit'] / 100);
+                                $total = $total + $produit['qte_produit_commandee'] * $produit['prix_produit'] * (1 - $produit['promotion_produit'] / 100);
+                                $total = round($total, 2);
                             }
                             $user = getUserByID($panier['id_util']) ?>
                             <article class="grid_4_parent">

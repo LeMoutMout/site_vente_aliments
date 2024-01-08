@@ -12,6 +12,8 @@ require $pathVues . "/GestionProduit.php";
 
 session_start();
 
+$_SESSION['id_util'] = 1;
+
 if (!isProducteur($_SESSION['id_util'])) {
     header('Location: ' . $pathcontrolleurs . '/index.php');
 }
@@ -73,10 +75,8 @@ if (isset($_POST['gestion_produit'])) {
     }
 }
 
-//pb ici
+
 $productor = getProductorByIdUtil($_SESSION['id_util']);
-
-
 if (isset($productor['id_production'])) {
     $image_producteur = getUserImage($productor['id_util']);
     $adresse = $productor['adresse_util'];

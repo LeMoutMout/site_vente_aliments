@@ -158,7 +158,7 @@ main {
 }
 
 .produit_commande {
-    width: 30%;
+    width: 40%;
     height: 95%;
     border: 2px solid #8FB43A;
     background-color: #B7CE66;
@@ -196,7 +196,6 @@ main {
 
 .grid_produit_commande_bottom_1 {
     grid-area: 1 / 1 / 2 / 3;
-    font-size: 60%;
     width: 100%;
     word-wrap: break-word;
 }
