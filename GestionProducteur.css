@@ -177,8 +177,8 @@ a {
 }
 
 .produit_stock {
-    width: 35%;
-    height: 32%;
+    width: 300px;
+    height: 300px;
     margin-top: 5%;
     border: 2px solid #8FB43A;
     background-color: #B7CE66;
@@ -320,11 +320,11 @@ a {
 
 .grid_4_parent {
     display: grid;
-    grid-template-columns: 10% 25% 50% 15%;
+    grid-template-columns: 15% 20% 45% 20%;
     grid-template-rows: repeat(3, 1fr);
 
-    width: 80%;
-    height: 20%;
+    width: 1400px;
+    height: 250px;
     margin-top: 7%;
     border: 2px solid #8FB43A;
     border-radius: 40px;
@@ -403,7 +403,6 @@ a {
 
 .grid_produit_commande_bottom_1 {
     grid-area: 1 / 1 / 2 / 3;
-    font-size: 60%;
     width: 100%;
     word-wrap: break-word;
 }

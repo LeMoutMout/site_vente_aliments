@@ -12,7 +12,6 @@ if (isset($_POST['prenom']) && isset($_POST['nom']) && isset($_FILES['image']) &
     if ($_POST['motdepasse'] !== $_POST['motdepasse2']) {
         $erreur = 'les mot de passe sont diferent';
     } else {
-        require $pathModels . '/UtilisateurRead.php';
         if (isset(getUserByMail($_POST['email'])['id_util'])) {
             $erreur = 'cette adresse mail est deja use';
         } else {
