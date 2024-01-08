@@ -95,7 +95,7 @@
                                     Votre panier est prêt à être récupérer.
                                 <?php } ?>
                                 <?php if ($panier['id_statut'] == 4) { ?>
-                                    Vous avez récupérer ce panier. Les prix des produits et le total peuvent être différent que lors de l'achat.
+                                    Vous avez récupéré ce panier. Les prix des produits et le total peuvent être différents que lors de l'achat.
                                 <?php } ?>
                             </div>
                             <div class="grid_4 flex_center">

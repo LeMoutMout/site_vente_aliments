@@ -2,9 +2,11 @@
 require "./globalVar.php";
 require $pathModels."/MessageRead.php";
 require $pathModels."/MessageWrite.php";
+
 session_start();
-$_SESSION['id_util']=15;
+
 $id_util = $_SESSION['id_util']; 
+
 if (isset($_POST['message_id'])){
     deleteMessage($_POST['message_id']);
     }
@@ -21,5 +23,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email'])) {
 }
 $receivedMessages = getReceivedMessages($id_util);
 
+require $pathcontrolleurs . "/Header.php";
 require $pathVues."/messagerie.php";
         

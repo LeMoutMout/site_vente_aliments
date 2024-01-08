@@ -75,13 +75,12 @@
                                         <?php echo $nom_producteur ?>
                                     </div>
                                     <div class="grid_produit_bottom_2">
-                                        <strong><?php echo 'CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC'; //$produit['nom_produit'];
-                                                ?></strong>
+                                        <strong><?php echo $produit['nom_produit']; ?></strong>
                                     </div>
                                     <div class="grid_produit_bottom_3">
                                         <strong><?php echo $produit['prix_produit'] . '€/' . $produit['nom_unite'] ?></strong>
                                     </div>
-                                    <div class="flex_center grid_produit_bottom_4" onclick="openPopup('edit', '<?php echo $produit['id_produit']?>', '<?php echo $produit['nom_produit']?>', '<?php echo $produit['quantite_produit']?>', '<?php echo $produit['prix_produit']?>', '<?php echo $produit['nom_unite']?>', '<?php echo $produit['promotion_produit']?>', '<?php echo $produit['bio_produit']?>', '<?php echo 'prout'?>');">
+                                    <div class="flex_center grid_produit_bottom_4" onclick="openPopup('edit', '<?php echo $produit['id_produit'] ?>', '<?php echo $produit['nom_produit'] ?>', '<?php echo $produit['quantite_produit'] ?>', '<?php echo $produit['prix_produit'] ?>', '<?php echo $produit['nom_unite'] ?>', '<?php echo $produit['promotion_produit'] ?>', '<?php echo $produit['bio_produit'] ?>', '<?php echo 'prout' ?>');">
                                         <img src="../images/crayon_modif.svg" alt="modifier produit" class="image_crayon">
                                     </div>
                                     <div class="grid_produit_bottom_5 flex_center">
@@ -118,7 +117,7 @@
                                     <img src="<?php echo getUserImage($avis_['id_util']) ?>" alt="image utilisateur" class="avis_image_utilisateur">
                                 </div>
                                 <div class="grid_3_2">
-                                    <?php echo '<strong>' . /*$avis_['pren_util']*/ 'CCCCCCCCCCCCCCCCCCCCCCCCC &nbsp CCCCCCCCCCCCCCCCCCCCCCCCC &nbsp' . /*$avis_['nom_util']*/ '</strong> le ' . $avis_['date_avis'] ?>
+                                    <?php echo '<strong>' . $avis_['pren_util'] . '&nbsp' . $avis_['nom_util'] . '</strong>' . ' le ' . $avis_['date_avis'] ?>
                                 </div>
                                 <div class="grid_3_3 flex_left">
                                     <img src="<?php echo ($moy_avis >= 1) ? "../images/full_star.svg" : "../images/empty_star.svg"; ?>" alt="etoile" class="avis_etoile_2">
@@ -131,8 +130,7 @@
                                     </p>
                                 </div>
                                 <div class="grid_3_4">
-                                    <?php echo 'CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC'; //$avis_['contenu_avis']
-                                    ?>
+                                    <?php echo $avis_['contenu_avis'] ?>
                                 </div>
                             </article>
                         <?php } ?>
@@ -161,15 +159,13 @@
                                     <img src="<?php echo getUserImage($user['id_util']) ?>" alt="" class="commande_image_utilisateur">
                                 </div>
                                 <div class="grid_4_2">
-                                    <strong> <?php echo 'CCCCCCCCCCCCCCCCCCCCCCCCC &nbsp CCCCCCCCCCCCCCCCCCCCCCCCC' //$user['pren_util'] .' &nbsp'. $user['nom_util']
-                                                ?> </strong>
+                                    <strong> <?php echo $user['pren_util'] . ' &nbsp' . $user['nom_util'] ?> </strong>
                                 </div>
                                 <div class="grid_4_3 flex_left">
                                     <?php echo $user['tel_util'] ?>
                                 </div>
                                 <div class="grid_4_4">
-                                    <?php echo 'CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC' //$user['mail_util']
-                                    ?>
+                                    <?php echo $user['mail_util'] ?>
                                 </div>
                                 <div class="grid_4_5">
                                     <div class="flex_center scroll_conteneur_x">
@@ -182,8 +178,7 @@
                                                     </div>
                                                     <div class="grid_produit_commande_bottom_parent">
                                                         <div class="grid_produit_commande_bottom_1">
-                                                            <strong><?php echo 'CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC'; //$produit['nom_produit']; 
-                                                                    ?></strong>
+                                                            <strong><?php echo $produit['nom_produit']; ?></strong>
                                                         </div>
                                                         <div class="flex_center grid_produit_commande_bottom_2">
                                                             <?php echo $produit['qte_produit_commandee'] ?>

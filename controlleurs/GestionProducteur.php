@@ -7,12 +7,17 @@ require $pathModels . "/AvisRead.php";
 require $pathModels . "/PanierRead.php";
 require $pathModels . "/PanierWrite.php";
 require $pathModels . "/produitWrite.php";
+require $pathModels . "/is.php";
 require $pathVues . "/GestionProduit.php";
 
 
 session_start();
 
-$_SESSION['id_production'] = 1;
+if (!isProducteur($_SESSION['id_util'])) {
+    header('Location: ' . $pathcontrolleurs . '/index.php');
+    exit();
+}
+
 
 if (isset($_POST['refusee'])) {
     changeStatut($_POST['refusee'], 5);
@@ -28,7 +33,6 @@ if (isset($_POST['pdf'])) {
 }
 
 if (isset($_POST['gestion_produit'])) {
-
 
     $nom = $_POST['nom'];
     $stock = $_POST['stock'];
@@ -59,10 +63,10 @@ if (isset($_POST['gestion_produit'])) {
         $extension = pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION);
         $cheminComplet = $pathImage . '/produits/' . $id_produit . '.' . $extension;
 
-        $anciennes_images = glob($GLOBALS['pathImage']."/produits/".$id_produit.".*");
+        $anciennes_images = glob($GLOBALS['pathImage'] . "/produits/" . $id_produit . ".*");
 
-        if(isset($anciennes_images)){
-            foreach($anciennes_images as $ancienne_image){
+        if (isset($anciennes_images)) {
+            foreach ($anciennes_images as $ancienne_image) {
                 unlink($ancienne_image);
             }
         }
@@ -71,24 +75,21 @@ if (isset($_POST['gestion_produit'])) {
     }
 }
 
-if (isset($_SESSION['id_production'])) {
-    $productor = getProductorById($_SESSION['id_production']);
-    if (isset($productor['id_production'])) {
-        $image_producteur = getUserImage($productor['id_util']);
-        $adresse = $productor['adresse_util'];
-        $desc = 'CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC'; //$productor['descr_production'];
-        $nom_producteur = 'CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC'; //$productor['nom_production'];
-        $produits = getProduitsFromProducteur($productor['id_production']);
-        $nb_produits = getNbProduitsOf($productor['id_production']);
-        $avis = getAvisFromProducteur($productor['id_production']);
-        $nb_avis = getNbAvisOf($productor['id_production']);
-        $moy_avis = getAVGAvisOf($productor['id_production']);
-        $paniers = getPanierEnCoursFromProductor($productor['id_production']);
-    }
+$productor = getProductorById($_SESSION['id_production']);
+if (isset($productor['id_production'])) {
+    $image_producteur = getUserImage($productor['id_util']);
+    $adresse = $productor['adresse_util'];
+    $desc = $productor['descr_production'];
+    $nom_producteur = $productor['nom_production'];
+    $produits = getProduitsFromProducteur($productor['id_production']);
+    $nb_produits = getNbProduitsOf($productor['id_production']);
+    $avis = getAvisFromProducteur($productor['id_production']);
+    $nb_avis = getNbAvisOf($productor['id_production']);
+    $moy_avis = getAVGAvisOf($productor['id_production']);
+    $paniers = getPanierEnCoursFromProductor($productor['id_production']);
 }
 
 
 
-
-
+require $pathcontrolleurs . "/Header.php";
 require $pathVues . "/GestionProducteur.php";

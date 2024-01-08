@@ -20,7 +20,7 @@ main {
 .panier {
     display: flex;
     width: 90vw;
-    background-color: #8FB43A;
+    background-color: white;
 }
 
 .flex_center {

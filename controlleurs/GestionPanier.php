@@ -10,8 +10,6 @@ require $pathModels . "/AvisRead.php";
 
 session_start();
 
-$_SESSION['id_util'] = 1;
-
 if (isset($_POST['annuler'])) {
     changeStatut($_POST['annuler'], 5);
 }
@@ -21,6 +19,6 @@ if (isset($_POST['commander'])) {
 
 $paniers = getPanierByUtil($_SESSION['id_util']);
 
-
+require $pathcontrolleurs . "/Header.php";
 require $pathVues . '/GestionPanier.php';
 ?>
