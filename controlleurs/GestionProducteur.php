@@ -75,6 +75,7 @@ if (isset($_POST['gestion_produit'])) {
     }
 }
 
+//pb ici
 $productor = getProductorById($_SESSION['id_production']);
 if (isset($productor['id_production'])) {
     $image_producteur = getUserImage($productor['id_util']);

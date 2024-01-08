@@ -74,7 +74,7 @@
                                         <?php echo $nom_producteur ?>
                                     </div>
                                     <div class="grid_produit_bottom_2">
-                                        <strong><?php echo 'CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC'; //$produit['nom_produit'];
+                                        <strong><?php echo $produit['nom_produit'];
                                                 ?></strong>
                                     </div>
                                     <div class="grid_produit_bottom_3">
@@ -114,7 +114,7 @@
                                     <img src="<?php echo getUserImage($avis_['id_util']) ?>" alt="image utilisateur" class="avis_image_utilisateur">
                                 </div>
                                 <div class="grid_3_2">
-                                    <?php echo '<strong>' . /*$avis_['pren_util']*/ 'CCCCCCCCCCCCCCCCCCCCCCCCC &nbsp CCCCCCCCCCCCCCCCCCCCCCCCC &nbsp' . /*$avis_['nom_util']*/ '</strong> le ' . $avis_['date_avis'] ?>
+                                    <?php echo '<strong>' . $avis_['pren_util'] . '&nbsp' . $avis_['nom_util'] . '</strong> le ' . $avis_['date_avis'] ?>
                                 </div>
                                 <div class="grid_3_3 flex_left">
                                     <img src="<?php echo ($moy_avis >= 1) ? "../images/full_star.svg" : "../images/empty_star.svg"; ?>" alt="etoile" class="avis_etoile_2">
@@ -127,8 +127,7 @@
                                     </p>
                                 </div>
                                 <div class="grid_3_4">
-                                    <?php echo 'CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC'; //$avis_['contenu_avis']
-                                    ?>
+                                    <?php echo $avis_['contenu_avis']?>
                                 </div>
                             </article>
                         <?php } ?>

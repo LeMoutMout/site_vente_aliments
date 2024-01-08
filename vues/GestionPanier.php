@@ -65,7 +65,7 @@
                                                 </div>
                                                 <div class="grid_produit_commande_bottom_parent">
                                                     <div class="grid_produit_commande_bottom_1">
-                                                        <strong><?php echo 'CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC'; //$produit['nom_produit']; 
+                                                        <strong><?php echo $produit['nom_produit']; 
                                                                 ?></strong>
                                                     </div>
                                                     <div class="flex_center grid_produit_commande_bottom_2">
