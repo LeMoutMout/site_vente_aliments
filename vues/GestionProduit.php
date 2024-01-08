@@ -12,7 +12,7 @@
                         Nom :
                     </div>
                     <div class="overlay_nom_completion">
-                        <input type="text" name="nom" placeholder="Nom du produit" required>
+                        <input type="text" name="nom" placeholder="Nom du produit" maxlength="50" required>
                     </div>
                     <div class="overlay_stock_glob">
                         <div class="overlay_stock_text">

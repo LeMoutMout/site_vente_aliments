@@ -13,8 +13,6 @@ session_start();
 
 require $pathcontrolleurs . "/Header.php";
 
-
-
 if (!isProducteur($_SESSION['id_util'])) {
     header('Location: ' . $pathcontrolleurs . '/index.php');
 }
@@ -92,8 +90,6 @@ if (isset($_POST['gestion_produit'])) {
         move_uploaded_file($fichierTemporaire, $cheminComplet);
     }
 }
-
-
 
 
 require $pathVues . "/GestionProducteur.php";
