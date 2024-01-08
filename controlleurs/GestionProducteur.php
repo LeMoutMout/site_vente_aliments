@@ -7,7 +7,6 @@ require $pathModels . "/AvisRead.php";
 require $pathModels . "/PanierRead.php";
 require $pathModels . "/PanierWrite.php";
 require $pathModels . "/produitWrite.php";
-require $pathModels . "/is.php";
 require $pathVues . "/GestionProduit.php";
 
 
@@ -15,7 +14,6 @@ session_start();
 
 if (!isProducteur($_SESSION['id_util'])) {
     header('Location: ' . $pathcontrolleurs . '/index.php');
-    exit();
 }
 
 
@@ -76,7 +74,9 @@ if (isset($_POST['gestion_produit'])) {
 }
 
 //pb ici
-$productor = getProductorById($_SESSION['id_production']);
+$productor = getProductorByIdUtil($_SESSION['id_util']);
+
+
 if (isset($productor['id_production'])) {
     $image_producteur = getUserImage($productor['id_util']);
     $adresse = $productor['adresse_util'];
