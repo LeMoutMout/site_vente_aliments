@@ -29,7 +29,13 @@
                         </div>
                         &nbsp;
                         <div class="overlay_categorie_choix">
-
+                            <select name="categorie" id="categorie">
+                                <?php 
+                                    foreach($categories as $categorie) {
+                                        echo '<option value="'.$categorie['id_categorie'].'">'.$categorie['nom_categorie'].'</option>';
+                                    }
+                                ?>
+                            </select>
                         </div>
                     </div>
                 </div>
@@ -49,7 +55,13 @@
                         </div>
                         €/
                         <div class="overlay_unite">
-                            <input type="search" name="unite">
+                            <select name="unite" id="unite">
+                                <?php 
+                                    foreach($unites as $unite) {
+                                        echo '<option value="'.$unite['id_unite'].'" id="'.$unite['nom_unite'].'">'.$unite['nom_unite'].'</option>';
+                                    }
+                                ?>
+                            </select>
                         </div>
 
                     </div>

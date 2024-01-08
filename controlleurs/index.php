@@ -13,7 +13,6 @@ $produits = getProduitsLimit(10);
 
 $producteurs = getProductorOrderByAvis(10);
 
-require $pathVues .'/AchatProduit.php';
 require $pathcontrolleurs . '/Header.php';
 require $pathVues.'/index.php';
 ?>

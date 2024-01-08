@@ -7,7 +7,8 @@ require $pathModels . "/AvisRead.php";
 require $pathModels . "/PanierRead.php";
 require $pathModels . "/PanierWrite.php";
 require $pathModels . "/produitWrite.php";
-require $pathVues . "/GestionProduit.php";
+require $pathModels . "/uniteRead.php";
+require $pathModels . "/categorieRead.php";
 
 session_start();
 
@@ -36,9 +37,9 @@ if (isset($_POST['gestion_produit'])) {
 
     $nom = $_POST['nom'];
     $stock = $_POST['stock'];
-    $categorie = 'fruit'; //$_POST['categorie'];
+    $categorie = $_POST['categorie'];
     $prix = $_POST['prix'];
-    $unite = 1; //$_POST['unite'];
+    $unite = $_POST['unite'];
     $promotion = 0;
     $bio = 0;
 
@@ -88,4 +89,10 @@ if (isset($productor['id_production'])) {
     $paniers = getPanierEnCoursFromProductor($productor['id_production']);
 }
 
+$unites = getUnite();
+$categories = getCategorie();
+
+var_dump($_POST);
+
+require $pathVues . "/GestionProduit.php";
 require $pathVues . "/GestionProducteur.php";

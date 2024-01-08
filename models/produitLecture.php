@@ -39,8 +39,7 @@ function getProduitsSearch($search)
 function getProduitsBigSearchBio($search)
 {
     $bdd = getDBc();
-    $produits_query = $bdd->query("select produitPageRecherche.* from produitPageRecherche join categorisation as catg on produitPageRecherche.id_produit = catg.id_produit join categorie as catr on catr.id_categorie = catg.id_categorie where bio_produit = 1 and (LOWER(nom_produit) like LOWER('%" . $search . "%') or lower(catr.nom_categorie) like LOWER('%" . $search . "%'));");
-    echo "select produitPageRecherche.* from produitPageRecherche join categorisation as catg on produitPageRecherche.id_produit = catg.id_produit join categorie as catr on catr.id_categorie = catg.id_categorie where bio_produit = 1 and (LOWER(nom_produit) like LOWER('%" . $search . "%') or lower(catr.nom_categorie) like LOWER('%" . $search . "%'));";
+    $produits_query = $bdd->query("select produitPageRecherche.* from produitPageRecherche left join categorisation as catg on produitPageRecherche.id_produit = catg.id_produit left join categorie as catr on catr.id_categorie = catg.id_categorie where bio_produit = 1 and (LOWER(nom_produit) like LOWER('%".$search."%') or lower(catr.nom_categorie) like LOWER('%" . $search . "%')) group by id_produit;");
     $produits = $produits_query->fetchall(PDO::FETCH_ASSOC);
     return $produits;
 }
@@ -48,7 +47,7 @@ function getProduitsBigSearchBio($search)
 function getProduitsBigSearch($search)
 {
     $bdd = getDBc();
-    $produits_query = $bdd->query("select produitPageRecherche.* from produitPageRecherche join categorisation as catg on produitPageRecherche.id_produit = catg.id_produit join categorie as catr on catr.id_categorie = catg.id_categorie where LOWER(nom_produit) like LOWER('%" . $search . "%') or LOWER(catr.nom_categorie) like LOWER('%" . $search . "%');");
+    $produits_query = $bdd->query("select produitPageRecherche.* from produitPageRecherche left join categorisation as catg on produitPageRecherche.id_produit = catg.id_produit left join categorie as catr on catr.id_categorie = catg.id_categorie where LOWER(nom_produit) like LOWER('%" . $search . "%') or LOWER(catr.nom_categorie) like LOWER('%" . $search . "%') group by id_produit;");
     $produits = $produits_query->fetchall(PDO::FETCH_ASSOC);
     return $produits;
 }
@@ -100,7 +99,7 @@ join UNITE on UNITE.id_unite = PRODUIT.id_unite where PRODUCTEUR.id_production =
 function getProduitsBigSearchBioFrom($producteur, $search)
 {
     $bdd = getDBc();
-    $produits_query = $bdd->query("select produitPageRecherche.* from produitPageRecherche join categorisation as catg on produitPageRecherche.id_produit = catg.id_produit join categorie as catr on catr.id_categorie = catg.id_categorie where id_production = ".$producteur." and bio_produit = 1 and (LOWER(nom_produit) like LOWER('%" . $search . "%') or lower(catr.nom_categorie) like LOWER('%" . $search . "%'))group by id_produit;");
+    $produits_query = $bdd->query("select produitPageRecherche.* from produitPageRecherche left join categorisation as catg on produitPageRecherche.id_produit = catg.id_produit left join categorie as catr on catr.id_categorie = catg.id_categorie where id_production = ".$producteur." and bio_produit = 1 and (LOWER(nom_produit) like LOWER('%" . $search . "%') or lower(catr.nom_categorie) like LOWER('%" . $search . "%'))group by id_produit;");
     $produits = $produits_query->fetchall(PDO::FETCH_ASSOC);
     return $produits;
 }
@@ -108,7 +107,7 @@ function getProduitsBigSearchBioFrom($producteur, $search)
 function getProduitsBigSearchFrom($producteur, $search)
 {
     $bdd = getDBc();
-    $produits_query = $bdd->query("select produitPageRecherche.* from produitPageRecherche join categorisation as catg on produitPageRecherche.id_produit = catg.id_produit join categorie as catr on catr.id_categorie = catg.id_categorie where id_production = ".$producteur." and (LOWER(nom_produit) like LOWER('%" . $search . "%') or lower(catr.nom_categorie) like LOWER('%" . $search . "%')) group by id_produit;");
+    $produits_query = $bdd->query("select produitPageRecherche.* from produitPageRecherche left join categorisation as catg on produitPageRecherche.id_produit = catg.id_produit left join categorie as catr on catr.id_categorie = catg.id_categorie where id_production = ".$producteur." and (LOWER(nom_produit) like LOWER('%" . $search . "%') or lower(catr.nom_categorie) like LOWER('%" . $search . "%')) group by id_produit;");
     $produits = $produits_query->fetchall(PDO::FETCH_ASSOC);
     return $produits;
 }

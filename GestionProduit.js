@@ -19,9 +19,19 @@ function fillFormWithProductDetails(nom, stock, prix, unite, bio, promotion, cat
   document.querySelector('input[name="stock"]').value = stock;
   //document.querySelector('input[name="categorie"]').value = produit[''];
   document.querySelector('input[name="prix"]').value = prix;
-  document.querySelector('input[name="unite"]').value = unite;
   document.querySelector('input[name="promotion"]').value = promotion;
   document.querySelector('input[name="bio"]').checked = bio;
+
+  var unites = document.getElementById("unite");
+
+  for (var i = 0; i < unites.options.length; i++) {
+   // alert(unites.options[i].innerHTML);
+    if (unites.options[i].innerHTML === unite) {
+      unites.options[i].selected = true;
+      //alert('select');
+      break;
+    }
+  }
 }
 
 function closePopup() {
