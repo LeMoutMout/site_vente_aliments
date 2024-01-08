@@ -42,6 +42,7 @@ if (isset($_POST['gestion_produit'])) {
     $unite = $_POST['unite'];
     $promotion = 0;
     $bio = 0;
+    $categories = $_POST['categorie'];
 
     if (isset($_POST['bio']) && $_POST['bio'] == 'checked') {
         $bio = 1;
@@ -52,7 +53,7 @@ if (isset($_POST['gestion_produit'])) {
     }
 
     if ($_POST['gestion_produit'] == -1) {
-        createProduct($productor['id_production'], $nom, $stock, $prix, $bio, $unite, $promotion);
+        createProduct($productor['id_production'], $nom, $stock, $prix, $bio, $unite, $promotion,$categories);
         $id_produit = getLastIdProduit();
     } else {
         updateProduit($_POST['gestion_produit'], $nom, $stock, $prix, $bio, $promotion);
@@ -91,8 +92,6 @@ if (isset($productor['id_production'])) {
 
 $unites = getUnite();
 $categories = getCategorie();
-
-var_dump($_POST);
 
 require $pathVues . "/GestionProduit.php";
 require $pathVues . "/GestionProducteur.php";
