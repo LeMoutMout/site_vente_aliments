@@ -32,6 +32,17 @@ function fillFormWithProductDetails(nom, stock, prix, unite, bio, promotion, cat
       break;
     }
   }
+
+  /*var categories = document.getElementById("categorie");
+
+  for (var i = 0; i < categories.options.length; i++) {
+   // alert(unites.options[i].innerHTML);
+    if (categorie.includes(categories.options[i].innerHTML)) {
+      categories.options[i].selected = true;
+      //alert('select');
+      break;
+    }
+  }*/
 }
 
 function closePopup() {

@@ -29,7 +29,7 @@
                         </div>
                         &nbsp;
                         <div class="overlay_categorie_choix">
-                            <select name="categorie" id="categorie">
+                            <select class="categorie_input" name="categorie[]" id="categorie" multiple>
                                 <?php 
                                     foreach($categories as $categorie) {
                                         echo '<option value="'.$categorie['id_categorie'].'">'.$categorie['nom_categorie'].'</option>';
