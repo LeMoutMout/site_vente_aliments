@@ -8,6 +8,15 @@
     align-content: center;
 }
 
+.centre_elem_bloc {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    padding: 2%;
+}
+
 .warp {
     display: flex;
     flex-wrap: wrap;
@@ -22,16 +31,20 @@
 
 .btn {
     padding: 1%;
-    margin-left: 10%;
-    margin-right: 10%;
+    width: 30%;
+    margin-left: 9%;
+    margin-right: 9%;
 }
 
-.oui {
+.non {
     background-color: red;
     color: white;
 }
 
-.non {
+.oui {
     background-color: #B7CE66;
-    color: white;
+}
+
+.bloc {
+    background-color: #C8D6A2;
 }
