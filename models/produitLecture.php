@@ -60,6 +60,14 @@ function getProduitsTag($tag)
     return $produits;
 }
 
+function getLastIdProduit()
+{
+    $bdd = getDBc();
+    $produits_query = $bdd->query("select MAX(id_produit) as id_produit from PRODUIT ;");
+    $id_produit = $produits_query->fetch(PDO::FETCH_ASSOC);
+    return $id_produit['id_produit'];
+}
+
 function getProduitsTagSearch($tag, $search)
 {
     $bdd = getDBc();
@@ -116,4 +124,12 @@ function getNbProduitsOf($idProducteur)
     if (isset($nb_produits['nb_produits']))
         return $nb_produits['nb_produits'];
     return 0;
+}
+
+function getProduitFromId($idProduit)
+{
+    $bdd = getDBc();
+    $produit_query = $bdd->query("select * from produitPageRecherche WHERE id_produit=" . $idProduit .";");
+    $produit = $produit_query->fetch(PDO::FETCH_ASSOC);
+    return $produit;
 }

@@ -2,7 +2,7 @@
 
 function getPanierByUtil($idUtil) {
     $bdd = getDBc();
-    $paniers_query = $bdd->query("select id_panier, date_panier, nom_statut from PANIER join STATUT on STATUT.id_statut = PANIER.id_statut where id_util = ".$idUtil." order by date_panier desc;");
+    $paniers_query = $bdd->query("select id_panier, date_panier, id_util, id_statut from PANIER where id_util = ".$idUtil." and id_statut in (1,2,3,4) order by date_panier desc;");
     $paniers = $paniers_query->fetchall(PDO::FETCH_ASSOC);
     return $paniers;
 }
@@ -30,7 +30,7 @@ function getPanierLivreeFromProductor($idProductor) {
 
 function getProducteurOf($id_panier) {
     $bdd = getDBc();
-    $paniers_query = $bdd->query("select distinct producteur.* from COMPOSITION join produit on produit.id_produit = COMPOSITION.id_produit join producteur on producteur.id_production = produit.id_production where id_panier = ".$id_panier.";");
+    $paniers_query = $bdd->query("select distinct producteur.*, adresse_util as adresse_producteur from COMPOSITION join produit on produit.id_produit = COMPOSITION.id_produit join producteur on producteur.id_production = produit.id_production join utilisateur on utilisateur.id_util = producteur.id_util where id_panier = ".$id_panier.";");
     $producteur = $paniers_query->fetch(PDO::FETCH_ASSOC);
     return $producteur;
 }

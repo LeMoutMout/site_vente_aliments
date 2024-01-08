@@ -4,12 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../GestionProducteur.css" type="text/css">
+    <link rel="stylesheet" href="../GestionProduit.css" type="text/css">
+
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 
 <body>
+    <script src="../GestionProduit.js"></script>
     <header>
 
     </header>
@@ -78,25 +81,22 @@
                                     <div class="grid_produit_bottom_3">
                                         <strong><?php echo $produit['prix_produit'] . '€/' . $produit['nom_unite'] ?></strong>
                                     </div>
-                                    <div class="grid_produit_bottom_4">
-                                        <a href="">
-                                            <img src="../images/crayon_modif.svg" alt="modifier produit" class="image_crayon">
-                                        </a>
+                                    <div class="flex_center grid_produit_bottom_4" onclick="openPopup('edit', '<?php echo $produit['id_produit']?>', '<?php echo $produit['nom_produit']?>', '<?php echo $produit['quantite_produit']?>', '<?php echo $produit['prix_produit']?>', '<?php echo $produit['nom_unite']?>', '<?php echo $produit['promotion_produit']?>', '<?php echo $produit['bio_produit']?>', '<?php echo 'prout'?>');">
+                                        <img src="../images/crayon_modif.svg" alt="modifier produit" class="image_crayon">
                                     </div>
                                     <div class="grid_produit_bottom_5 flex_center">
                                         <div class="souligne">
                                             Stock :
                                         </div>
                                         <?php echo '&nbsp;' . $produit['quantite_produit'] . '&nbsp;' . $produit['nom_unite'] ?>
-
                                     </div>
                                 </div>
                             </article>
                         <?php }
                         ?>
-                        <a href="" class="flex_center produit_stock">
-                            <img src="../images/croix_produit_sup.svg" alt="croix pproduit supplémentaire">
-                        </a>
+                        <div class="flex_center produit_stock" onclick="openPopup('add');">
+                            <img src="../images/croix_produit_sup.svg" alt="croix produit supplémentaire">
+                        </div>
                     </div>
                     <div class="scroll_arrow">
                         <img src="../images/fleche_stock.svg" alt="image descendre stock">
@@ -153,7 +153,7 @@
                         <?php foreach ($paniers as $panier) {
                             $total = 0;
                             foreach (getProduitOf($panier['id_panier']) as $produit) {
-                                $total = $total + $produit['quantite_produit'] * $produit['prix_produit'];
+                                $total = $total + $produit['quantite_produit'] * $produit['prix_produit'] * (1 - $produit['promotion_produit'] / 100);
                             }
                             $user = getUserByID($panier['id_util']) ?>
                             <article class="grid_4_parent">
@@ -202,21 +202,21 @@
                                     </div>
                                 </div>
                                 <div class="grid_4_6 flex_space_around">
-                                    <form class="flex_center" action="" method="post">
+                                    <form class="flex_center" method="post">
                                         <input type="hidden" name="refusee" value=<?php echo $panier['id_panier'] ?>>
                                         <button class="transparent_button">
                                             <img src="../images/refuser.svg" alt="refuser" class="image_refuser">
                                         </button>
                                     </form>
                                     <?php if ($panier['id_statut'] == 2) { ?>
-                                        <form class="flex_center" action="" method="post">
+                                        <form class="flex_center" method="post">
                                             <input type="hidden" name="prete" value=<?php echo $panier['id_panier'] ?>>
                                             <button class="transparent_button">
                                                 <img src="../images/prete.svg" alt="prete" class="image_panier_encours">
                                             </button>
                                         </form>
                                     <?php } else { ?>
-                                        <form class="flex_center" action="" method="post">
+                                        <form class="flex_center" method="post">
                                             <input type="hidden" name="livree" value=<?php echo $panier['id_panier'] ?>>
                                             <button class="transparent_button">
                                                 <img src="../images/livree.svg" alt="livree" class="image_panier_livre">
@@ -229,7 +229,7 @@
                                         Générer un pdf :
                                     </div>
                                     &nbsp;
-                                    <form class="flex_center" action="" method="post">
+                                    <form class="flex_center" method="post">
                                         <input type="hidden" name="pdf" value=<?php echo $panier['id_panier'] ?>>
                                         <button class="transparent_button">
                                             <img src="../images/pdf.svg" alt="pdf" class="image_pdf">

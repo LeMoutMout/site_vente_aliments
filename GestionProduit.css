@@ -1,0 +1,142 @@
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.555);
+    z-index: 998;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    padding: 20px;
+    transform: translate(-50%, -50%);
+    background-color: #8FB43A;
+    border-radius: 90px;
+    z-index: 999;
+}
+
+.overlay_bloc {
+    display: flex;
+    flex-direction: column;
+}
+
+.overlay_top {
+    display: flex;
+    justify-content: space-between;
+}
+
+.overlay_image_produit {
+    display: flex;
+    word-wrap: break-word;
+}
+
+.overlay_contenu {
+    display: flex;
+    flex-direction: column;
+}
+
+.overlay_nom_text {
+    display: flex;
+    text-decoration: underline;
+}
+
+.overlay_nom_completion {
+    display: flex;
+}
+
+.overlay_stock_glob {
+    display: flex;
+}
+
+.overlay_stock_text {
+    display: flex;
+    text-decoration: underline;
+}
+
+.overlay_stacok_qte {
+    display: flex;
+}
+
+.overlay_categorie_glob {
+    display: flex;
+}
+
+.overlay_categorie_text {
+    display: flex;
+    text-decoration: underline;
+}
+
+.overlay_categorie_choix {
+    display: flex;
+}
+
+.overlay_retour {
+    display: flex;
+}
+
+.overlay_bottom {
+    display: flex;
+    flex-direction: column;
+}
+
+.overlay_bottom_top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.overlay_prix_glob {
+    display: flex;
+}
+
+.overlay_prix_text {
+    display: flex;
+    text-decoration: underline;
+}
+
+.overlay_prix_modif {
+    display: flex;
+}
+
+.overlay_unite {
+    display: flex;
+}
+
+.overlay_recup_categorie{
+    display: flex;
+}
+
+.overlay_promotion_glob {
+    display: flex;
+}
+
+.overlay_promotion_text {
+    display: flex;
+    text-decoration: underline;
+}
+
+.overlay_promotion_modif {
+    display: flex;
+}
+
+.overlay_bottom_bottom {
+    display: flex;
+    flex-direction: row;
+}
+
+.overlay_image_bio {
+    display: flex;
+}
+
+.overlay_image_save {
+    display: flex;
+    align-items: end;
+    background: none;
+    border: 0px;
+}

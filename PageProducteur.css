@@ -278,7 +278,7 @@ a {
     grid-area: 1 / 2 / 4 / 3;
 }
 
-.image_crayon {
+.image_cart {
     width: 80%;
     height: 80%;
 }
@@ -361,6 +361,12 @@ a {
     height: 100%;
     background-color: #C8D6A2;
     border-radius: 90px;
+}
+
+.text_adresse {
+    display: grid;
+    justify-content: center;
+    font-size: 40px;
 }
 
 .footer_bloc {

@@ -1,4 +1,4 @@
-function openPopup(id_produit, nom, stock, prix, unite, promotion, bio, categorie) {
+function openPopup(id_produit, nom_produit, nom_production, stock, unite, image) {
     document.getElementById("overlay").style.display = "block";
     document.getElementById("popup").style.display = "block";
   
@@ -7,18 +7,16 @@ function openPopup(id_produit, nom, stock, prix, unite, promotion, bio, categori
   
     var gestionProduitInput = document.querySelector('input[name="achat_produit"]');
     gestionProduitInput.value = id_produit;
-    fillFormWithProductDetails(nom, stock, prix, unite, bio, promotion, categorie);
+    fillIdWithDetails(nom_produit, nom_production, stock, unite, image);
   }
   
-  function fillFormWithProductDetails(nom, stock, prix, unite, bio, promotion, categorie) {
-    document.getElementById('truc').
-    document.querySelector('input[name="nom"]').value = nom;
-    document.querySelector('input[name="stock"]').value = stock;
-    //document.querySelector('input[name="categorie"]').value = produit[''];
-    document.querySelector('input[name="prix"]').value = prix;
-    document.querySelector('input[name="unite"]').value = unite;
-    document.querySelector('input[name="promotion"]').value = promotion;
-    document.querySelector('input[name="bio"]').checked = bio;
+  function fillIdWithDetails(nom_produit, nom_production, stock, unite, image) {
+    document.getElementById('nom_produit').innerHTML = nom_produit;
+    document.getElementById('nom_production').innerHTML = "Vendu par : " + nom_production;
+    document.getElementById('stock').innerHTML = "Quantite disponible : " + stock + " " + unite;
+    document.getElementById('quantite_achat').innerHTML = unite;
+    document.getElementById('image').src = image;
+    document.getElementById('quantite').max = stock
   }
   
   function closePopup() {

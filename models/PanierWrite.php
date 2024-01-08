@@ -3,12 +3,12 @@
 function insertIntoPanier($idUtil,$qteProduit,$idProduit,$date) {
     $db = getDBc();
     
-    $stm = $db->prepare('CALL InsererProduitPanier( :idU, :qte, :idP, :date)');
+    $stm = $db->prepare('CALL InsererProduitPanier( :idU, :idP, :qte, :date)');
     
     $stm->execute([
         'idU' => $idUtil,
-        'qte' => $qteProduit,
         'idP' => $idProduit,
+        'qte' => $qteProduit,
         'date' => $date
     ]);
     

@@ -7,7 +7,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Accueil</title>
 </head>
-
   <div class="body_1_parent">
     <div class="body_1_div1">
       <div class="main_slogan_text">
