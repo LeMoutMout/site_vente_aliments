@@ -11,7 +11,6 @@
 </head>
 
 <body>
-    <script src="../AchatProduit.js"></script>
     <header>
 
     </header>
