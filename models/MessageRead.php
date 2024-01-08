@@ -40,3 +40,20 @@ function getReceivedMessages($id_util) {
 
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
+
+function getMessagesById($id) {
+    $db = getDBc();
+
+    $query = "SELECT MESSAGE.id_message, Utilisateur.nom_util, Utilisateur.pren_util, Utilisateur.mail_util, MESSAGE.contenu_message, MESSAGE.date_message
+              FROM MESSAGE
+              INNER JOIN RECEPTION ON MESSAGE.id_message = RECEPTION.id_message
+              INNER JOIN Utilisateur ON MESSAGE.id_util = Utilisateur.id_util
+              WHERE message.id_message = :id
+              ORDER BY MESSAGE.date_message DESC";
+
+    $stmt = $db->prepare($query);
+    $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+    $stmt->execute();
+
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
