@@ -5,8 +5,6 @@ require $pathModels . "/ProductorRead.php";
 require $pathModels . "/produitLecture.php";
 require $pathModels . "/AvisRead.php";
 require $pathModels . "/PanierRead.php";
-require $pathModels . "/UtilisateurRead.php";
-require $pathModels . "/ImageGet.php";
 require $pathModels . "/PanierWrite.php";
 require $pathModels . "/produitWrite.php";
 require $pathVues . "/GestionProduit.php";
@@ -14,7 +12,7 @@ require $pathVues . "/GestionProduit.php";
 
 session_start();
 
-$_SESSION['id_production'] = 4;
+$_SESSION['id_production'] = 1;
 
 if (isset($_POST['refusee'])) {
     changeStatut($_POST['refusee'], 5);
