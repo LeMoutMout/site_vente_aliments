@@ -58,6 +58,8 @@ if (!isset($devenirProducteur) && !isset($ajouteUnProduit) && !isset($barreDeRec
         if(isAdmin($idUtilisateur)){
             $gestionCompte = true;
         }       
+    }else {
+        $devenirProducteur = true;
     }
 }
 

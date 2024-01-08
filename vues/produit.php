@@ -4,7 +4,7 @@
         <img class="auto_size img_pr" src="<?php echo getProductImage($produitAAffiche['id_produit']) ?>">
     </div>
     <div class="pr_div2 align_center">
-        <img class="auto_size img_producteur" src="<?php echo getUserImage($produitAAffiche['id_production']) ?>">
+        <img class="auto_size img_producteur" src="<?php echo getUserImage($produitAAffiche['id_production']) ?>" onclick="location.href = './pageProducteur.php?prod=<?php echo $produitAAffiche['id_production'];?>'">
     </div>
     <div class="pr_div3">
         <?php echo $produitAAffiche['nom_production'] . "<br><strong>" . $produitAAffiche['nom_produit'] . "</strong>" ?>

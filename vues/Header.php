@@ -51,7 +51,7 @@
             <?php } ?>
 
             <?php if ($gestionProduit) { ?>
-                <form action="<?php echo $pathcontrolleurs . '/pageProducteur.php'; ?>">
+                <form action="<?php echo $pathcontrolleurs . '/GestionProducteur.php'; ?>">
                     <button class="bouton_header">
                         <div class="align_img_text">
                             <img class="img_header auto_size_img_header" src="<?php echo $pathImage . '/fermier.svg' ?>" alt="">
