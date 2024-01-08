@@ -54,4 +54,7 @@ if (isset($erreur)) {
     $cp = $_POST['cp'];
 }
 
+$devenirProducteur = false;
+
+require $pathcontrolleurs .'/header.php';
 require $pathVues . '/CreationCompteUtilisateur.php';
