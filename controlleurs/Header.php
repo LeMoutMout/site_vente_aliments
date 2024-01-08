@@ -102,7 +102,9 @@ if (!isset($gestionCompte)) {
 if (!isset($recherchePath)) {
     $recherchePath = $pathcontrolleurs . '/rechercheProduit.php';
 }
+
 require $pathVues . "/header.php";
+require $pathVues .'/AchatProduit.php';
 
 
 
