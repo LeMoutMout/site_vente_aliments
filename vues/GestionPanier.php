@@ -47,7 +47,7 @@
                                         <img src="<?php echo ($moy_avis == 5) ? "../images/full_star.svg" : "../images/empty_star.svg"; ?>" alt="etoile" class="avis_etoile">
                                         <?php echo number_format($moy_avis, 2); ?>/5
                                     </div>
-                                    <div class="voir_avis">
+                                    <div class="voir_avis" onclick="location.href = 'pageProducteur.php?prod=<?php echo $producteurs[$producteur]['id_production']?>'">
                                         plus d'informations
                                     </div>
                                 </div>
