@@ -51,7 +51,7 @@ if (!isset($devenirProducteur) && !isset($ajouteUnProduit) && !isset($barreDeRec
         $messagerie = true;
         $mesPanier = true;
 
-        if (isProducteur($idUtilisateur) !== -1){
+        if (isProducteur($idUtilisateur)){
             $gestionProduit = true;
         }
 
