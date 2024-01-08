@@ -8,9 +8,6 @@
 </head>
 
 <body>
-    <header>
-
-    </header>
     <main>
         <div class="menu">
 
@@ -65,17 +62,42 @@
                                                     <img class="produit_commande_image" src="<?php echo getProductImage($produit['id_produit']); ?>" alt="image du produit">
                                                 </div>
                                                 <div class="grid_produit_commande_bottom_parent">
-                                                    <div class="grid_produit_commande_bottom_1">
-                                                        <strong><?php echo $produit['nom_produit'];?></strong>
+                                                    <div class="flex_left grid_produit_commande_bottom_1">
+                                                        <strong><?php echo $produit['nom_produit']; ?></strong>
                                                     </div>
-                                                    <div class="flex_center grid_produit_commande_bottom_2">
-                                                        <?php echo $produit['qte_produit_commandee'] ?>
+                                                    <div class="flex_left grid_produit_commande_bottom_2">
+                                                        Quantité souhaitée :
+                                                        <?php echo $produit['qte_produit_commandee'] . $produit['nom_unite'] ?>
                                                     </div>
-                                                    <div class="flex_center grid_produit_commande_bottom_3">
-                                                        <strong><?php echo $produit['qte_produit_commandee'] * $produit['prix_produit'] . '€' ?></strong>
+                                                    <div class="flex_left grid_produit_commande_bottom_3">
+                                                        <div class="produit_commande_initial">
+                                                            Prix unitaire :
+                                                            <?php echo $produit['prix_produit'] . '€/' . $produit['nom_unite'] ?>
+                                                        </div>
+                                                        <div class="produit_commande_promo">
+                                                            <?php if (isset($produit['promotion_produit']) && $produit['promotion_produit'] !== 0) { ?>
+                                                                &nbsp;
+                                                                -
+                                                                <?php echo $produit['promotion_produit'] ?>
+                                                                %
+                                                            <?php } ?>
+                                                        </div>
                                                     </div>
-                                                    <div class=" flex_center grid_produit_commande_bottom_4">
-                                                        <?php echo $produit['prix_produit'] . '€/' . $produit['nom_unite'] ?>
+                                                    <div class="flex_center grid_produit_commande_bottom_4">
+                                                        <form method="post" class="flex_center">
+                                                            <input type="hidden" name="supprimer_produit" value="<?php echo $panier['id_panier'] ?>">
+                                                            <div class="annuler flex_center">
+                                                                <button type="submit" class="flex_center">
+                                                                    <img src="../images/poubelle.svg" alt="annuler" class="annuler_img">
+                                                                </button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                    <div class="flex_center grid_produit_commande_bottom_5">
+                                                        <strong><?php echo $produit['qte_produit_commandee'] * $produit['prix_produit'] * (1 - $produit['promotion_produit'] / 100) . '€' ?></strong>
+                                                    </div>
+                                                    <div class="flex_center grid_produit_commande_bottom_6" onclick="openPopup('<?php echo $produit['id_produit'] ?>', '<?php echo $produit['nom_produit'] ?>', '<?php echo $nom_producteur ?>', '<?php echo $produit['quantite_produit'] ?>', '<?php echo $produit['nom_unite'] ?>','<?php echo $image_producteur ?>');">
+                                                        <img src=" ../images/cart.svg" alt="acheter produit" class="image_cart">
                                                     </div>
                                                 </div>
                                             </article>

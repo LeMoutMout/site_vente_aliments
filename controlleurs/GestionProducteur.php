@@ -18,19 +18,6 @@ if (!isProducteur($_SESSION['id_util'])) {
 }
 
 $productor = getProductorByIdUtil($_SESSION['id_util']);
-if (isset($productor['id_production'])) {
-    $image_producteur = getUserImage($productor['id_util']);
-    $adresse = $productor['adresse_util'];
-    $desc = $productor['descr_production'];
-    $nom_producteur = $productor['nom_production'];
-    $produits = getProduitsFromProducteur($productor['id_production']);
-    $nb_produits = getNbProduitsOf($productor['id_production']);
-    $avis = getAvisFromProducteur($productor['id_production']);
-    $nb_avis = getNbAvisOf($productor['id_production']);
-    $moy_avis = getAVGAvisOf($productor['id_production']);
-    $paniers = getPanierEnCoursFromProductor($productor['id_production']);
-}
-
 
 if (isset($_POST['refusee'])) {
     changeStatut($_POST['refusee'], 5);
@@ -88,5 +75,17 @@ if (isset($_POST['gestion_produit'])) {
     }
 }
 
+if (isset($productor['id_production'])) {
+    $image_producteur = getUserImage($productor['id_util']);
+    $adresse = $productor['adresse_util'];
+    $desc = $productor['descr_production'];
+    $nom_producteur = $productor['nom_production'];
+    $produits = getProduitsFromProducteur($productor['id_production']);
+    $nb_produits = getNbProduitsOf($productor['id_production']);
+    $avis = getAvisFromProducteur($productor['id_production']);
+    $nb_avis = getNbAvisOf($productor['id_production']);
+    $moy_avis = getAVGAvisOf($productor['id_production']);
+    $paniers = getPanierEnCoursFromProductor($productor['id_production']);
+}
 
 require $pathVues . "/GestionProducteur.php";

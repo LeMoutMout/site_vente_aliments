@@ -25,7 +25,7 @@ function getAVGAvisOf($idProductor)
     $avis = $avis_query->fetch(PDO::FETCH_ASSOC);
     if (isset($avis['moyen_avis']))
         return $avis['moyen_avis'];
-    return -1;
+    return 0;
 }
 
 function getAvisFromProducteur($idProducteur)
