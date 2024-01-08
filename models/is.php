@@ -9,7 +9,7 @@ function isProducteur($id) {
         return $user['id_production'];
     }
 
-    return -1;
+    return false;
 }
 
 function isProducteurValide($id) {
