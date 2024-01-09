@@ -12,7 +12,7 @@ $recherchePath = "";
 require $pathcontrolleurs . '/Header.php';
 
 $producteurs = getProductorOrderByAvisNL();
-foreach ($producteurs as $k=>$producteur) {
+foreach ($producteurs as $k => $producteur) {
     if (isset($_GET['recherche'])) {
         $recherche = $_GET['recherche'];
         $recherche = trim($recherche);
@@ -26,7 +26,11 @@ foreach ($producteurs as $k=>$producteur) {
         } else {
             $producteurProduit[$k] = getProduitsBigSearchFrom($producteur['id_production'], $recherche);
         }
+
+        $nomPage = $_GET['recherche'];
     } else {
+
+        $nomPage = 'recherche';
         $producteurProduit[$k] = getProduitsFromProducteur($producteur['id_production']);
     }
 }

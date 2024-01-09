@@ -1,5 +1,7 @@
 <?php
 
+$nomPage = "gestion compte";
+
 require "./GlobalVar.php";
 session_start();
 

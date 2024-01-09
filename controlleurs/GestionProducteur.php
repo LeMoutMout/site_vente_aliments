@@ -1,5 +1,7 @@
 <?php
 
+$nomPage = "gestion production";
+
 require "./globalVar.php";
 require $pathModels . "/ProductorRead.php";
 require $pathModels . "/produitLecture.php";

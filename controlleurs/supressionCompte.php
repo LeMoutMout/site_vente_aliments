@@ -1,5 +1,7 @@
 <?php
 
+$nomPage = 'supprimer compte';
+
 require './GlobalVar.php';
 
 session_start();
