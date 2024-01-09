@@ -11,16 +11,16 @@ if(isset($_SESSION['id_util'])){
 
 if (isset($_POST['prenom']) && isset($_POST['nom']) && isset($_FILES['image']) && isset($_POST['email']) && isset($_POST['numero']) && isset($_POST['motdepasse']) && isset($_POST['motdepasse2']) && isset($_POST['adresse']) && isset($_POST['ville']) && isset($_POST['cp'])) {
     if ($_POST['motdepasse'] !== $_POST['motdepasse2']) {
-        $erreur = 'les mot de passe sont diferent';
+        $erreur = 'Les mots de passe ne sont pas identiques.';
     } else {
         if (isset(getUserByMail($_POST['email'])['id_util'])) {
-            $erreur = 'cette adresse mail est deja use';
+            $erreur = 'Cette adresse mail est déjà utilisée.';
         } else {
             require $pathModels . '/UtilisateurWrite.php';
             createUser($_POST['email'], $_POST['nom'], $_POST['prenom'], password_hash($_POST['motdepasse'], PASSWORD_DEFAULT), $_POST['numero'], $_POST['adresse']);
             $users = connect($_POST['email'], $_POST['motdepasse']);
             if ($users === -1) {
-                $erreur = 'un erreur est survenue';
+                $erreur = 'Une erreur est survenue';
             } else {
                 $fichierTemporaire = $_FILES["image"]["tmp_name"];
                 if (!empty($fichierTemporaire)) {
