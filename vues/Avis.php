@@ -16,19 +16,19 @@
                     <input type="number" name="note" id="avis_note" min="0" max="5" required>
                 </div>
                 <div class="flex_centers">
-                    <textarea name="avis" id="avis_text" cols="30" rows="10" required></textarea>
+                    <textarea name="avis" id="avis_text" cols="120" rows="15" maxlength="255" required></textarea>
                 </div>
             </div>
             <div class="overlay_bottom_avis">
                 <div class="flex_center">
-                    <img src="../images/panneau_interdit.svg" onclick="closePopupAvis()" alt="fermer" />
-                    annuler
+                    <img src="../images/panneau_interdit.svg" onclick="closePopupAvis()" alt="fermer" class="image_retour">
+                    <strong>annuler</strong>
                 </div>
                 <div class="flex_center">
                     <input type="hidden" name="envoyer">
-                    <button class="overlay_envoyer_button_avis" type="submit">
+                    <button class="overlay_envoyer_button_avis flex_center" type="submit">
                         <img src="../images/valider_achat.svg" alt="valider" class="image_valider">
-                        envoyer
+                        <strong>envoyer</strong>
                     </button>
                 </div>
             </div>

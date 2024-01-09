@@ -19,7 +19,7 @@
             </div>
 
             <div class="btn_left_bar" onclick="location.href = 'resetSession.php';">
-            déconnexion
+                déconnexion
             </div>
             <?php if (isProducteur($_SESSION['id_util'])) { ?>
                 <div class="btn_left_bar" onclick="location.href = 'gestionProducteur.php';">
@@ -211,7 +211,7 @@
                                         </form>
                                     </div>
                                 <?php } ?>
-                                <?php if ($panier['id_statut'] == 4) { ?>
+                                <?php if ($panier['id_statut'] == 4 && empty(haveAvisOfPanier($panier))) { ?>
                                     <div class="grid_5 flex_center " onclick="openPopupAvis('<?php echo $panier['id_panier'] ?>')">
                                         <p class="text_avis flex_center">
                                             <strong>Mettre un avis</strong>

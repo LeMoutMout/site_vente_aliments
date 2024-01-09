@@ -34,9 +34,6 @@
     height:400px;
 }
 
-.overlay_top_avis{
-}
-
 .overlay_top_text{
     font-size: 20px;
 }
@@ -46,30 +43,21 @@
     flex-direction: column;
 }
 
-.overlay_mid_top_avis{
-
-}
-
-.overlay_mid_bottom_avis{
-
-}
-
 .overlay_bottom_avis{
     display: flex;
     justify-content: space-evenly;
 }
 
-.overlay_retour_avis{
-
-}
-
-.overlay_envoyer_button_avis{
-
+.image_retour{
+    max-width: 30%;
+    max-height: 30%;
+    height: auto;
+    width: auto;
 }
 
 .image_valider{
-    max-width: 30%;
-    max-height: 30%;
+    max-width: 10%;
+    max-height: 10%;
     height: auto;
     width: auto;
 }
