@@ -243,15 +243,19 @@ a {
     padding-right: 5%;
     padding-top: 1%;
     width: 90%;
-    height: 70vh;
+    height: 800px;
 }
 
 .recherche_form {
-    margin: 5%;
-    width: 25%;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    margin: auto
 }
 
 .recherche_button {
+    margin-top: 10%;
+    margin-bottom: 10%;
+
     display: grid;
 
     grid-template-columns: 0.5fr 1fr;

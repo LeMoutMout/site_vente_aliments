@@ -7,9 +7,9 @@ require $pathModels."/AvisRead.php";
 
 
 
-$promos = getPromo(6);
+$promos = getPromo(4);
 
-$produits = getProduitsLimit(10);
+$produits = getProduitsLimit(8);
 
 $producteurs = getProductorOrderByAvis(10);
 

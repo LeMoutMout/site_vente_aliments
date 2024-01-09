@@ -115,7 +115,7 @@ function getProduitsBigSearchFrom($producteur, $search)
 function getPromo($limit)
 {
     $bdd = getDBc();
-    $produits_query = $bdd->query("select * from produitPageRecherche where promotion_produit is not null LIMIT 0," . $limit . " ;");
+    $produits_query = $bdd->query("select * from produitPageRecherche where promotion_produit is not null and promotion_produit != 0 LIMIT 0," . $limit . " ;");
     $produits = $produits_query->fetchall(PDO::FETCH_ASSOC);
     return $produits;
 }
