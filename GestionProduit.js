@@ -17,7 +17,6 @@ function openPopup(action, id_produit = null, nom = null, stock = null, prix = n
 function fillFormWithProductDetails(nom, stock, prix, unite, bio, promotion, categorie) {
   document.querySelector('input[name="nom"]').value = nom;
   document.querySelector('input[name="stock"]').value = stock;
-  //document.querySelector('input[name="categorie"]').value = produit[''];
   document.querySelector('input[name="prix"]').value = prix;
   document.querySelector('input[name="promotion"]').value = promotion;
   document.querySelector('input[name="bio"]').checked = bio;
@@ -25,24 +24,11 @@ function fillFormWithProductDetails(nom, stock, prix, unite, bio, promotion, cat
   var unites = document.getElementById("unite");
 
   for (var i = 0; i < unites.options.length; i++) {
-   // alert(unites.options[i].innerHTML);
     if (unites.options[i].innerHTML === unite) {
       unites.options[i].selected = true;
-      //alert('select');
       break;
     }
   }
-
-  /*var categories = document.getElementById("categorie");
-
-  for (var i = 0; i < categories.options.length; i++) {
-   // alert(unites.options[i].innerHTML);
-    if (categorie.includes(categories.options[i].innerHTML)) {
-      categories.options[i].selected = true;
-      //alert('select');
-      break;
-    }
-  }*/
 }
 
 function closePopup() {

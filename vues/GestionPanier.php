@@ -13,11 +13,11 @@
             <div class="btn_left_bar" onclick="location.href = 'compte.php'">
                 modifier sont compte
             </div>
-            
+
             <div class="btn_left_bar" onclick="location.href = 'gestionPanier.php'">
                 mes panier
             </div>
-            
+
             <div class="btn_left_bar" onclick="location.href = 'resetSession.php';">
                 deconnection
             </div>
@@ -34,11 +34,20 @@
                     </div>
                 </form>
                 <form method="post" class="choix_panier flex_center">
+                    <input type="hidden" name="panier_prep_pret" value="<?php echo $panier['id_panier'] ?>">
+                    <div class="flex_center">
+                        <button type="submit" class="flex_center">
+                            <img src="../images/time.svg" alt="panier_livre" class="time_img">
+                            Paniers en préparation et prêts
+                        </button>
+                    </div>
+                </form>
+                <form method="post" class="choix_panier flex_center">
                     <input type="hidden" name="panier_livre" value="<?php echo $panier['id_panier'] ?>">
                     <div class="flex_center">
                         <button type="submit" class="flex_center">
                             <img src="../images/camion.svg" alt="panier_livre" class="livre_img">
-                            Paniers en préparation et livrés
+                            Paniers livrés
                         </button>
                     </div>
                 </form>
@@ -123,23 +132,27 @@
                                                                 <?php } ?>
                                                             </div>
                                                         </div>
-                                                        <div class="flex_center grid_produit_commande_bottom_4">
-                                                            <form method="post" class="flex_center">
-                                                                <input type="hidden" name="supprimer_produit" value="<?php echo $panier['id_panier'] ?>">
-                                                                <input type="hidden" name="supprimer_produit_2" value="<?php echo $produit['id_produit'] ?>">
-                                                                <div class="annuler flex_center">
-                                                                    <button type="submit" class="flex_center">
-                                                                        <img src="../images/poubelle.svg" alt="annuler" class="annuler_img">
-                                                                    </button>
-                                                                </div>
-                                                            </form>
-                                                        </div>
+                                                        <?php if ($panier['id_statut'] == 1) { ?>
+                                                            <div class="flex_center grid_produit_commande_bottom_4">
+                                                                <form method="post" class="flex_center">
+                                                                    <input type="hidden" name="supprimer_produit" value="<?php echo $panier['id_panier'] ?>">
+                                                                    <input type="hidden" name="supprimer_produit_2" value="<?php echo $produit['id_produit'] ?>">
+                                                                    <div class="annuler flex_center">
+                                                                        <button type="submit" class="flex_center">
+                                                                            <img src="../images/poubelle.svg" alt="annuler" class="annuler_img">
+                                                                        </button>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                        <?php } ?>
                                                         <div class="flex_center grid_produit_commande_bottom_5">
                                                             <strong><?php echo $produit['qte_produit_commandee'] * $produit['prix_produit'] * (1 - $produit['promotion_produit'] / 100) . '€' ?></strong>
                                                         </div>
-                                                        <div class="flex_center grid_produit_commande_bottom_6" onclick="openPopup('<?php echo $produit['id_produit'] ?>', '<?php echo $produit['nom_produit'] ?>', '<?php echo $producteur['nom_production'] ?>', '<?php echo $produit['quantite_produit'] ?>', '<?php echo $produit['nom_unite'] ?>','<?php echo getUserImage($producteur['id_production']) ?>');">
-                                                            <img src=" ../images/crayon_modif.svg" alt="modifier qte achat" class="image_crayon">
-                                                        </div>
+                                                        <?php if ($panier['id_statut'] == 1) { ?>
+                                                            <div class="flex_center grid_produit_commande_bottom_6" onclick="openPopup('<?php echo $produit['id_produit'] ?>', '<?php echo $produit['nom_produit'] ?>', '<?php echo $producteur['nom_production'] ?>', '<?php echo $produit['quantite_produit'] ?>', '<?php echo $produit['nom_unite'] ?>','<?php echo getUserImage($producteur['id_production']) ?>');">
+                                                                <img src=" ../images/crayon_modif.svg" alt="modifier qte achat" class="image_crayon">
+                                                            </div>
+                                                        <?php } ?>
                                                     </div>
                                                 </article>
                                             <?php }
@@ -160,6 +173,9 @@
                                     <?php if ($panier['id_statut'] == 4) { ?>
                                         Vous avez récupéré ce panier. Les prix des produits et le total peuvent être différents que lors de l'achat.
                                     <?php } ?>
+                                    <?php if ($panier['id_statut'] == 5) { ?>
+                                        Ce panier a été refusé par le producteur
+                                    <?php } ?>
                                 </div>
                                 <div class="grid_4 flex_center">
                                     <div class="souligne">
@@ -167,22 +183,31 @@
                                     </div>
                                     <strong><?php echo '&nbsp' . $total . '€' ?></strong>
                                 </div>
-                                <div class="grid_5 flex_space_around">
-                                    <form method="post" class="flex_center">
-                                        <input type="hidden" name="annuler" value="<?php echo $panier['id_panier'] ?>">
-                                        <div class="annuler flex_center">
-                                            <button type="submit" class="flex_center">
-                                                <img src="../images/poubelle.svg" alt="annuler" class="annuler_img">
-                                            </button>
-                                        </div>
-                                    </form>
-                                    <form method="post" class="flex_center">
-                                        <input type="hidden" name="commander" value="<?php echo $panier['id_panier'] ?>">
-                                        <div class="commander flex_center">
-                                            <button type="submit" class="text_commander flex_center"><strong>Commander</strong></button>
-                                        </div>
-                                    </form>
-                                </div>
+                                <?php if ($panier['id_statut'] == 1) { ?>
+                                    <div class="grid_5 flex_space_around">
+                                        <form method="post" class="flex_center">
+                                            <input type="hidden" name="annuler" value="<?php echo $panier['id_panier'] ?>">
+                                            <div class="annuler flex_center">
+                                                <button type="submit" class="flex_center">
+                                                    <img src="../images/poubelle.svg" alt="annuler" class="annuler_img">
+                                                </button>
+                                            </div>
+                                        </form>
+                                        <form method="post" class="flex_center">
+                                            <input type="hidden" name="commander" value="<?php echo $panier['id_panier'] ?>">
+                                            <div class="commander flex_center">
+                                                <button type="submit" class="text_commander flex_center"><strong>Commander</strong></button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                <?php } ?>
+                                <?php if ($panier['id_statut'] == 4) { ?>
+                                    <div class="grid_5 flex_center " onclick="openPopupAvis('<?php echo $panier['id_panier'] ?>')">
+                                        <p class="text_avis flex_center">
+                                            <strong>Mettre un avis</strong>
+                                        </p>
+                                    </div>
+                                <?php } ?>
                             </article>
                         <?php } ?>
                     </div>

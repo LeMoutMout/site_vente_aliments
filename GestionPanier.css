@@ -74,6 +74,13 @@ main {
     height: auto;
 }
 
+.time_img{
+    max-width: 15%;
+    max-height: 15%;
+    width: auto;
+    height: auto;
+}
+
 .livre_img {
     max-width: 30%;
     max-height: 30%;
@@ -344,11 +351,17 @@ main {
 }
 
 button {
-    /*display: flex;*/
     background: none;
     border: 0px;
 }
 
 .text_commander {
     font-size: 20px;
+}
+
+.text_avis{
+    width: 70%;
+    height: 60%;
+    background-color: #B7CE66;
+    border-radius: 50px;
 }
