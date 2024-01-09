@@ -15,7 +15,14 @@
         <a class="pr_val"> <?php echo "-" . $produitAAffiche['promotion_produit'] . "%" ?> </a>
         <?php } ?>
     </div>
-    <div class="pr_div5" onclick="openPopup('<?php echo $produitAAffiche['id_produit'] ?>', '<?php echo $produitAAffiche['nom_produit'] ?>', '<?php echo $produitAAffiche['nom_production'] ?>', '<?php echo $produitAAffiche['quantite_produit']; ?>', '<?php echo $produitAAffiche['nom_unite']; ?>','<?php echo getUserImage($produitAAffiche['id_production']); ?>');">
-        <img src="<?php echo $pathImage . '/cart.svg' ?>">
+    <div class="pr_div5" >
+        <img src="<?php echo $pathImage . '/cart.svg' ?>" onclick="openPopup('<?php echo $produitAAffiche['id_produit'] ?>', '<?php echo $produitAAffiche['nom_produit'] ?>', '<?php echo $produitAAffiche['nom_production'] ?>', '<?php echo $produitAAffiche['quantite_produit']; ?>', '<?php echo $produitAAffiche['nom_unite']; ?>','<?php echo getUserImage($produitAAffiche['id_production']); ?>');">
+        <?php 
+            if ($produitAAffiche['bio_produit'] == 1) {
+                ?>
+                <img src="<?php echo $pathImage .'/bio.svg' ?>" alt="bio" class="logo_bio">
+                <?php
+            }
+        ?>
     </div>
 </div>
