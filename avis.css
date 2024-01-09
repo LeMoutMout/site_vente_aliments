@@ -1,0 +1,63 @@
+.overlay_avis {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.555);
+    z-index: 998;
+}
+
+.popup_avis {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    padding: 20px;
+    transform: translate(-50%, -50%);
+    background-color: #8FB43A;
+    border-radius: 90px;
+    z-index: 999;
+}
+
+.flex_center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.overlay_bloc_avis {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height:400px;
+}
+
+.overlay_top_text{
+    font-size: 20px;
+}
+
+.overlay_mid_avis{
+    display: flex;
+    flex-direction: column;
+}
+
+.overlay_bottom_avis{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.image_retour{
+    max-width: 30%;
+    max-height: 30%;
+    height: auto;
+    width: auto;
+}
+
+.image_valider{
+    max-width: 10%;
+    max-height: 10%;
+    height: auto;
+    width: auto;
+}

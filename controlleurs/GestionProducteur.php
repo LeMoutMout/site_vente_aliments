@@ -13,11 +13,11 @@ require $pathModels . "/categorieRead.php";
 
 session_start();
 
-require $pathcontrolleurs . "/Header.php";
-
-if (!isProducteur($_SESSION['id_util'])) {
-    header('Location: ' . $pathcontrolleurs . '/index.php');
+if (!isset($_SESSION['id_util'])){
+    ?> <script>location.href = 'index.php'</script> <?php
 }
+
+require $pathcontrolleurs . "/Header.php";
 
 $productor = getProductorByIdUtil($_SESSION['id_util']);
 
@@ -38,12 +38,15 @@ if (isset($_POST['gestion_produit'])) {
 
     $nom = $_POST['nom'];
     $stock = $_POST['stock'];
-    $categorie = $_POST['categorie'];
     $prix = $_POST['prix'];
     $unite = $_POST['unite'];
     $promotion = 0;
     $bio = 0;
-    $categories = $_POST['categorie'];
+    if (isset($_POST['categorie'])) {
+        $categories = $_POST['categorie'];
+    }else {
+        $categorie = array();
+    }
 
     if (isset($_POST['bio']) && $_POST['bio'] == 'checked') {
         $bio = 1;
@@ -56,6 +59,7 @@ if (isset($_POST['gestion_produit'])) {
     if ($_POST['gestion_produit'] == -1) {
         createProduct($productor['id_production'], $nom, $stock, $prix, $bio, $unite, $promotion,$categories);
         $id_produit = getLastIdProduit();
+
     } else {
         updateProduit($_POST['gestion_produit'], $nom, $stock, $prix, $bio, $promotion);
         $id_produit = $_POST['gestion_produit'];

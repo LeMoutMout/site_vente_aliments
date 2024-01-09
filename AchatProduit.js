@@ -16,9 +16,7 @@ function fillIdWithDetails(nom_produit, nom_production, stock, unite, image) {
   document.getElementById('stock').innerHTML = "Quantite disponible : " + stock + " " + unite;
   document.getElementById('quantite_achat').innerHTML = unite;
   document.getElementById('image').src = image;
-  document.getElementById('quantite').max = stock
-
-  
+  document.getElementById('quantite').max = stock;
 }
 
 function closePopup() {

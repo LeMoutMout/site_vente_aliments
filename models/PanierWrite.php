@@ -34,6 +34,12 @@ function supprFromPanier($idPanier,$idProduit) {
 function supprPanier($idPanier) {
     $db = getDBc();
     
+    $produits = getProduitOf($idPanier);
+
+    foreach($produits as $produit) {
+        supprFromPanier($idPanier,$produit['id_produit']);
+    }
+
     $stm = $db->prepare('DELETE FROM PANIER WHERE id_panier = :idPanier;');
     
     $stm->execute([
