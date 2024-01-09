@@ -37,9 +37,19 @@ main {
 }
 
 .menu {
-    display: flex;
     width: 10vw;
     background-color: gray;
+}
+
+.btn_left_bar {
+    width: 100%;
+    padding: 5%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.btn_left_bar:hover {
+    background-color: #666666;
 }
 
 .panier {
@@ -334,7 +344,7 @@ main {
 }
 
 button {
-    display: flex;
+    /*display: flex;*/
     background: none;
     border: 0px;
 }

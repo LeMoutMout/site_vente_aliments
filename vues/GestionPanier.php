@@ -10,7 +10,17 @@
 <body>
     <main>
         <div class="menu">
-
+            <div class="btn_left_bar" onclick="location.href = 'compte.php'">
+                modifier sont compte
+            </div>
+            
+            <div class="btn_left_bar" onclick="location.href = 'gestionPanier.php'">
+                mes panier
+            </div>
+            
+            <div class="btn_left_bar" onclick="location.href = 'resetSession.php';">
+                deconnection
+            </div>
         </div>
         <div class="panier">
             <div class="flex_space_evenly">
