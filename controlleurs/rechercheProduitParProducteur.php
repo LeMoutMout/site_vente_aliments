@@ -26,7 +26,6 @@ foreach ($producteurs as $k => $producteur) {
         } else {
             $producteurProduit[$k] = getProduitsBigSearchFrom($producteur['id_production'], $recherche);
         }
-
         $nomPage = $_GET['recherche'];
     } else {
 
@@ -53,7 +52,6 @@ $forms[] = "recherche";
 ?>
 
 <script>
-    // Fonction pour récupérer les paramètres de la requête GET actuelle
     function getQueryParams() {
         var params = window.location.search.substr(1).split("&");
         var queryParams = {};
@@ -64,12 +62,10 @@ $forms[] = "recherche";
         return queryParams;
     }
 
-    // Fonction pour mettre à jour l'action des deux formulaires avec les paramètres de la requête actuelle
     function updateFormActions() {
         var queryParams = getQueryParams();
 
         <?php foreach ($forms as $form) { ?>
-            // Mettre à jour le formulaire de catégories
             var form = document.getElementById("<?php echo $form ?>");
             form.action = "?" + Object.entries(queryParams).map(([key, value]) => `${key}=${value}`).join("&");
         <?php } ?>
@@ -81,6 +77,5 @@ $forms[] = "recherche";
         location.href = "rechercheProduit.php?" + Object.entries(queryParams).map(([key, value]) => `${key}=${value}`).join("&");
     }
 
-    // Appeler la fonction lors du chargement de la page
     window.onload = updateFormActions;
 </script>

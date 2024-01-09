@@ -22,7 +22,7 @@
                             <?php echo $producteurs[$producteur]['nom_production'] ?>
                         </div>
                         <div class="img_producteur align_center">
-                            <img class="auto_size" src="<?php echo getUserImage($producteurs[$producteur]['id_production']) ?>" alt="<?php echo $producteurs[$producteur]['nom_production'] ?>_img">
+                            <img class="auto_size" src="<?php echo getUserImage($producteurs[$producteur]['id_util']) ?>" alt="<?php echo $producteurs[$producteur]['nom_production'] ?>_img">
                         </div>
                         <div class="no_warp adresse_producteur align_center">
                             <img class="ptmap" src="<?php echo $pathImage . '/point_map.svg' ?>" alt="ptMap.svg">
