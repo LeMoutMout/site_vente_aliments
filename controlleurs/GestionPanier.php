@@ -3,7 +3,7 @@
 $nomPage = "mes paniers";
 
 
-require './GlobalVar.php';
+require './globalVar.php';
 require $pathModels . "/produitLecture.php";
 require $pathModels . "/PanierRead.php";
 require $pathModels . "/produitWrite.php";
@@ -32,7 +32,7 @@ if(isset($_POST['supprimer_produit'])){
 if(isset($_POST['panier_avis'])){
     $id_panier = $_POST['panier_avis'];
     $note = $_POST['note'];
-    $contenu = $_POST['avis'];
+    $contenu = htmlspecialchars($_POST['avis']);
     createAvis($id_panier,$note,$contenu);
 }
 

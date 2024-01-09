@@ -121,11 +121,11 @@
                                     <?php echo '<strong>' . $avis_['pren_util'] . '&nbsp' . $avis_['nom_util'] . '</strong>' . ' le ' . $avis_['date_avis'] ?>
                                 </div>
                                 <div class="grid_3_3 flex_left">
-                                    <img src="<?php echo ($moy_avis >= 1) ? "../images/full_star.svg" : "../images/empty_star.svg"; ?>" alt="etoile" class="avis_etoile_2">
-                                    <img src="<?php echo ($moy_avis >= 2) ? "../images/full_star.svg" : "../images/empty_star.svg"; ?>" alt="etoile" class="avis_etoile_2">
-                                    <img src="<?php echo ($moy_avis >= 3) ? "../images/full_star.svg" : "../images/empty_star.svg"; ?>" alt="etoile" class="avis_etoile_2">
-                                    <img src="<?php echo ($moy_avis >= 4) ? "../images/full_star.svg" : "../images/empty_star.svg"; ?>" alt="etoile" class="avis_etoile_2">
-                                    <img src="<?php echo ($moy_avis == 5) ? "../images/full_star.svg" : "../images/empty_star.svg"; ?>" alt="etoile" class="avis_etoile_2">
+                                    <img src="<?php echo ($avis_['note_avis'] >= 1) ? "../images/full_star.svg" : "../images/empty_star.svg"; ?>" alt="etoile" class="avis_etoile_2">
+                                    <img src="<?php echo ($avis_['note_avis'] >= 2) ? "../images/full_star.svg" : "../images/empty_star.svg"; ?>" alt="etoile" class="avis_etoile_2">
+                                    <img src="<?php echo ($avis_['note_avis'] >= 3) ? "../images/full_star.svg" : "../images/empty_star.svg"; ?>" alt="etoile" class="avis_etoile_2">
+                                    <img src="<?php echo ($avis_['note_avis'] >= 4) ? "../images/full_star.svg" : "../images/empty_star.svg"; ?>" alt="etoile" class="avis_etoile_2">
+                                    <img src="<?php echo ($avis_['note_avis'] == 5) ? "../images/full_star.svg" : "../images/empty_star.svg"; ?>" alt="etoile" class="avis_etoile_2">
                                     <p class="avis_producteur_text_2">
                                         <?php echo $avis_['note_avis']; ?> étoiles
                                     </p>
@@ -152,7 +152,7 @@
                         <?php foreach ($paniers as $panier) {
                             $total = 0;
                             foreach (getProduitOf($panier['id_panier']) as $produit) {
-                                $total = $total + $produit['quantite_produit'] * $produit['prix_produit'] * (1 - $produit['promotion_produit'] / 100);
+                                $total = $total + $produit['qte_produit_commandee'] * $produit['prix_produit'] * (1 - $produit['promotion_produit'] / 100);
                             }
                             $user = getUserByID($panier['id_util']) ?>
                             <article class="grid_4_parent">

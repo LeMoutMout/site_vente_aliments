@@ -2,7 +2,7 @@
 
 $nomPage = 'supprimer compte';
 
-require './GlobalVar.php';
+require './globalVar.php';
 
 session_start();
 

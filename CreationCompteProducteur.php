@@ -19,14 +19,14 @@ if (isset($_POST['prenom']) && isset($_POST['nom']) && isset($_FILES['image']) &
             $erreur = 'cette adresse mail est deja use';
         } else {
             require $pathModels . '/UtilisateurWrite.php';
-            createUser(htmlspecialchars($_POST['email']), htmlspecialchars($_POST['nom']), htmlspecialchars($_POST['prenom']), password_hash($_POST['motdepasse'], PASSWORD_DEFAULT), htmlspecialchars($_POST['numero']),  htmlspecialchars($_POST['adresse'].' '.$_POST['ville'].' '.$_POST['cp']));
+            createUser($_POST['email'], $_POST['nom'], $_POST['prenom'], password_hash($_POST['motdepasse'], PASSWORD_DEFAULT), $_POST['numero'],  $_POST['adresse'].' '.$_POST['ville'].' '.$_POST['cp']);
             $users = connect($_POST['email'], $_POST['motdepasse']);
             if ($users === -1) {
                 $erreur = 'un erreur est survenue';
             } else {
                 require $pathModels.'/ProductorWrite.php';
 
-                createProductor( htmlspecialchars($_POST['domaine']), htmlspecialchars($_POST['description']), htmlspecialchars($users['id_util']));
+                createProductor($_POST['domaine'],$_POST['description'],$users['id_util']);
 
                 $fichierTemporaire = $_FILES["image"]["tmp_name"];
                 if (!empty($fichierTemporaire)) {

@@ -69,7 +69,7 @@
         <?php foreach ($producteurs as $producteur) { ?>
           <section class="producteur_block producteur_parent">
             <div class="producteur_div1 align_center">
-              <img src="<?php echo getUserImage($producteur['id_production']) ?>" alt="image de profil producteur" class="image_producteur">
+              <img src="<?php echo getUserImage($producteur['id_util']) ?>" alt="image de profil producteur" class="image_producteur">
             </div>
             <div class="producteur_div2">
               <strong><?php echo $producteur['nom_production'] ?></strong>

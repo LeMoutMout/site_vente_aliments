@@ -22,7 +22,7 @@
             <input class="input_bloc input_text" type="tel" name="numero" placeholder="Numéro de téléphone" maxlength="10" value="<?php echo (isset($numero)) ? $numero : ""; ?>" required>
         </div>
         <div class="grid_9">
-            <input class="input_bloc input_text" type="text" name="adresse" placeholder="Adresse" maxlength="30" value="<?php echo (isset($adresse)) ? $adresse : ""; ?>" required>
+            <input class="input_bloc input_text" type="text" name="adresse" placeholder="Adresse" maxlength="100" value="<?php echo (isset($adresse)) ? $adresse : ""; ?>" required>
         </div>
         <div class="grid_10">
             <textarea class="textarea_bloc textarea_text" name="description" id="" placeholder="Description :" maxlength="255"><?php echo (isset($desc)) ? $desc : ""; ?></textarea>

@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email'])) {
     $destinataireId = getUserIdByEmail($destinataireEmail);
 
     if (isset($id_util) && isset($destinataireId)) {
-        sendMessage($id_util, $_POST['message'], array($destinataireId));
+        sendMessage($id_util, htmlspecialchars($_POST['message']), array($destinataireId));
     } else {
         echo "Erreur : Identifiant invalide.";
     }

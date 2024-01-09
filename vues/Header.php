@@ -101,7 +101,7 @@
             <?php } ?>
 
             <?php if ($mesPanier) { ?>
-                <form action="<?php echo $pathcontrolleurs . '/gestionPanier.php'; ?>">
+                <form action="<?php echo $pathcontrolleurs . '/GestionPanier.php'; ?>">
                     <button class="bouton_header">
                         <div class="align_img_text">
                             <img class="img_header auto_size_img_header" src="<?php echo $pathImage . '/cart.svg' ?>" alt="">

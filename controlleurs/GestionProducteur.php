@@ -36,7 +36,7 @@ if (isset($_POST['pdf'])) {
 
 if (isset($_POST['gestion_produit'])) {
 
-    $nom = $_POST['nom'];
+    $nom = htmlspecialchars($_POST['nom']);
     $stock = $_POST['stock'];
     $prix = $_POST['prix'];
     $unite = $_POST['unite'];
@@ -61,7 +61,7 @@ if (isset($_POST['gestion_produit'])) {
         $id_produit = getLastIdProduit();
 
     } else {
-        updateProduit($_POST['gestion_produit'], $nom, $stock, $prix, $bio, $promotion);
+        updateProduit($_POST['gestion_produit'], $nom, $stock, $prix, $bio, $unite, $promotion);
         $id_produit = $_POST['gestion_produit'];
     }
 

@@ -8,6 +8,7 @@ function openPopup(action, id_produit = null, nom = null, stock = null, prix = n
   var gestionProduitInput = document.querySelector('input[name="gestion_produit"]');
   if (action === 'add') {
     gestionProduitInput.value = '-1';
+    document.getElementById("categorie").required = true;
   } else if (action === 'edit' && id_produit !== null) {
     gestionProduitInput.value = id_produit;
     fillFormWithProductDetails(nom, stock, prix, unite, bio, promotion, categorie);

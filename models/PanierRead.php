@@ -37,7 +37,7 @@ function getPanierLivreeFromProductor($idProductor) {
 
 function getProducteurOf($id_panier) {
     $bdd = getDBc();
-    $paniers_query = $bdd->query("select distinct producteur.*, adresse_util as adresse_producteur from COMPOSITION join produit on produit.id_produit = COMPOSITION.id_produit join producteur on producteur.id_production = produit.id_production join utilisateur on utilisateur.id_util = producteur.id_util where id_panier = ".$id_panier.";");
+    $paniers_query = $bdd->query("select distinct PRODUCTEUR.*, adresse_util as adresse_producteur from COMPOSITION join PRODUIT on PRODUIT.id_produit = COMPOSITION.id_produit join PRODUCTEUR on PRODUCTEUR.id_production = PRODUIT.id_production join UTILISATEUR on UTILISATEUR.id_util = PRODUCTEUR.id_util where id_panier = ".$id_panier.";");
     $producteur = $paniers_query->fetch(PDO::FETCH_ASSOC);
     return $producteur;
 }

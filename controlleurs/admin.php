@@ -2,10 +2,10 @@
 
 $nomPage = "gestion compte";
 
-require "./GlobalVar.php";
+require "./globalVar.php";
 session_start();
 
-if (!isAdmin($_SESSION['id_util'])){
+if (!isset($_SESSION['id_util']) && !isAdmin($_SESSION['id_util'])){
     //redirect
     header('Location: ' . $pathcontrolleurs . '/index.php');
 }

@@ -2,7 +2,7 @@
 
 $nomPage = "modification compte";
 
-require './GlobalVar.php';
+require './globalVar.php';
 
 require $pathModels .'/ProductorRead.php';
 require $pathModels .'/ProductorWrite.php';
@@ -19,9 +19,9 @@ if (isProducteur($_SESSION['id_util'])){
 }
 
 if ( isset($_POST['prenom']) && isset($_POST['nom']) && isset($_POST['email']) && isset($_POST['numero']) && isset($_POST['adresse']) ) {
-    updateUser($_SESSION['id_util'],$_POST['email'],$_POST['nom'],$_POST['prenom'],$_POST['numero'],$_POST['adresse']);
+    updateUser($_SESSION['id_util'],htmlspecialchars($_POST['email']),htmlspecialchars($_POST['nom']),htmlspecialchars($_POST['prenom']),htmlspecialchars($_POST['numero']),htmlspecialchars($_POST['adresse']));
     if (isset($_POST['domaine'])&& isset($_POST['description'])) {
-        updateProductor($producteur['id_production'],$_POST['domaine'],$_POST['description']);
+        updateProductor(htmlspecialchars($producteur['id_production']),htmlspecialchars($_POST['domaine']),htmlspecialchars($_POST['description']));
     }
     ?> 
     <script>
@@ -39,7 +39,7 @@ $email = $user['mail_util'];
 $numero = $user['tel_util'];
 $adresse = $user['adresse_util'];
 
-require $pathcontrolleurs . '/header.php';
+require $pathcontrolleurs . '/Header.php';
 
 if (isProducteur($_SESSION['id_util'])){
     $domain = $producteur['nom_production'];

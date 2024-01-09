@@ -24,7 +24,7 @@
 			<input class="input_bloc input_text" type="text" name="nom" placeholder="Nom" maxlength="25" value="<?php echo (isset($nom)) ? $nom : ""; ?>" required>
 		</div>
 		<div class="grid_3">
-			<input class="input_bloc_image input_text" type="file" accept="image/*" name="image" id="image" value="<?php echo (isset($image)) ? $image : ""; ?>" placeholder="Photo de profil" required>
+			<input class="input_bloc_image input_text" type="file" accept="image/*" name="image" id="image" placeholder="Photo de profil" required>
 		</div>
 		<div class="grid_4">
 			<input class="input_bloc input_text" type="email" name="email" placeholder="Adresse électronique" maxlength="50" value="<?php echo (isset($email)) ? $email : ""; ?>" required>

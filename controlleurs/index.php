@@ -2,7 +2,7 @@
 
 $nomPage = "accueil";
 
-require './GlobalVar.php';
+require './globalVar.php';
 
 require $pathModels.'/produitLecture.php';
 require $pathModels.'/ProductorRead.php';

@@ -14,7 +14,7 @@
                 mon compte
             </div>
 
-            <div class="btn_left_bar" onclick="location.href = 'gestionPanier.php'">
+            <div class="btn_left_bar" onclick="location.href = 'GestionPanier.php'">
                 mes paniers
             </div>
 
@@ -22,7 +22,7 @@
                 déconnexion
             </div>
             <?php if (isProducteur($_SESSION['id_util'])) { ?>
-                <div class="btn_left_bar" onclick="location.href = 'gestionProducteur.php';">
+                <div class="btn_left_bar" onclick="location.href = 'GestionProducteur.php';">
                     gestion production
                 </div>
             <?php } ?>
@@ -89,7 +89,7 @@
                                             <?php echo $producteur['nom_production'] ?>
                                         </div>
                                         <div class="img_producteur flex_center">
-                                            <img class="image_producteur" src="<?php echo getUserImage($producteur['id_production']) ?>" alt="<?php echo $producteur['nom_production'] ?>_img">
+                                            <img class="image_producteur" src="<?php echo getUserImage($producteur['id_util']) ?>" alt="<?php echo $producteur['nom_production'] ?>_img">
                                         </div>
                                         <div class="nowrap adresse_producteur flex_center">
                                             <img class="ptmap" src="<?php echo $pathImage . '/point_map.svg' ?>" alt="ptMap.svg">
@@ -159,7 +159,7 @@
                                                             <strong><?php echo $produit['qte_produit_commandee'] * $produit['prix_produit'] * (1 - $produit['promotion_produit'] / 100) . '€' ?></strong>
                                                         </div>
                                                         <?php if ($panier['id_statut'] == 1) { ?>
-                                                            <div class="flex_center grid_produit_commande_bottom_6" onclick="openPopup('<?php echo $produit['id_produit'] ?>', '<?php echo $produit['nom_produit'] ?>', '<?php echo $producteur['nom_production'] ?>', '<?php echo $produit['quantite_produit'] ?>', '<?php echo $produit['nom_unite'] ?>','<?php echo getUserImage($producteur['id_production']) ?>');">
+                                                            <div class="flex_center grid_produit_commande_bottom_6" onclick="openPopup('<?php echo $produit['id_produit'] ?>', '<?php echo $produit['nom_produit'] ?>', '<?php echo $producteur['nom_production'] ?>', '<?php echo $produit['quantite_produit'] ?>', '<?php echo $produit['nom_unite'] ?>','<?php echo getUserImage($producteur['id_util']) ?>');">
                                                                 <img src=" ../images/crayon_modif.svg" alt="modifier qte achat" class="image_crayon">
                                                             </div>
                                                         <?php } ?>

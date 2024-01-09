@@ -32,7 +32,7 @@
                         <p id="quantite_achat" class="text_souhait"></p>
                     </div>
                     <button class="overlay_bottom_right_right_achat" type="submit">
-                        <img src="../images/valider_achat.svg" alt="valider" class="image_valider">
+                        <img src="../images/valider_achat.svg" alt="valider" class="image_valider_achat">
                     </button>
                 </form>
             </div>

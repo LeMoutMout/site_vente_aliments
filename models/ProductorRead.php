@@ -77,7 +77,7 @@ function getProductorNonValide()
 function getProductorOrderByAvis($limit)
 {
     $bdd = getDBc();
-    $produits_query = $bdd->query('select producteurValider.id_production,nom_production,descr_production,mail_producteur,nom_producteur,prenom_producteur,telephone_producteur,adresse_producteur,moyen_avis from producteurValider join producteurAvgAvis on producteurAvgAvis.id_production = producteurValider.id_production order by moyen_avis desc limit 0, '.$limit.';');
+    $produits_query = $bdd->query('select producteurValider.id_production,nom_production,descr_production,mail_producteur,nom_producteur,prenom_producteur,telephone_producteur,adresse_producteur,moyen_avis,id_util from producteurValider join producteurAvgAvis on producteurAvgAvis.id_production = producteurValider.id_production order by moyen_avis desc limit 0, '.$limit.';');
     $produits = $produits_query->fetchall(PDO::FETCH_ASSOC);
     return $produits;
 }

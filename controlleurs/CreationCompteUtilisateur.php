@@ -3,7 +3,7 @@
 $nomPage = "creation compte";
 
 
-require './GlobalVar.php';
+require './globalVar.php';
 
 session_start();
 
@@ -20,7 +20,7 @@ if (isset($_POST['prenom']) && isset($_POST['nom']) && isset($_FILES['image']) &
             $erreur = 'Cette adresse mail est déjà utilisée.';
         } else {
             require $pathModels . '/UtilisateurWrite.php';
-            createUser($_POST['email'], $_POST['nom'], $_POST['prenom'], password_hash($_POST['motdepasse'], PASSWORD_DEFAULT), $_POST['numero'], $_POST['adresse']);
+            createUser(htmlspecialchars($_POST['email']), htmlspecialchars($_POST['nom']), htmlspecialchars($_POST['prenom']), password_hash($_POST['motdepasse'], PASSWORD_DEFAULT), htmlspecialchars($_POST['numero']), htmlspecialchars($_POST['adresse'].' '.$_POST['ville'].' '.$_POST['cp']));
             $users = connect($_POST['email'], $_POST['motdepasse']);
             if ($users === -1) {
                 $erreur = 'Une erreur est survenue';
@@ -59,5 +59,5 @@ if (isset($erreur)) {
 
 $devenirProducteur = false;
 
-require $pathcontrolleurs .'/header.php';
+require $pathcontrolleurs .'/Header.php';
 require $pathVues . '/CreationCompteUtilisateur.php';

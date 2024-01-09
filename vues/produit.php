@@ -16,7 +16,7 @@
         <?php } ?>
     </div>
     <div class="pr_div5" >
-        <img src="<?php echo $pathImage . '/cart.svg' ?>" onclick="openPopup('<?php echo $produitAAffiche['id_produit'] ?>', '<?php echo $produitAAffiche['nom_produit'] ?>', '<?php echo $produitAAffiche['nom_production'] ?>', '<?php echo $produitAAffiche['quantite_produit']; ?>', '<?php echo $produitAAffiche['nom_unite']; ?>','<?php echo getUserImage($produitAAffiche['id_production']); ?>');">
+        <img src="<?php echo $pathImage . '/cart.svg' ?>" onclick="openPopup('<?php echo $produitAAffiche['id_produit'] ?>', '<?php echo $produitAAffiche['nom_produit'] ?>', '<?php echo $produitAAffiche['nom_production'] ?>', '<?php echo $produitAAffiche['quantite_produit']; ?>', '<?php echo $produitAAffiche['nom_unite']; ?>','<?php echo getUserImage($produitAAffiche['id_util']); ?>');">
         <?php 
             if ($produitAAffiche['bio_produit'] == 1) {
                 ?>

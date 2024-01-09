@@ -2,7 +2,7 @@
 
 $nomPage = "mon compte";
 
-require './GlobalVar.php';
+require './globalVar.php';
 
 require $pathcontrolleurs .'/Header.php';
 

@@ -27,10 +27,10 @@ function getMessageWith($idUser1,$idUser2) {
 function getReceivedMessages($id_util) {
     $db = getDBc();
 
-    $query = "SELECT MESSAGE.id_message, Utilisateur.nom_util, Utilisateur.pren_util, Utilisateur.mail_util, MESSAGE.contenu_message, MESSAGE.date_message
+    $query = "SELECT MESSAGE.id_message, UTILISATEUR.nom_util, UTILISATEUR.pren_util, UTILISATEUR.mail_util, MESSAGE.contenu_message, MESSAGE.date_message
               FROM MESSAGE
               INNER JOIN RECEPTION ON MESSAGE.id_message = RECEPTION.id_message
-              INNER JOIN Utilisateur ON MESSAGE.id_util = Utilisateur.id_util
+              INNER JOIN UTILISATEUR ON MESSAGE.id_util = UTILISATEUR.id_util
               WHERE RECEPTION.id_util = :id_util
               ORDER BY MESSAGE.date_message DESC";
 
@@ -44,11 +44,11 @@ function getReceivedMessages($id_util) {
 function getMessagesById($id) {
     $db = getDBc();
 
-    $query = "SELECT MESSAGE.id_message, Utilisateur.nom_util, Utilisateur.pren_util, Utilisateur.mail_util, MESSAGE.contenu_message, MESSAGE.date_message
+    $query = "SELECT MESSAGE.id_message, UTILISATEUR.nom_util, UTILISATEUR.pren_util, UTILISATEUR.mail_util, MESSAGE.contenu_message, MESSAGE.date_message
               FROM MESSAGE
               INNER JOIN RECEPTION ON MESSAGE.id_message = RECEPTION.id_message
-              INNER JOIN Utilisateur ON MESSAGE.id_util = Utilisateur.id_util
-              WHERE message.id_message = :id
+              INNER JOIN UTILISATEUR ON MESSAGE.id_util = UTILISATEUR.id_util
+              WHERE MESSAGE.id_message = :id
               ORDER BY MESSAGE.date_message DESC";
 
     $stmt = $db->prepare($query);

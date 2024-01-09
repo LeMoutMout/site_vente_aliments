@@ -4,7 +4,7 @@
         <div class="btn_left_bar" onclick="location.href = 'compte.php'">
             mon compte
         </div>
-        <div class="btn_left_bar" onclick="location.href = 'gestionPanier.php'">
+        <div class="btn_left_bar" onclick="location.href = 'GestionPanier.php'">
             mes paniers
         </div>
 
@@ -12,7 +12,7 @@
             déconnexion
         </div>
         <?php if (isProducteur($_SESSION['id_util'])) { ?>
-            <div class="btn_left_bar" onclick="location.href = 'gestionProducteur.php';">
+            <div class="btn_left_bar" onclick="location.href = 'GestionProducteur.php';">
                 gestion production
             </div>
         <?php } ?>
