@@ -76,6 +76,10 @@
     display: flex;
 }
 
+.categorie_input {
+    background-color: #8FB43A;
+}
+
 .overlay_retour {
     display: flex;
 }

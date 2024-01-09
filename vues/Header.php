@@ -18,7 +18,7 @@
             <div class="logo" onclick="location.href = './index.php'">
                 <img src="<?php echo $pathImage . '/VegeShoplogo.svg' ?>">
             </div>
-            <div class="align_img_text" <?php echo (!$isConnected) ? 'onclick="openConnectionPopup();"' : null; ?>>
+            <div class="align_img_text" <?php echo (!$isConnected) ? 'onclick="openConnectionPopup();"' : 'onclick="location.href = \'compte.php\'"'; ?>>
                 <img class="img_header auto_size_img_header" src="<?php echo ($isConnected) ? getUserImage($idUtilisateur) : $pathImage . '/logoDefaultUser.svg'; ?>">
                 <a class="text_header opt425">
                     <?php echo ($isConnected) ? $mailUtilisateur : "connexion"; ?>

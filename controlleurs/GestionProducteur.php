@@ -1,13 +1,15 @@
 <?php
 
+$nomPage = "gestion production";
+
 require "./globalVar.php";
 require $pathModels . "/ProductorRead.php";
 require $pathModels . "/produitLecture.php";
 require $pathModels . "/AvisRead.php";
 require $pathModels . "/PanierRead.php";
-require $pathModels . "/PanierWrite.php";
 require $pathModels . "/produitWrite.php";
-require $pathVues . "/GestionProduit.php";
+require $pathModels . "/uniteRead.php";
+require $pathModels . "/categorieRead.php";
 
 session_start();
 
@@ -36,11 +38,12 @@ if (isset($_POST['gestion_produit'])) {
 
     $nom = $_POST['nom'];
     $stock = $_POST['stock'];
-    $categorie = 'fruit'; //$_POST['categorie'];
+    $categorie = $_POST['categorie'];
     $prix = $_POST['prix'];
-    $unite = 1; //$_POST['unite'];
+    $unite = $_POST['unite'];
     $promotion = 0;
     $bio = 0;
+    $categories = $_POST['categorie'];
 
     if (isset($_POST['bio']) && $_POST['bio'] == 'checked') {
         $bio = 1;
@@ -51,7 +54,7 @@ if (isset($_POST['gestion_produit'])) {
     }
 
     if ($_POST['gestion_produit'] == -1) {
-        createProduct($productor['id_production'], $nom, $stock, $prix, $bio, $unite, $promotion);
+        createProduct($productor['id_production'], $nom, $stock, $prix, $bio, $unite, $promotion,$categories);
         $id_produit = getLastIdProduit();
     } else {
         updateProduit($_POST['gestion_produit'], $nom, $stock, $prix, $bio, $promotion);
@@ -88,4 +91,8 @@ if (isset($productor['id_production'])) {
     $paniers = getPanierEnCoursFromProductor($productor['id_production']);
 }
 
+$unites = getUnite();
+$categories = getCategorie();
+
+require $pathVues . "/GestionProduit.php";
 require $pathVues . "/GestionProducteur.php";

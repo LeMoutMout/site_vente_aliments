@@ -1,4 +1,8 @@
 <?php
+
+$nomPage = "messagerie";
+
+
 require "./globalVar.php";
 require $pathModels."/MessageRead.php";
 require $pathModels."/MessageWrite.php";

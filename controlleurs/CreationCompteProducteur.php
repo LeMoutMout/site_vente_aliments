@@ -1,4 +1,7 @@
 <?php
+
+$nomPage = "creation compte";
+
 require './GlobalVar.php';
 
 session_start();
@@ -60,4 +63,7 @@ if (isset($erreur)) {
     $desc = $_POST['description'];
 }
 
+$devenirProducteur = false;
+
+require $pathcontrolleurs .'/header.php';
 require $pathVues . '/CreationCompteProducteur.php';

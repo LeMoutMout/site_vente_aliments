@@ -1,34 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../CreationCompteProducteur.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<body>
-    <header class="header">
-        <div class="header_bloc">
-            <a href="index.html">
-                <h1 id="header_logo">Vege<b class="header_logo_shop">Shop</b></h1>
-            </a>
-            <div class="header_connect">
-                <p class="header_connect_i">
-                    <img src="../images/logo_tete_compte.svg" alt="logo de création de compte">
-                    <a href="">
-                        <p class="header_connect_text">Se connecter</p>
-                    </a>
-                </p>
-            </div>
-        </div>
-        <p class="header_bar"><svg xmlns="http://www.w3.org/2000/svg" width="1520" height="2" viewBox="0 0 1520 2" fill="none">
-                <path d="M0 1L1520 1.00013" stroke="#808080" />
-            </svg>
-        </p>
-    </header>
+    
     <div class="devenir_conteneur">
         <div class="devenir_bloc_1">
             <img src="../images/logo_client_compte.svg" alt="logo de client" class="logo_devenir">

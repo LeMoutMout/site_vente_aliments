@@ -13,17 +13,16 @@ function createUser($mail,$nom,$prenom,$mdp,$tel,$adresse) {
     ]);
 }
 
-function updateUser($id,$mail,$nom,$prenom,$mdp,$tel,$adresse){
+function updateUser($id,$mail,$nom,$prenom,$tel,$adresse){
     $db = getDBc();
     
-    $db->prepare('update UTILISATEUR set mail_util = :mail, nom_util = :nom, pren_util = :pren, mdp_util = :mdp, tel_util = :tel, adresse_util = :adrs where id_util = :id;')->execute([
+    $db->prepare('update UTILISATEUR set mail_util = :mail, nom_util = :nom, pren_util = :pren, tel_util = :tel, adresse_util = :adrs where id_util = :id;')->execute([
         'mail' => $mail,
         'nom' => $nom,
         'pren' => $prenom,
-        'mdp' => $mdp,
         'tel' => $tel,
         'adrs' => $adresse,
         'id' => $id
     ]);
-}
 
+}

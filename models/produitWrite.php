@@ -1,6 +1,6 @@
 <?php
 
-function createProduct($idProductor,$nom,$quantite,$prix,$bio,$idUnite,$promotion) {
+function createProduct($idProductor,$nom,$quantite,$prix,$bio,$idUnite,$promotion,$categories) {
     $db = getDBc();
     
     $db->prepare('insert into PRODUIT(nom_produit,quantite_produit,prix_produit,bio_produit,id_production,id_unite,promotion_produit) values(:nom,:quant,:prix,:bio,:idP,:idU,:promo)')->execute([
@@ -12,6 +12,12 @@ function createProduct($idProductor,$nom,$quantite,$prix,$bio,$idUnite,$promotio
         'idU' => $idUnite,
         'promo' => $promotion
     ]);
+
+    $produit = $db->query('select max(id_produit) as last_produit from produit;')->fetch(PDO::FETCH_ASSOC)['last_produit'];
+
+    foreach($categories as $categorie) {
+        $db->prepare('INSERT INTO CATEGORISATION(id_produit, id_categorie) VALUES (:produit, :categorie);')->execute(['produit' => $produit,'categorie'=>$categorie]);
+    }
 }
 
 function updateProduit($idProduit,$nom,$quantite,$prix,$bio, $promotion) {

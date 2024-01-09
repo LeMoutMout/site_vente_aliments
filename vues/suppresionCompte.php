@@ -4,10 +4,10 @@
         <div class="text">
             etes-vous sur de vouloir supprimer le compte ?
         </div>
-        <div class="btn non" onclick=" location.href = '?del=yes'">
+        <div class="btn non" onclick="location.href = './index.php'">
             non
         </div>
-        <div class="btn oui">
+        <div class="btn oui" onclick="location.href = '?del=yes'">
             oui
         </div>
     </div>

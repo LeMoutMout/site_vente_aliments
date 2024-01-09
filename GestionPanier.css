@@ -9,18 +9,7 @@ a {
 
 main {
     display: flex;
-    background-color: gray;
-}
-
-.menu {
-    display: flex;
-    width: 10vw;
-}
-
-.panier {
-    display: flex;
-    width: 90vw;
-    background-color: white;
+    padding-top: 40px;
 }
 
 .flex_center {
@@ -35,10 +24,69 @@ main {
     flex-wrap: wrap;
 }
 
+.flex_space_evenly {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
 .flex_left {
     display: flex;
     align-items: center;
     justify-content: left;
+}
+
+.menu {
+    width: 10vw;
+    background-color: gray;
+}
+
+.btn_left_bar {
+    width: 100%;
+    padding: 5%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.btn_left_bar:hover {
+    background-color: #666666;
+}
+
+.panier {
+    display: flex;
+    flex-direction: column;
+    width: 90vw;
+    background-color: white;
+}
+
+.choix_panier {
+    display: flex;
+    background-color: #B7CE66;
+    border-radius: 50px;
+    width: 15%;
+    height: 100%;
+}
+
+.enCours_img {
+    max-width: 15%;
+    max-height: 15%;
+    width: auto;
+    height: auto;
+}
+
+.livre_img {
+    max-width: 30%;
+    max-height: 30%;
+    width: auto;
+    height: auto;
+}
+
+
+.interdit_img {
+    max-width: 25%;
+    max-height: 25%;
+    width: auto;
+    height: auto;
 }
 
 .scroll_conteneur_y {
@@ -211,14 +259,14 @@ main {
     font-size: 80%;
 }
 
-.produit_commande_initial{
+.produit_commande_initial {
     display: flex;
 }
 
-.produit_commande_promo{
+.produit_commande_promo {
     display: flex;
     color: red;
-} 
+}
 
 .grid_produit_commande_bottom_4 {
     grid-area: 4 / 1 / 5 / 2;
@@ -232,7 +280,7 @@ main {
     grid-area: 4 / 3 / 5 / 4;
 }
 
-.image_cart {
+.image_crayon {
     max-width: 100%;
     max-height: 100%;
     width: auto;
@@ -296,7 +344,7 @@ main {
 }
 
 button {
-    display: flex;
+    /*display: flex;*/
     background: none;
     border: 0px;
 }

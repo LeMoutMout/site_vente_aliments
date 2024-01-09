@@ -81,7 +81,7 @@
                                     <div class="grid_produit_bottom_3">
                                         <strong><?php echo $produit['prix_produit'] . '€/' . $produit['nom_unite'] ?></strong>
                                     </div>
-                                    <div class="flex_center grid_produit_bottom_4" onclick="openPopup('edit', '<?php echo $produit['id_produit'] ?>', '<?php echo $produit['nom_produit'] ?>', '<?php echo $produit['quantite_produit'] ?>', '<?php echo $produit['prix_produit'] ?>', '<?php echo $produit['nom_unite'] ?>', '<?php echo $produit['promotion_produit'] ?>', '<?php echo $produit['bio_produit'] ?>', '<?php echo 'prout' ?>');">
+                                    <div class="flex_center grid_produit_bottom_4" onclick="openPopup('edit', '<?php echo $produit['id_produit'] ?>', '<?php echo $produit['nom_produit'] ?>', '<?php echo $produit['quantite_produit'] ?>', '<?php echo $produit['prix_produit'] ?>', '<?php echo $produit['nom_unite'] ?>', '<?php echo $produit['promotion_produit'] ?>', '<?php echo $produit['bio_produit'] ?>', <?php /*$str = ' ' ; foreach(getCategorieOf($produit['nom_produit']) as $cat) { $str =$str.$cat['nom_categorie'] .','; } echo '['. substr($str, 0, strlen($str) - 1) . ']'; */ echo '\'\'' ?>);" >
                                         <img src="../images/crayon_modif.svg" alt="modifier produit" class="image_crayon">
                                     </div>
                                     <div class="grid_produit_bottom_5 flex_center">
@@ -152,8 +152,7 @@
                         <?php foreach ($paniers as $panier) {
                             $total = 0;
                             foreach (getProduitOf($panier['id_panier']) as $produit) {
-                                $total = $total + $produit['qte_produit_commandee'] * $produit['prix_produit'] * (1 - $produit['promotion_produit'] / 100);
-                                $total = round($total, 2);
+                                $total = $total + $produit['quantite_produit'] * $produit['prix_produit'] * (1 - $produit['promotion_produit'] / 100);
                             }
                             $user = getUserByID($panier['id_util']) ?>
                             <article class="grid_4_parent">

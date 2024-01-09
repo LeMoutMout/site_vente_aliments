@@ -9,3 +9,4 @@ require $pathModels . '/PDO.php';
 require $pathModels . '/ImageGet.php';
 require $pathModels . '/UtilisateurRead.php';
 require $pathModels . '/is.php';
+require $pathModels."/panierWrite.php";
