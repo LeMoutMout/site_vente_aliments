@@ -1,5 +1,8 @@
 <?php
 
+$nomPage = "creation compte";
+
+
 require './GlobalVar.php';
 
 session_start();

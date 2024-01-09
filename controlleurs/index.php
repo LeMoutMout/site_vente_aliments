@@ -1,4 +1,7 @@
 <?php
+
+$nomPage = "accueil";
+
 require './GlobalVar.php';
 
 require $pathModels.'/produitLecture.php';

@@ -27,5 +27,7 @@ if (isset($productor['id_production'])) {
 }
 
 
+$nomPage = $nom_producteur;
+
 require $pathcontrolleurs . "/Header.php";
 require $pathVues . "/PageProducteur.php";

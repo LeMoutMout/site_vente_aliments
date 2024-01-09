@@ -1,5 +1,8 @@
 <?php 
 
+$nomPage = "mes paniers";
+
+
 require './GlobalVar.php';
 require $pathModels . "/produitLecture.php";
 require $pathModels . "/PanierRead.php";

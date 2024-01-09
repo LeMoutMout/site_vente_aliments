@@ -18,34 +18,34 @@
 <form action="" method="post" enctype="multipart/form-data">
 	<div class="grid_parent">
 		<div class="grid_1">
-			<input class="input_bloc input_text" type="text" name="prenom" placeholder="Prénom" value="<?php echo (isset($prenom)) ? $prenom : ""; ?>" required>
+			<input class="input_bloc input_text" type="text" name="prenom" placeholder="Prénom" maxlength="25" value="<?php echo (isset($prenom)) ? $prenom : ""; ?>" required>
 		</div>
 		<div class="grid_2">
-			<input class="input_bloc input_text" type="text" name="nom" placeholder="Nom" value="<?php echo (isset($nom)) ? $nom : ""; ?>" required>
+			<input class="input_bloc input_text" type="text" name="nom" placeholder="Nom" maxlength="25" value="<?php echo (isset($nom)) ? $nom : ""; ?>" required>
 		</div>
 		<div class="grid_3">
 			<input class="input_bloc_image input_text" type="file" accept="image/*" name="image" id="image" value="<?php echo (isset($image)) ? $image : ""; ?>" placeholder="Photo de profil" required>
 		</div>
 		<div class="grid_4">
-			<input class="input_bloc input_text" type="email" name="email" placeholder="Adresse électronique" value="<?php echo (isset($email)) ? $email : ""; ?>" required>
+			<input class="input_bloc input_text" type="email" name="email" placeholder="Adresse électronique" maxlength="50" value="<?php echo (isset($email)) ? $email : ""; ?>" required>
 		</div>
 		<div class="grid_5">
-			<input class="input_bloc input_text" type="tel" name="numero" placeholder="Numéro de téléphone" value="<?php echo (isset($numero)) ? $numero : ""; ?>" required>
+			<input class="input_bloc input_text" type="tel" name="numero" placeholder="Numéro de téléphone" maxlength="11" value="<?php echo (isset($numero)) ? $numero : ""; ?>" required>
 		</div>
 		<div class="grid_6">
-			<input class="input_bloc input_text" type="password" name="motdepasse" placeholder="Mot de passe" value="<?php echo (isset($mdp)) ? $mdp : ""; ?>" required>
+			<input class="input_bloc input_text" type="password" name="motdepasse" placeholder="Mot de passe" maxlength="25" value="<?php echo (isset($mdp)) ? $mdp : ""; ?>" required>
 		</div>
 		<div class="grid_7">
-			<input class="input_bloc input_text" type="password" name="motdepasse2" placeholder="Confirmer votre mot de passe" required>
+			<input class="input_bloc input_text" type="password" name="motdepasse2" placeholder="Confirmer votre mot de passe" maxlength="25" required>
 		</div>
 		<div class="grid_8">
-			<input class="input_bloc input_text" type="text" name="adresse" placeholder="Adresse" required value="<?php echo (isset($adresse)) ? $adresse : ""; ?>">
+			<input class="input_bloc input_text" type="text" name="adresse" placeholder="Adresse" maxlength="50" required value="<?php echo (isset($adresse)) ? $adresse : ""; ?>">
 		</div>
 		<div class="grid_9">
-			<input class="input_bloc input_text" type="text" name="ville" placeholder="Ville" value="<?php echo (isset($ville)) ? $ville : ""; ?>" required>
+			<input class="input_bloc input_text" type="text" name="ville" placeholder="Ville" maxlength="45" value="<?php echo (isset($ville)) ? $ville : ""; ?>" required>
 		</div>
 		<div class="grid_10">
-			<input class="input_bloc input_text" type="text" name="cp" placeholder="Code postal" value="<?php echo (isset($cp)) ? $cp : ""; ?>" required>
+			<input class="input_bloc input_text" type="text" name="cp" placeholder="Code postal" maxlength="5" value="<?php echo (isset($cp)) ? $cp : ""; ?>" required>
 		</div>
 		<div class="grid_11">
 			<?php echo (isset($erreur)) ? $erreur . "<br>" : null; ?>

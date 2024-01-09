@@ -11,16 +11,26 @@
     <main>
         <div class="menu">
             <div class="btn_left_bar" onclick="location.href = 'compte.php'">
-                modifier sont compte
+                mon compte
             </div>
 
             <div class="btn_left_bar" onclick="location.href = 'gestionPanier.php'">
-                mes panier
+                mes paniers
             </div>
 
             <div class="btn_left_bar" onclick="location.href = 'resetSession.php';">
-                deconnection
+            déconnexion
             </div>
+            <?php if (isProducteur($_SESSION['id_util'])) { ?>
+                <div class="btn_left_bar" onclick="location.href = 'gestionProducteur.php';">
+                    gestion production
+                </div>
+            <?php } ?>
+            <?php if (isAdmin($_SESSION['id_util'])) { ?>
+                <div class="btn_left_bar" onclick="location.href = 'admin.php';">
+                    gestion compte
+                </div>
+            <?php } ?>
         </div>
         <div class="panier">
             <div class="flex_space_evenly">

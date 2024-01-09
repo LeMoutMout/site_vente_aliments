@@ -1,5 +1,7 @@
 <?php
 
+$nomPage = "mon compte";
+
 require './GlobalVar.php';
 
 require $pathcontrolleurs .'/Header.php';

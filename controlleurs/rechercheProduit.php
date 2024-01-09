@@ -24,7 +24,11 @@ if (isset($_GET['recherche'])) {
     }else {
         $produits = getProduitsBigSearch($recherche);
     }
+
+    $nomPage = $_GET['recherche'];
+
 }else {
+    $nomPage = 'recherche';
     $produits = getProduits();
 }
 

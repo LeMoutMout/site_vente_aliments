@@ -1,5 +1,6 @@
 <?php 
 
+$nomPage = "modification compte";
 
 require './GlobalVar.php';
 
