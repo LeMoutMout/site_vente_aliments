@@ -20,6 +20,7 @@ body {
 /*Liste des messages*/
 .msgList {
   display: flex;
+  flex-direction: column;
 }
 
 /*Message simple*/
@@ -30,6 +31,7 @@ body {
   height: fit-content;
   word-break: breakword;
   width: 100%;
+  margin: 10px;
 }
 /*Div contenant les boutons dans un msg*/
 .msgButtons {
@@ -63,6 +65,7 @@ body {
   gap: 2rem;
   border-radius: 25px;
   background-color: #c8d6a2;
+  height: 400px;
 }
 
 /*Les options d'entrée pour un nouveau message*/
