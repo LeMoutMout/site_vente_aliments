@@ -13,7 +13,7 @@ require $pathModels . "/categorieRead.php";
 
 session_start();
 
-if (!isset($_SESSION['id_util'])){
+if (!isset($_SESSION['id_util']) or !isProducteur($_SESSION['id_util'])){
     ?> <script>location.href = 'index.php'</script> <?php
 }
 

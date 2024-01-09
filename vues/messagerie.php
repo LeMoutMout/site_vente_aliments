@@ -19,8 +19,8 @@
   <div class="pageContent">
     <form method="post" class="msgInput">
       <label for="participant-input">Envoyer un nouveau message : </label>
-      <input id="participant-input" type="email" name="email" placeholder="Adresse mail du destinataire" required />
-      <textarea id="message-input" class="message-id" name="message" placeholder="Tapez votre message" maxlength="253" required></textarea>
+      <input id="participant-input" type="email" name="email" placeholder="Adresse mail du destinataire" value="<?php if (isset($email)) echo $email?>" required />
+      <textarea id="message-input" class="message-id" name="message" placeholder="Tapez votre message" maxlength="255" required> <?php if (isset($msg)) echo 're : '.$msg?> </textarea>
       <button type="submit">Envoyer</button>
     </form>
     <div class="msgList">
@@ -32,7 +32,6 @@
           <p id="contenu_message"><strong>Contenu :</strong> <?= $message['contenu_message']; ?></p>
           <div class="msgButtons">
             <form method="post">
-              <input id="message_id_reply" type="hidden" name="message_id_reply" value="<?= $message['id_message']; ?>">
               <input id="message_id_reply" type="hidden" name="message_id_reply" value="<?= $message['id_message']; ?>">
               <button type="submit" id="reply-button">
                 <img src="../images/reply.png" alt="répondre">
