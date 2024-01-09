@@ -211,7 +211,7 @@
                                         </form>
                                     </div>
                                 <?php } ?>
-                                <?php if ($panier['id_statut'] == 4 && empty(haveAvisOfPanier($panier))) { ?>
+                                <?php if ($panier['id_statut'] == 4 && !haveAvisOfPanier($panier['id_panier'])) { ?>
                                     <div class="grid_5 flex_center " onclick="openPopupAvis('<?php echo $panier['id_panier'] ?>')">
                                         <p class="text_avis flex_center">
                                             <strong>Mettre un avis</strong>
