@@ -38,12 +38,15 @@ if (isset($_POST['gestion_produit'])) {
 
     $nom = $_POST['nom'];
     $stock = $_POST['stock'];
-    $categorie = $_POST['categorie'];
     $prix = $_POST['prix'];
     $unite = $_POST['unite'];
     $promotion = 0;
     $bio = 0;
-    $categories = $_POST['categorie'];
+    if (isset($_POST['categorie'])) {
+        $categories = $_POST['categorie'];
+    }else {
+        $categorie = array();
+    }
 
     if (isset($_POST['bio']) && $_POST['bio'] == 'checked') {
         $bio = 1;

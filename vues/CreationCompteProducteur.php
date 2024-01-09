@@ -44,13 +44,13 @@
                 <input class="input_bloc input_text" type="password" name="motdepasse2" maxlength="25" placeholder="Confirmer mot de passe" required>
             </div>
             <div class="grid_9">
-                <input class="input_bloc input_text" type="text" name="adresse" placeholder="Adresse" maxlength="30" value="<?php echo (isset($adresse)) ? $adresse : ""; ?>" required>
+                <input class="input_bloc input_text" type="text" name="adresse" placeholder="Adresse" maxlength="50" value="<?php echo (isset($adresse)) ? $adresse : ""; ?>" required>
             </div>
             <div class="grid_10">
                 <textarea class="textarea_bloc textarea_text" name="description" id="" placeholder="Description :" maxlength="255"><?php echo (isset($desc)) ? $desc : ""; ?></textarea>
             </div>
             <div class="grid_11">
-                <input class="input_bloc input_text" type="text" name="ville" placeholder="Ville" maxlength="15" required value="<?php echo (isset($ville)) ? $ville : ""; ?>">
+                <input class="input_bloc input_text" type="text" name="ville" placeholder="Ville" maxlength="45" required value="<?php echo (isset($ville)) ? $ville : ""; ?>">
             </div>
             <div class="grid_12">
                 <input class="input_bloc input_text" type="text" name="cp" placeholder="Code postal" maxlength="5" value="<?php echo (isset($cp)) ? $cp : ""; ?>" required>
