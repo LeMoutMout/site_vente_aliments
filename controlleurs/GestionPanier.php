@@ -13,8 +13,12 @@ require $pathModels . "/AvisWrite.php";
 
 session_start();
 
+if (!isset($_SESSION['id_util'])){
+    ?> <script>location.href = 'index.php'</script> <?php
+}
+
 if (isset($_POST['annuler'])) {
-    supprPanier($_POST['supprimer_produit']);
+    supprPanier($_POST['annuler']);
 }
 if (isset($_POST['commander'])) {
     changeStatut($_POST['commander'], 2);

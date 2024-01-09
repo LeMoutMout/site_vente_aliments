@@ -35,3 +35,10 @@ function getAvisFromProducteur($idProducteur)
     $produits = $produits_query->fetchall(PDO::FETCH_ASSOC);
     return $produits;
 }
+
+ function haveAvisOfPanier($idPanier) {
+    $bdd = getDBc();
+    $avis_query = $bdd->query("select * from AVIS where id_panier = ".$idPanier.";");
+    $avis = $avis_query->fetch(PDO::FETCH_ASSOC);
+    return isset($avis['id_avis']);
+ }
