@@ -39,7 +39,12 @@ function getAvisFromProducteur($idProducteur)
 function haveAvisOfPanier($idPanier)
 {
     $bdd = getDBc();
-    $avis_query = $bdd->query("select * from AVIS where id_panier = " . $idPanier . ";");
+    $avis_query = $bdd->prepare("select * from AVIS where id_panier = :idP ;");
+    $avis_query->execute(['idP' => $idPanier]);
+
     $avis = $avis_query->fetch(PDO::FETCH_ASSOC);
+    if (!isset($avis['id_avis'])){
+        return false;
+    }
     return isset($avis['id_avis']);
 }
