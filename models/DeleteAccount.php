@@ -3,9 +3,7 @@
 function deleteAcount($id){
     $db = getDBc();
     
-    $db->prepare('CALL supprCompte(:id);')->execute([
-        'id' => $id
-    ]);
+    $db->exec('CALL supprCompte('.$id.');');
 }
 
 /*
