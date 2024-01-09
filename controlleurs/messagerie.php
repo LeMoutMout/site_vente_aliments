@@ -2,7 +2,6 @@
 
 $nomPage = "messagerie";
 
-
 require "./globalVar.php";
 require $pathModels."/MessageRead.php";
 require $pathModels."/MessageWrite.php";
@@ -17,11 +16,7 @@ if (isset($_POST['message_id'])){
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email'])) {
     $destinataireEmail = $_POST['email'];    
-    $destinataireId = getUserIdByEmail($destinataireEmail);
-
-    if (isset($id_util) && isset($destinataireId)) {
-        sendMessage($id_util,$_POST['message'], array($destinataireId));
-    } else {
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email'])) {
         echo "Erreur : Identifiant invalide.";
     }
 }
