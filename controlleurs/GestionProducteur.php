@@ -5,7 +5,6 @@ require $pathModels . "/ProductorRead.php";
 require $pathModels . "/produitLecture.php";
 require $pathModels . "/AvisRead.php";
 require $pathModels . "/PanierRead.php";
-require $pathModels . "/PanierWrite.php";
 require $pathModels . "/produitWrite.php";
 require $pathModels . "/uniteRead.php";
 require $pathModels . "/categorieRead.php";

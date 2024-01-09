@@ -3,7 +3,6 @@
 require './GlobalVar.php';
 require $pathModels . "/produitLecture.php";
 require $pathModels . "/PanierRead.php";
-require $pathModels . "/PanierWrite.php";
 require $pathModels . "/produitWrite.php";
 require $pathModels . "/ProductorRead.php";
 require $pathModels . "/AvisRead.php";
