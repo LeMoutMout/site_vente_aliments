@@ -93,3 +93,11 @@ function getProductorOrderByAvisNL()
     $produits = $produits_query->fetchall(PDO::FETCH_ASSOC);
     return $produits;
 }
+
+function getIdUtilOfAllProducteur() 
+{
+    $bdd = getDBc();
+    $producteur_query = $bdd->query('select id_util from PRODUCTEUR');
+    $producteur = $producteur_query->fetchall(PDO::FETCH_ASSOC);
+    return $producteur;
+}

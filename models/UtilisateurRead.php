@@ -21,7 +21,7 @@ function getUser()
 {
     $bdd = getDBc();
     $user_query = $bdd->query("select id_util,mail_util from UTILISATEUR;");
-    $user = $user_query->fetch(PDO::FETCH_ASSOC);
+    $user = $user_query->fetchAll(PDO::FETCH_ASSOC);
     return $user;
 }
 
@@ -47,8 +47,10 @@ function getUserIdByEmail($mail) {
     $user_query = $bdd->prepare("select id_util from UTILISATEUR where mail_util = :mail;");
     $user_query->execute(['mail'=>$mail]);
     $user = $user_query->fetch(PDO::FETCH_ASSOC);
-    return $user['id_util'];
-    ;
+    if (isset($user['id_util'])){
+        return $user['id_util'];
+    }
+    return null;
 }
 
 function getUserSearch($search)
