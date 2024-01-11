@@ -74,9 +74,9 @@ create view producteurProduit as select PRODUCTEUR.id_production,id_produit,nom_
 drop view if exists nbProduitProducteur;
 
 create view nbProduitProducteur as 
-	select producteurValider.id_production,nom_production,descr_production, nom_producteur, prenom_producteur, telephone_producteur, adresse_producteur, COUNT(id_produit) as 'nombreDeProduit'  from producteurValider 
-		join PRODUIT on producteurValider.id_production = PRODUIT.id_production
-		group by producteurValider.id_production,nom_production,descr_production, nom_producteur, prenom_producteur, telephone_producteur, adresse_producteur
+	select PRODUCTEUR.id_production, COUNT(id_produit) as 'nombreDeProduit'  from PRODUCTEUR 
+		join PRODUIT on PRODUCTEUR.id_production = PRODUIT.id_production
+		group by PRODUCTEUR.id_production;
 	;
 
 
@@ -307,14 +307,14 @@ create procedure supprTousProduits(
 begin
 	DECLARE id_produit int;
     DECLARE loop_finished INT DEFAULT 0;
-	DECLARE cur CURSOR FOR SELECT producteurproduit.id_produit from producteurProduit where producteurproduit.id_production = id_production;
+	DECLARE cur CURSOR FOR SELECT producteurProduit.id_produit from producteurProduit where producteurProduit.id_production = id_production;
     DECLARE CONTINUE HANDLER FOR NOT FOUND SET loop_finished=1;
     CALL supprPaniersProduct(id_production);
 	OPEN cur;
 	FETCH cur into id_produit; 
 	while loop_finished = 0 DO
-		DELETE FROM CATEGORISATION where categorisation.id_produit = id_produit;
-		DELETE FROM PRODUIT where produit.id_produit = id_produit;
+		DELETE FROM CATEGORISATION where CATEGORISATION.id_produit = id_produit;
+		DELETE FROM PRODUIT where PRODUIT.id_produit = id_produit;
 		FETCH cur into id_produit;
 	END WHILE;
 	CLOSE cur;

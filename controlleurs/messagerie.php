@@ -19,13 +19,13 @@ if (!isset($_SESSION['id_util'])) {
 $id_util = $_SESSION['id_util'];
 
 if (isset($_POST['message_id'])) {
-    deleteMessage($_POST['message_id']);
+    deleteMessage($_POST['message_id'],$_SESSION['id_util']);
 }
 
 if (isset($_POST['message_id_reply'])) {
     $mes = getMessagesById($_POST['message_id_reply']);
     $email = $mes['mail_util'];
-    $msg = $mes['contenu_message'];
+    $msg = 're: ' . $mes['contenu_message'];
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email'])) {
@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email'])) {
                 if (isset($dest['id_util']))
                     array_push($destinataireId, $dest['id_util']);
             }
-        } 
+        }
         if ($destinataireEmail === 'dif@prod') {
             $destinataireId = array();
             $dests = getIdUtilOfAllProducteur();
@@ -52,23 +52,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email'])) {
         }
     }
 
-    var_dump($destinataireId);
-
     if (isset($id_util) && isset($destinataireId) && isset($destinataireId[0])) {
         sendMessage($id_util, htmlspecialchars($_POST['message']), $destinataireId);
     ?>
         <script>
             alert('message envoyer')
-            //location.href = 'messagerie.php';
-        </script> <?php
-                } else {
-                    ?> <script>
-            alert('Erreur : email invalide.')
+            location.href = 'messagerie.php';
         </script>
 <?php
-                }
-            }
-            $receivedMessages = getReceivedMessages($id_util);
+    } else {
+        $msg = 'Erreur : email invalide.';
+        require $pathVues . '/message.php';
+        $email =  $_POST['email'];
+        $msg = trim($_POST['message']);
+    }
+}
+$receivedMessages = getReceivedMessages($id_util);
 
-            require $pathcontrolleurs . "/Header.php";
-            require $pathVues . "/messagerie.php";
+require $pathcontrolleurs . "/Header.php";
+require $pathVues . "/messagerie.php";

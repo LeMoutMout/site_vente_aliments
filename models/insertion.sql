@@ -1,6 +1,7 @@
 INSERT INTO UNITE (nom_unite) VALUES 
 ('kg'),
 ('l'),
+('unite'),
 ('la douzaine'),
 ('la 1/2 douzaine');
  

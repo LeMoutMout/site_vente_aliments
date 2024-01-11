@@ -20,7 +20,7 @@
     <form method="post" class="msgInput">
       <label for="participant-input">Envoyer un nouveau message : </label>
       <input id="participant-input" type="email" name="email" placeholder="Adresse mail du destinataire" value="<?php if (isset($email)) echo $email?>" required />
-      <textarea id="message-input" class="message-id" name="message" placeholder="Tapez votre message" maxlength="255" required> <?php if (isset($msg)) echo 're : '.$msg?> </textarea>
+      <textarea id="message-input" class="message-id" name="message" placeholder="Tapez votre message" maxlength="255" required> <?php if (isset($msg)) echo $msg?> </textarea>
       <button type="submit">Envoyer</button>
     </form>
     <div class="msgList">

@@ -124,6 +124,29 @@ function getProduitsFromProducteur($idProducteur)
     return $produits;
 }
 
+function getProduitsFromProducteurAll($idProducteur) {
+    $bdd = getDBc();
+    $produits_query = $bdd->query("select 
+    PRODUIT.id_produit,
+    PRODUIT.nom_produit,
+    PRODUIT.quantite_produit,
+    PRODUIT.prix_produit,
+    PRODUIT.promotion_produit,
+    UNITE.nom_unite,
+    PRODUIT.bio_produit,
+    PRODUCTEUR.id_production,
+    PRODUCTEUR.nom_production,
+    PRODUCTEUR.id_util
+    from PRODUIT 
+    join PRODUCTEUR on PRODUIT.id_production = PRODUCTEUR.id_production
+    join UNITE on UNITE.id_unite = PRODUIT.id_unite
+    left join CATEGORISATION as catg on PRODUIT.id_produit = catg.id_produit 
+    left join CATEGORIE as catr on catr.id_categorie = catg.id_categorie 
+    where PRODUCTEUR.id_production = ".$idProducteur." group by id_produit;");
+    $produits = $produits_query->fetchall(PDO::FETCH_ASSOC);
+    return $produits;
+}
+
 function getPromo($limit)
 {
     $bdd = getDBc();

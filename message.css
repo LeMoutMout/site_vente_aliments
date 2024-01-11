@@ -1,0 +1,12 @@
+.msg_erreur {
+    position: fixed;
+    top: 1%;
+    left: 50%;
+    padding: 20px;
+    transform: translate(-50%);
+    background-color: red;
+    border-radius: 90px;
+    z-index: 500;
+
+    color: white;
+}

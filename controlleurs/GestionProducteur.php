@@ -21,6 +21,11 @@ require $pathcontrolleurs . "/Header.php";
 
 $productor = getProductorByIdUtil($_SESSION['id_util']);
 
+if (isProducteurValide($_SESSION['id_util'])==-1) {
+    $msg = 'votre compte n\'a pas été validé par un producteur vous produit ne sont pas visible dans la recherche';
+    require $pathVues .'/message.php';
+}
+
 if (isset($_POST['refusee'])) {
     changeStatut($_POST['refusee'], 5);
 }
@@ -59,7 +64,6 @@ if (isset($_POST['gestion_produit'])) {
     if ($_POST['gestion_produit'] == -1) {
         createProduct($productor['id_production'], $nom, $stock, $prix, $bio, $unite, $promotion,$categories);
         $id_produit = getLastIdProduit();
-
     } else {
         updateProduit($_POST['gestion_produit'], $nom, $stock, $prix, $bio, $unite, $promotion);
         $id_produit = $_POST['gestion_produit'];
@@ -87,7 +91,7 @@ if (isset($productor['id_production'])) {
     $adresse = $productor['adresse_util'];
     $desc = $productor['descr_production'];
     $nom_producteur = $productor['nom_production'];
-    $produits = getProduitsFromProducteur($productor['id_production']);
+    $produits = getProduitsFromProducteurAll($productor['id_production']);
     $nb_produits = getNbProduitsOf($productor['id_production']);
     $avis = getAvisFromProducteur($productor['id_production']);
     $nb_avis = getNbAvisOf($productor['id_production']);

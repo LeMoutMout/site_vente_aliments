@@ -33,7 +33,8 @@ if (isset($_POST['ConnectionMail']) && isset($_POST['ConnectionPassword'])) {
             $_SESSION['id_production'] = $idp;
         }
     } else {
-        $error_message = "Identifiants invalides. Veuillez réessayer.";
+        $msg = "Identifiants invalides. Veuillez réessayer.";
+        require $pathVues .'/message.php';
     }
 }
 
